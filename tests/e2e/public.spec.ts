@@ -26,7 +26,7 @@ test('untouched Home transfers zero video and the product tiles reload at their 
   page.on('request', request => { if (/\.mp4(?:\?|$)/.test(request.url())) mediaRequests.push(request.url()) })
   await page.goto('/')
   await page.waitForLoadState('networkidle')
-  await expect(page.locator('video')).toHaveCount(0)
+  await expect(page.locator('.walkthrough video')).toHaveCount(0)
   expect(mediaRequests).toEqual([])
   const states = [
     ['Inside the mailbox','Demo server down'],
@@ -46,7 +46,7 @@ test('untouched Home transfers zero video and the product tiles reload at their 
 test('candidate player plays native video with captions, supports seek and exposes a media fallback', async ({page}) => {
   await page.goto('/')
   await page.getByRole('button',{name:'Play walkthrough: A day inside SkillProof'}).click()
-  const player = page.locator('video').first()
+  const player = page.locator('.walkthrough video').first()
   await expect.poll(()=>player.evaluate((video:HTMLVideoElement)=>video.currentTime)).toBeGreaterThan(0)
   await expect.poll(()=>player.evaluate((video:HTMLVideoElement)=>video.textTracks[0].mode)).toBe('showing')
   await player.evaluate((video:HTMLVideoElement)=>{video.pause();video.currentTime=35})

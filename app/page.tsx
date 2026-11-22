@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { AudienceSelector, IncidentDesk, PrivacyDisclosures, ReplyExcerpt } from '@/components/HomeInteractive'
 import Estimator from '@/components/Estimator'
 import Walkthrough from '@/components/Walkthrough'
+import ScrollVideoHero from '@/components/ScrollVideoHero'
 
 const tiles = [
   ['mail', 'Inside the mailbox', 'Read the incident that starts the day.', '/skillproof/#mailbox', 'Rahul asks who owns the demo server recovery check.', 1440, 900],
@@ -29,7 +30,8 @@ export default function Home() {
   const candidate = media('candidate')
   const employer = media('employer')
   return <main id="main" className="home">
-    <IncidentDesk/>
+    <ScrollVideoHero/>
+    <IncidentDesk embedded/>
     <section id="gap" className="wrap home-section home-split">
       <div><h2>What happens after the interview?</h2>
         <p>A résumé lists the projects you worked on. An interview gives you time to explain one. A work sample lets someone see the moment you choose what to do first.</p></div>
