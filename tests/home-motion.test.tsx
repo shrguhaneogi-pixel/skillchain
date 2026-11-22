@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import { readFileSync } from 'node:fs'
-import { act, createElement } from 'react'
+import { act } from 'react'
 import { createRoot } from 'react-dom/client'
 import { expect, it, vi } from 'vitest'
 import { IncidentDesk } from '../components/HomeInteractive'
@@ -32,7 +32,7 @@ it.each([true, false])('renders a static incident desk with system reduced motio
   }
 
   try {
-    act(() => root.render(createElement(MarketingShell, { children: createElement(IncidentDesk) })))
+    act(() => root.render(<MarketingShell><IncidentDesk/></MarketingShell>))
     await flushFrame()
     const stage = container.querySelector<HTMLElement>('.hero-stage')!
     const scene = stage.querySelector<HTMLElement>('.hero-scene')!
