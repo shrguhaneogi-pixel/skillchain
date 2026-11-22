@@ -1,0 +1,48 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Timed practice
+  - button "Exit demo"
+  - heading "Recruiter view" [level=1]
+  - generic: Fictional demo data · Educational reviewer lens · fictional scores
+  - heading "Candidate C-017" [level=2]
+  - paragraph: Project Coordinator · Foundation · PC-FOUNDATION-01 v1.0
+  - strong: Ownership
+  - paragraph: Named a recovery owner and checkpoint
+  - generic: 2/2
+  - button "View source for Ownership": View source
+  - strong: Client communication
+  - paragraph: Insufficient evidence
+  - generic: Insufficient evidence
+  - button "View source for Client communication": View source
+  - heading "Client communication · Source" [active] [level=3]
+  - paragraph:
+    - generic: practice-007 · 10:05 IST · Alex Morgan
+    - text: The client demo is at 10:24. What can I tell them now?
+  - paragraph:
+    - generic: practice-009 · 10:13 IST · Scenario Controller
+    - text: Decision window closed without a reply.
+  - paragraph:
+    - generic: practice-010 · 10:13 IST · Alex Morgan
+    - text: I’ve held the client update. We still need a confirmed status.
+  - paragraph:
+    - generic: practice-011 · 10:13 IST · Task board
+    - text: Client update · Alex / Waiting
+  - button "Back to finding"
+  - strong: Financial judgement
+  - paragraph: Insufficient evidence
+  - generic: Insufficient evidence
+  - button "View source for Financial judgement": View source
+  - complementary:
+    - heading "Decision history" [level=3]
+    - generic "10:04 IST · Coordinator"
+    - generic "10:04 IST · Coordinator"
+    - generic "10:13 IST · Scenario Controller"
+    - generic "10:17 IST · Scenario Controller"
+    - paragraph: A person makes the hiring decision.
+  - button "Back to feedback"
+  - button "Play again"
+- alert

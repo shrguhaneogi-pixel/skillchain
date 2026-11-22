@@ -1,0 +1,21 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Self-paced
+  - button "Exit demo"
+  - heading "Practice feedback" [level=1]
+  - paragraph: This is an immediate practice preview. For employer-requested assessments, candidates normally receive strengths and improvement areas within 2–3 business days.
+  - heading "Strengths" [level=2]
+  - list:
+    - listitem: This exercise did not capture a specific strength.
+  - heading "Areas to practise" [level=2]
+  - list:
+    - listitem: Give the recovery check a named owner and ask when you can expect an update.
+    - listitem: Separate confirmed facts from a forecast and give the client a time for the next update.
+    - listitem: Compare the draft with the approved amount before requesting payment.
+  - button "Explore fictional recruiter view"
+  - button "Play again"
+- alert

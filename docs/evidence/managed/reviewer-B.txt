@@ -1,0 +1,47 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Self-paced
+  - button "Exit demo"
+  - heading "Recruiter view" [level=1]
+  - generic: Fictional demo data · Educational reviewer lens · fictional scores
+  - heading "Your practice run" [level=2]
+  - paragraph: Project Coordinator · Foundation · PC-FOUNDATION-01 v1.0
+  - strong: Ownership
+  - paragraph: Kept ownership but did not start the check
+  - generic: 1/2
+  - button "View source for Ownership": View source
+  - strong: Client communication
+  - paragraph: Promised readiness without confirmation
+  - generic: 0/2
+  - button "View source for Client communication": View source
+  - heading "Client communication · Source" [active] [level=3]
+  - paragraph:
+    - generic: practice-006 · 10:05 IST · Alex Morgan
+    - text: The client demo is at 10:24. What can I tell them now?
+  - paragraph:
+    - generic: practice-007 · 10:05 IST · Coordinator
+    - text: Tell the client the server will be ready
+  - paragraph:
+    - generic: practice-008 · 10:05 IST · Alex Morgan
+    - text: The client heard a recovery promise. I still need confirmation before the demo.
+  - paragraph:
+    - generic: practice-009 · 10:05 IST · Task board
+    - text: Client update · Alex / Waiting
+  - button "Back to finding"
+  - strong: Financial judgement
+  - paragraph: Routed an over-budget draft for payment
+  - generic: 0/2
+  - button "View source for Financial judgement": View source
+  - complementary:
+    - heading "Decision history" [level=3]
+    - generic "10:04 IST · Coordinator"
+    - generic "10:05 IST · Coordinator"
+    - generic "10:07 IST · Coordinator"
+    - paragraph: A person makes the hiring decision.
+  - button "Back to feedback"
+  - button "Play again"
+- alert

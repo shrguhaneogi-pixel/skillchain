@@ -1,0 +1,41 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: FairHire
+  - heading "Read the decision behind the score." [level=1]
+  - paragraph: Open a competency to see the message, response and consequence a reviewer could discuss in an interview.
+  - generic: Fictional demo data
+  - heading "Employer setup · scripted demo" [level=2]
+  - paragraph: Banyan Desk Studio · Project Coordinator
+  - text: Scenario
+  - combobox "Scenario":
+    - option "Foundation · Project Coordinator" [selected]
+  - text: Review order
+  - combobox "Review order":
+    - option "Incident-first" [selected]
+    - option "Finance-first"
+  - button "Preview report"
+  - link "Inspect the sample employer record":
+    - /url: /trustchain/#credential
+  - generic: Fictional demo data · Educational reviewer lens · fictional scores
+  - heading "Candidate C-017" [level=2]
+  - paragraph: Project Coordinator · Foundation · PC-FOUNDATION-01 v1.0
+  - strong: Ownership
+  - paragraph: Named a recovery owner and checkpoint
+  - generic: 2/2
+  - button "View source for Ownership": View source
+  - strong: Client communication
+  - paragraph: Shared confirmed facts and a checkpoint
+  - generic: 2/2
+  - button "View source for Client communication": View source
+  - strong: Financial judgement
+  - paragraph: Held a draft outside the approved amount
+  - generic: 2/2
+  - button "View source for Financial judgement": View source
+  - complementary:
+    - heading "Decision history" [level=3]
+    - generic "10:05 IST · Coordinator"
+    - generic "10:05 IST · Coordinator"
+    - generic "10:07 IST · Coordinator"
+    - paragraph: A person makes the hiring decision.
+- alert
