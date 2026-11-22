@@ -1,0 +1,41 @@
+{
+  "finished": {
+    "duration": 70,
+    "time": 70,
+    "paused": true,
+    "muted": false,
+    "ended": true,
+    "captions": "showing",
+    "cue": "Try the coordinator’s desk yourself.\nPlay again lets you start a fresh run."
+  },
+  "sought": {
+    "duration": 70,
+    "time": 35,
+    "paused": true,
+    "muted": false,
+    "ended": false,
+    "captions": "showing",
+    "cue": "The calendar shows the 10:15 checkpoint.\nServer recovery remains unconfirmed."
+  },
+  "m1": {
+    "duration": 70,
+    "time": 35,
+    "paused": true,
+    "muted": true,
+    "ended": false,
+    "captions": "showing",
+    "cue": "The calendar shows the 10:15 checkpoint.\nServer recovery remains unconfirmed."
+  },
+  "m2": {
+    "duration": 70,
+    "time": 35,
+    "paused": true,
+    "muted": false,
+    "ended": false,
+    "captions": "showing",
+    "cue": "The calendar shows the 10:15 checkpoint.\nServer recovery remains unconfirmed."
+  },
+  "transcriptCharacters": 2289,
+  "transcriptHeading": "A day inside SkillProof",
+  "failedDownload": "Download unavailable (HTTP 404). Read the transcript or explore the interactive walkthrough."
+}

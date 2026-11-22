@@ -1,0 +1,66 @@
+[
+  {
+    "path": "/demo/?tool=tasks",
+    "url": "http://127.0.0.1:4173/demo/?tool=tasks",
+    "checks": [
+      [
+        "Starting board",
+        true
+      ],
+      [
+        "Recovery check · Unassigned / Waiting",
+        true
+      ]
+    ]
+  },
+  {
+    "path": "/simulations/",
+    "url": "http://127.0.0.1:4173/simulations/",
+    "checks": [
+      [
+        "Fictional demo data · Foundation",
+        true
+      ],
+      [
+        "Start this simulation",
+        true
+      ]
+    ]
+  },
+  {
+    "path": "/trustchain/#credential",
+    "url": "http://127.0.0.1:4173/trustchain/#credential",
+    "checks": [
+      [
+        "DEMO-ORG-04",
+        true
+      ],
+      [
+        "Verified · fictional example",
+        true
+      ],
+      [
+        "Network: none",
+        true
+      ]
+    ]
+  },
+  {
+    "path": "/fairhire/#report",
+    "url": "http://127.0.0.1:4173/fairhire/#report",
+    "checks": [
+      [
+        "Candidate C-017",
+        true
+      ],
+      [
+        "2/2",
+        true
+      ],
+      [
+        "Rahul-specific consequence",
+        true
+      ]
+    ]
+  }
+]

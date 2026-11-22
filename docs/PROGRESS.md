@@ -18,11 +18,36 @@ Owner decisions still needed before release include artwork rights, monitored co
 
 The owner approved media capture on a partial Gate 1. Fixed the three ESLint warnings and added two server-render regression assertions for the practice and direct FairHire headings. ESLint with a zero-warning threshold and both regression checks passed.
 
+
 ## Open verification items
 
 | Item | Status | Must be closed before |
 |---|---|---|
-| A06 automatic pause on tab hidden, then manual resume | OPEN | Phase 3 sign-off |
-| A07 run data in network payloads, URLs, localStorage, sessionStorage, IndexedDB and cookies | OPEN | Phase 3 sign-off, release-blocking |
-| A07 no candidate score or grade in the DOM or accessibility tree | A/A/A and B/B/B observed through the managed Chrome tree during Gate 1. Standalone assertions were authored and remain unrun. | Phase 3 sign-off |
-| Standalone Playwright and tests/e2e | BLOCKED in Gate 1 by the socket denial and matching browser download HTTP 403 | Managed Chrome evidence may substitute |
+| A06 automatic pause on tab hidden, then manual resume | **OPEN.** In managed Chrome, started a timed run, pressed Ctrl+Page Up, confirmed the adjacent tab was foregrounded, then returned with Ctrl+Page Down. The timer went from 45 to 37 seconds and no Resume dialog appeared. The browser did not expose its visibility lifecycle to the test. The result did not establish automatic pause. | Phase 3 sign-off |
+| A07 run data in network payloads, URLs, localStorage, sessionStorage, IndexedDB and cookies | **BLOCKED** for a complete inspection. The managed browser blocked DevTools. The managed evaluation surface returned undefined for storage access. Before/after URLs for observed A/A/A and B/B/B stayed on /demo/ without query or fragment data. Network payloads, browser storage and cookies remain unverified. | Phase 3 sign-off, release-blocking |
+| A07 no candidate score or grade in DOM or accessibility tree | **VERIFIED** for both live A/A/A and B/B/B candidate result views. The rendered main content and native accessibility tree contain Strengths and Areas to practise. A negative text assertion on both saved observations found no scores, grades, ranks or percentiles. Direct FairHire showed C-017 when refreshed. | Closed for these scenarios |
+| Standalone Playwright and tests/e2e | **BLOCKED.** The local Chromium retry failed at socket creation. The matching browser install previously returned HTTP 403. | Managed Chrome evidence may substitute where it covers the same check |
+
+
+## Gate 2 decision · PARTIAL
+
+The candidate recording, poster, English VTT and transcript are complete. The five live bento states have review masters and compressed variants within budget. The managed browser returned JPEG only, and the DevTools PNG capture command was blocked. The PNG derivatives preserve the decoded JPEG pixels and cannot replace a true lossless capture. The candidate clip is encoded at 1920 × 1080 from a 1362 × 766 capture. A03 still needs the live public tiles and the /skillproof#mailbox destination. A04 passed in a player fixture and awaits public integration. The employer film awaits the missing Request employer demo link from the approved shot sheet.
+
+Phase 3 awaits owner approval. Until public media acceptance, use the approved “Explore the interactive walkthrough” link to /demo/ for the candidate and /fairhire/#report for the employer when a media slot needs a fallback. See `docs/TEST_REPORT.md` for manual checks. Voiceover remains an owner action.
+
+## GitHub owner action
+
+The single authorized push targeted `shrguhaneogi-pixel/skillchain` and failed with `fatal: could not read Username for 'https://github.com': terminal prompts disabled`. The draft PR awaits the branch push. From the current checkout, run:
+
+```sh
+gh auth login --hostname github.com --git-protocol https --web
+gh auth setup-git --hostname github.com
+git push -u origin refs/heads/build/skillchain-workplace-demo:refs/heads/build/skillchain-workplace-demo
+gh pr create --repo shrguhaneogi-pixel/skillchain --head build/skillchain-workplace-demo --base main --draft --title 'SkillChain workplace demo and Phase 2 media' --body-file - <<'PR'
+[Acceptance report](docs/TEST_REPORT.md) · [Progress log](docs/PROGRESS.md)
+
+Phase 2 includes the real candidate walkthrough and five captured fixture states.
+
+Open items include A06 hidden-tab pause, A07 browser network and storage verification, standalone Playwright, lossless bento originals, public media integration and employer walkthrough.
+PR
+```

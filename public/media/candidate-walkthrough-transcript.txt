@@ -1,0 +1,22 @@
+A day inside SkillProof
+English transcript with visual descriptions · 70 seconds
+Scripted demo. All people, decisions and outcomes shown are fictional.
+The recording is silent. Timed on-screen captions carry the walkthrough.
+
+00:00–00:05 · The briefing shows the Project Coordinator role and the client demo at 10:24 IST. The cursor checks the fictional-demo acknowledgement and starts Timed practice.
+
+00:05–00:15 · Rahul Kapoor’s “Demo server down” message opens in the mailbox. He says the server is unresponsive and asks who owns the recovery check. Alex Morgan’s unread “Client update” arrives while Rahul’s thread stays selected.
+
+00:15–00:23 · The candidate selects “Assign Rahul and ask for a checkpoint,” then presses Send reply. Rahul commits to a 10:15 checkpoint. The Tasks tool shows Recovery check under In progress with Rahul as owner.
+
+00:23–00:33 · The recovery card’s source opens Rahul’s original request and the reply. The candidate selects Alex’s thread, chooses “Send confirmed facts and set a 10:15 update,” and sends. Alex says the demo is at risk and names Rahul as recovery owner.
+
+00:33–00:39 · Calendar shows the client checkpoint at 10:15–10:20 IST, owned by Alex. The original client demo is still scheduled for 10:24 IST. Recovery remains unconfirmed.
+
+00:39–00:50 · The Budget sheet displays ₹18,000 approved, a ₹22,000 draft and a ₹4,000 difference. The candidate returns to Meera Sen’s thread, selects “Hold the draft and ask Meera to reconcile ₹4,000,” and sends. The desk enters review and the candidate finishes the simulation.
+
+00:50–00:56 · Practice feedback lists three strengths: assigning Rahul a clear task with a checkpoint, informing the client without promising recovery, and routing the budget variance for review. The area to practise asks how the candidate would hand off the checkpoint if its owner became unavailable.
+
+00:56–01:07 · The candidate opens the fictional recruiter view, which labels the result as a personal practice run and displays three fictional findings. Opening Client communication reveals Alex’s original question, the submitted reply, Alex’s response, the task-board event and the calendar checkpoint.
+
+01:07–01:10 · Play again opens a confirmation dialog to start a fresh run. The demonstration ends on the dialog.

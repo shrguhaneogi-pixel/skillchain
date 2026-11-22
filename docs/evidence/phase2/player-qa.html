@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>SkillChain candidate media QA</title>
+<main>
+<h1>Scripted demo · Candidate walkthrough QA</h1>
+<video id="film" controls preload="none" width="960" poster="/media/candidate-walkthrough-poster.webp" playsinline>
+<source src="/media/candidate-walkthrough.mp4" type="video/mp4">
+<track label="English" srclang="en" kind="captions" src="/media/candidate-walkthrough.en.vtt">
+</video>
+<p><button id="start">Start playback</button>
+<button id="middle">Seek to 35 seconds</button>
+<button id="audio">Toggle mute</button>
+<button id="captions">Show English captions</button>
+<button id="failed">Test missing download</button></p>
+<output id="status" aria-label="Playback state"></output>
+<p id="error"></p>
+<details><summary>Read transcript</summary><pre id="transcript"></pre></details>
+<p><a download href="/media/candidate-walkthrough.mp4">Download video</a></p>
+<script>
+  const video = document.querySelector('video');
+  const status = document.querySelector('#status');
+  const render = () => status.textContent = JSON.stringify({
+    duration: video.duration, time: video.currentTime, paused: video.paused,
+    muted: video.muted, ended: video.ended,
+    captions: video.textTracks[0].mode,
+    cue: video.textTracks[0].activeCues?.[0]?.text ?? null
+  });
+  for (const event of ['timeupdate','play','ended','volumechange','seeked','loadedmetadata']) video.addEventListener(event,render);
+  document.querySelector('track').addEventListener('load',render);
+  document.querySelector('#start').onclick = () => video.play();
+  document.querySelector('#middle').onclick = () => { video.currentTime = 35; };
+  document.querySelector('#audio').onclick = () => { video.muted = !video.muted; };
+  document.querySelector('#captions').onclick = () => { video.textTracks[0].mode = 'showing'; render(); };
+  document.querySelector('details').ontoggle = async event => {
+    if(event.target.open) document.querySelector('#transcript').textContent = await fetch('/media/candidate-walkthrough-transcript.txt').then(response=>response.text());
+  };
+  document.querySelector('#failed').onclick = async () => {
+    const response = await fetch('/media/missing-walkthrough.mp4');
+    document.querySelector('#error').textContent = 'Download unavailable (HTTP ' + response.status + '). Read the transcript or explore the interactive walkthrough.';
+  };
+</script>
+</main>
