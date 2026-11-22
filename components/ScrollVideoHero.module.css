@@ -1,24 +1,12 @@
-.track {
-  --nav-height: 73px;
-  --film-height: calc(100svh - var(--nav-height));
-  color: var(--ink);
-  background: var(--ink);
+.track { color: var(--ink); background: var(--paper); }
+
+.screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  isolation: isolate;
 }
 
-.viewport {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  min-height: var(--film-height);
-}
-
-.track[data-scrub='true']::after { content: ''; display: block; height: 400svh; }
-.track[data-scrub='true'] .viewport {
-  position: sticky;
-  top: var(--nav-height);
-  height: var(--film-height);
-}
-
-.screen { position: relative; min-height: 0; }
 .screen img,
 .screen video {
   position: absolute;
@@ -32,32 +20,40 @@
 .screen video { opacity: 0; }
 .track[data-frame='true'] video { opacity: 1; }
 
+.track[data-frame='true'] .screen::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 12%;
+  background: linear-gradient(transparent, var(--paper));
+  opacity: var(--hero-exit, 0);
+  pointer-events: none;
+}
+
+.progress { height: 2px; background: var(--line); }
+.progress::before {
+  content: '';
+  display: block;
+  height: 100%;
+  background: #cda765;
+  transform: scaleX(var(--hero-progress, 0));
+  transform-origin: left;
+}
+
 .caption {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px 24px;
-  padding: 14px clamp(16px, 4vw, 64px);
-  border-top: 3px solid var(--ink);
-  background: var(--paper);
+  gap: 16px 24px;
+  padding-block: clamp(22px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
 }
 
-.track[data-ending='true'] .caption { border-top-color: #cda765; }
-.caption h1 { max-width: none; margin: 0 0 4px; font-size: clamp(1.25rem, 2.2vw, 2rem); }
+.caption h1 {
+  max-width: 32ch;
+  margin: 0 0 6px;
+  font-size: clamp(1.45rem, 2.5vw, 2.65rem);
+}
 .caption p { margin: 0; }
 .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-
-@media (max-width:1199px) { .track { --nav-height: 61px; } }
-
-@media (max-width:767px), (max-height:500px) {
-  .track { --film-height: auto; }
-  .viewport { min-height: 0; grid-template-rows: auto auto; }
-  .track[data-scrub='true']::after { height: 135svh; }
-  .screen { aspect-ratio: 16 / 9; max-height: 55svh; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .track[data-scrub='true']::after { display: none; }
-  .track[data-scrub='true'] .viewport { position: static; height: auto; }
-}
