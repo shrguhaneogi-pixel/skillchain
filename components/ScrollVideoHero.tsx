@@ -96,7 +96,7 @@ export default function ScrollVideoHero() {
 
   return <section ref={section} className={styles.track} aria-labelledby="scroll-hero-title" data-scroll-hero>
     <div ref={viewport} className={styles.viewport}>
-      <div className={styles.screen} aria-hidden="true">
+      <div className={styles.screen} aria-hidden="true" data-cursor-tone="dark">
         <img src={poster} alt="" width={1280} height={720} fetchPriority="high"/>
         <video ref={video} muted playsInline preload="auto" aria-hidden="true"/>
       </div>

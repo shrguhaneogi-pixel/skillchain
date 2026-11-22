@@ -22,7 +22,7 @@ export default function Walkthrough({ name, title, lead, transcript, fallback, a
 
   return <article className="walkthrough"><h3 id={name+'-video-label'}>{title}</h3><p>{lead}</p>
     <p id={name+'-video-note'}>This clip is silent and captioned.</p>
-    <div className="film-frame">
+    <div className="film-frame" data-cursor-tone="dark">
       {!requested
         ? <button className="video-activate" aria-label={'Play walkthrough: ' + title} type="button" onClick={() => request(true)}>
           <img src={path+'-poster.webp'} alt="" width="960" height="540" loading="lazy"/>

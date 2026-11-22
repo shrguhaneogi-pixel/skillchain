@@ -46,7 +46,7 @@ export default function Home() {
         const path = '/media/bento/bento-' + name
         const sources = (format: string) => [400, 800, width].map(pixels => `${path}-${pixels}.${format} ${pixels}w`).join(', ')
         const sizes = '(min-width: 1200px) 42vw, (min-width: 768px) 45vw, 92vw'
-        return <a className="bento-tile" href={href} key={name}><figure>
+        return <a className="bento-tile" href={href} key={name} data-cursor="view"><figure>
           <picture><source type="image/avif" srcSet={sources('avif')} sizes={sizes}/>
             <img src={path+'-400.webp'} srcSet={sources('webp')} sizes={sizes} alt={alt}
               width={width} height={height} loading="lazy" decoding="async"/>
@@ -78,7 +78,7 @@ export default function Home() {
       <Estimator/><p><a className="secondary" href="/pricing/">Compare plans</a></p>
     </section>
     <PrivacyDisclosures/>
-    <section id="invitation" className="home-invite"><div className="wrap home-section">
+    <section id="invitation" className="home-invite" data-cursor-tone="dark"><div className="wrap home-section">
       <h2>The client demo starts at 10:24. Your inbox is open.</h2>
       <p>Step into the coordinator’s role, or bring us a role your team hires for.</p>
       <div className="controlrow"><a className="primary" href="/demo/">Experience a simulation</a>
