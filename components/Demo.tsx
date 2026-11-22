@@ -1,0 +1,82 @@
+'use client'
+import {useEffect,useRef,useState} from 'react'
+import {useRouter} from 'next/navigation'
+import {Mail,ListTodo,CalendarDays,Receipt,History,Pause,ArrowLeft,ArrowRight} from 'lucide-react'
+import {start,reduce,version,incidents,ledger,feedback,owners,statuses,type Task,type Run,type Action,type Mode} from '@/lib/engine'
+import { MailboxMessage, MailboxThreads } from './Mailbox'
+import DemoFooter from './DemoFooter'
+import {Report,CandidateFeedback} from './Report'
+const tools=['Inbox','Tasks','Calendar','Budget','History'] as const
+const icons=[Mail,ListTodo,CalendarDays,Receipt,History]
+const clock=()=>performance.now()
+const maximumTickGap = 2000
+const timingNote='This is an immediate practice preview. For employer-requested assessments, candidates normally receive strengths and improvement areas within 2–3 business days.'
+function BoardCard({r,i,send,source}:{r:Run,i:number,send:(a:Action)=>void,source:()=>void}){
+ const t=r.tasks[i]!,initial=r.events.find(e=>e.incident===i&&e.kind==='board')?.after
+ const [edit,setEdit]=useState(false),[draft,setDraft]=useState(t)
+ return <article className="taskcard"><img src="/brand/assigned-task.svg" alt="" width="22" height="22"/><h3>{incidents[i].task}</h3><p>{t.owner} / {t.status}</p>{initial&&(initial.owner!==t.owner||initial.status!==t.status)&&<small>At decision: {initial.owner} / {initial.status}<br/>Current board: {t.owner} / {t.status}</small>}<button className="textbtn" onClick={source}>View source · {incidents[i].subject}</button>{r.phase==='running'&&r.answers[i]&&(edit?<div><label>Change owner<select value={draft.owner} onChange={e=>setDraft({...draft,owner:e.target.value as Task['owner']})}>{owners.map(x=><option key={x}>{x}</option>)}</select></label><label>Move to<select value={draft.status} onChange={e=>setDraft({...draft,status:e.target.value as Task['status']})}>{statuses.map(x=><option key={x}>{x}</option>)}</select></label><button disabled={draft.owner===t.owner&&draft.status===t.status} onClick={()=>{send({type:'edit',i,task:draft,at:r.at});setEdit(false)}}>Save change</button><button onClick={()=>setEdit(false)}>Cancel</button></div>:<button onClick={()=>{setDraft(t);setEdit(true)}}>Edit task</button>)}</article>
+}
+export default function Demo({now=clock}:{now?:()=>number}){
+ const router=useRouter()
+ const [run,setRun]=useState<Run|null>(null),ref=useRef<Run|null>(null),anchor=useRef(0),offset=useRef(0),lastSample=useRef(0)
+ const [mode,setMode]=useState<Mode>('Timed practice'),[ack,setAck]=useState(false),[tool,setTool]=useState<typeof tools[number]>('Inbox'),[thread,setThread]=useState(0),[choice,setChoice]=useState<'A'|'B'|null>(null),[read,setRead]=useState<number[]>([0]),[list,setList]=useState(false)
+ const [action,setAction]=useState<'exit'|'restart'|null>(null),[boardPreview,setPreview]=useState(false),[unknown,setUnknown]=useState(false)
+ const dlg=useRef<HTMLDialogElement>(null),back=useRef<HTMLElement|null>(null)
+ function update(r:Run|null){ref.current=r;setRun(r)}
+ function send(action: Action) {
+  const original = ref.current
+  if (!original) return
+  const sampled = now()
+  const timed = original.mode === 'Timed practice'
+  const gap = sampled - lastSample.current
+  const interrupted = original.phase === 'running' && timed && gap > maximumTickGap
+  const elapsed = timed ? offset.current + Math.max(0, sampled - anchor.current) : original.at
+  const next = interrupted
+    ? reduce(original, { type: 'pause', at: original.at })
+    : reduce(original, { ...action, at: elapsed })
+  lastSample.current = sampled
+  if (action.type === 'resume' || action.type === 'next' || next.phase === 'paused') {
+    offset.current = next.at
+    anchor.current = sampled
+  }
+  update(next)
+ }
+ useEffect(()=>{const q=new URLSearchParams(location.search);setPreview(q.get('tool')==='tasks');setUnknown(!!q.get('scenario')&&q.get('scenario')!=='PC-FOUNDATION-01')},[])
+ useEffect(()=>{
+  if(run?.phase!=='running')return
+  const tick=()=>{if(ref.current?.phase==='running'&&ref.current.mode==='Timed practice')send({type:'tick'})}
+  const pause=()=>{if(ref.current?.phase==='running')send({type:'pause'})}
+  const hide=()=>{if(document.hidden)pause()}
+  const id=setInterval(tick,150)
+  document.addEventListener('visibilitychange',hide)
+  document.addEventListener('freeze',pause)
+  window.addEventListener('pagehide',pause)
+  return ()=>{
+   clearInterval(id)
+   document.removeEventListener('visibilitychange',hide)
+   document.removeEventListener('freeze',pause)
+   window.removeEventListener('pagehide',pause)
+  }
+ // The injected clock and run references are stable throughout a run.
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[run?.phase])
+ useEffect(()=>{if(!action&&run?.phase!=='paused'){dlg.current?.close();return}if(dlg.current&&!dlg.current.open){back.current=document.activeElement as HTMLElement;dlg.current.showModal()}},[action,run?.phase])
+ function reset(){update(null);setAck(false);setMode('Timed practice');setTool('Inbox');setThread(0);setChoice(null);setRead([0]);setList(false);setAction(null)}
+ function openThread(i:number){setTool('Inbox');setThread(i);setChoice(null);setList(false);setRead(prev=>prev.includes(i)?prev:[...prev,i])}
+ function resume(){setAction(null);if(ref.current?.phase==='paused'&&!document.hidden)send({type:'resume'});requestAnimationFrame(()=>back.current?.focus())}
+ if(!run)return <main id="main" className="wrap briefing"><a href="/" className="wordmark">SkillChain</a><div className="sectionline">SkillProof / Project Coordinator</div><div className="introgrid"><div><div className="kicker">Scripted demo · fictional people and outcomes</div><h1>You’re the Project Coordinator.</h1><p className="lead">Your client demo starts at 10:24 IST. Keep the developer, project manager and finance lead working from the same facts.</p><p>{timingNote}</p></div><section className="card"><div className="kicker">Fictional demo data · about 3 minutes</div>{unknown&&<p>This scenario is unavailable. Open the coordinator demo.</p>}{boardPreview&&<div><h3>Starting board</h3><p>Recovery check · Unassigned / Waiting</p></div>}<h2>Project Coordinator</h2><p>Your preset replies and board changes stay in this browser for this run. You can pause or clear the run at any time. No report is sent.</p><fieldset><legend>Timing mode</legend>{(['Timed practice','Self-paced'] as const).map(m=><label className="check" key={m}><input type="radio" checked={mode===m} onChange={()=>setMode(m)}/>{m}</label>)}</fieldset><label className="check"><input type="checkbox" checked={ack} onChange={e=>setAck(e.target.checked)}/>I understand and want to start the fictional exercise.</label><button className="primary" disabled={!ack} onClick={()=>{offset.current=0;lastSample.current=anchor.current=now();update(start(mode))}}>Start simulation <ArrowRight size={16}/></button><p><a href="/privacy/" target="_blank" rel="noreferrer">Privacy (opens in a new tab)</a> · <a href="/">Leave demo</a></p></section></div><DemoFooter/></main>
+ const d=thread>=0?incidents[thread]:null,active=run.answers.findIndex(x=>x===null),canReply=run.phase==='running'&&thread===active&&!!run.tasks[thread],remaining=active<0?0:Math.max(0,Math.ceil((incidents[active].deadline-run.at)/1000))
+ const dialog=<dialog ref={dlg} onCancel={e=>{e.preventDefault();resume()}} aria-labelledby="dialog-heading"><h2 id="dialog-heading">{action==='exit'?'Exit and clear this run?':action==='restart'?'Start a fresh run?':'Simulation paused'}</h2><p>{action?'Your current run will be cleared.':'Practice time and incoming requests are paused.'}</p><button autoFocus onClick={resume}>{action?'Cancel':'Resume'}</button>{action&&<button className="primary" onClick={()=>{const exit=action==='exit';reset();if(exit)router.push('/')}}>{action==='exit'?'Exit and clear':'Play again'}</button>}</dialog>
+ return <main id="main" className="workspace"><header className="deskbar"><span className="wordmark">SkillChain</span><b>Project Coordinator</b><small>Scripted demo · Fictional demo data</small><span>{run.mode}</span>{run.phase==='running'&&<button onClick={()=>send({type:'pause'})}><Pause size={16}/> Pause</button>}<button onClick={()=>{if(run.phase==='running')send({type:'pause'});setAction('exit')}}>Exit demo</button></header>{dialog}
+ <div className="deskbody">{run.phase==='feedback'||run.phase==='reviewer'?<><h1>{run.phase==='feedback'?'Practice feedback':'Recruiter view'}</h1>{run.phase==='feedback'?<><p>{timingNote}</p><CandidateFeedback {...feedback(run)}/><button onClick={()=>send({type:'reviewer'})}>Explore fictional recruiter view</button></>:<><Report run={run}/><button onClick={()=>send({type:'feedback'})}>Back to feedback</button></>} <button onClick={()=>setAction('restart')}>Play again</button><DemoFooter/></>:<>
+ <div className="deskhead"><div><small>{version} · Banyan Desk Studio</small><h1>{run.phase==='review'?'Review your desk':'Project Coordinator'}</h1></div>{run.phase==='review'?<div><p>The client demo is still scheduled. Review the commitments your team made.</p><button className="primary" onClick={()=>send({type:'finish'})}>Finish simulation</button></div>:<div>{run.mode==='Timed practice'&&active>=0&&<span>Practice time remaining · {remaining}s</span>}<div role="status">{run.mode==='Timed practice'&&remaining<=10&&remaining>0?'Ten seconds or less remain for this decision.':''}</div></div>}</div>
+ <div className="workgrid"><nav className="toolrail" aria-label="Work tools">{tools.map((t,i)=>{const Icon=icons[i];return <button key={t} aria-pressed={tool===t} onClick={()=>{setTool(t);if(t==='Inbox')setList(true)}}><Icon size={19}/>{t}</button>})}</nav><div className="surface">
+ {tool==='Inbox'&&<div className={'mailgrid '+(list?'showlist':'showthread')}><MailboxThreads visible={[2,1,0,-1].filter(i=>i<0||run.tasks[i])} read={read} selected={thread} open={openThread}/><article className="thread"><button className="backmobile" onClick={()=>setList(true)}><ArrowLeft size={16}/>Back to inbox</button><MailboxMessage index={thread}/>{thread>=0&&run.events.filter(e=>e.incident===thread&&['reply','close','consequence'].includes(e.kind)).map(e=><div className="message" key={e.id}><small>{e.actor} · {e.time} IST</small><p>{e.text}</p></div>)}
+ {canReply&&d&&<fieldset><legend>Choose a reply</legend>{d.choices.map((s,k)=><label className="check option" key={s}><input type="radio" name="reply" checked={choice===(k?'B':'A')} onChange={()=>setChoice(k?'B':'A')}/>{s}</label>)}<button className="primary" disabled={!choice} onClick={()=>{if(choice)send({type:'reply',i:thread,answer:choice,at:run.at});setChoice(null)}}>Send reply</button>{run.mode==='Self-paced'&&<button onClick={()=>send({type:'reply',i:thread,answer:'skip',at:run.at})}>Continue without a reply</button>}</fieldset>}
+ {thread>active&&active>=0&&<p>Resolve the {active===0?'recovery':'client update'} request first.</p>}{active>=0&&!run.tasks[active]&&<button onClick={()=>send({type:'next'})}>Deliver next request now</button>}</article></div>}
+ {tool==='Tasks'&&<section><h2>Task board</h2><div className="board">{statuses.map(status=><section key={status}><h3>{status}</h3>{run.tasks.map((t,i)=>t?.status===status?<BoardCard key={i} r={run} i={i} send={send} source={()=>openThread(i)}/>:null)}</section>)}</div></section>}
+ {tool==='Calendar'&&<section><h2>Calendar</h2>{run.answers[1]==='A'&&<details><summary>10:15–10:20 IST · Client checkpoint</summary><p>Alex Morgan · Give the client a confirmed status update.</p></details>}<details><summary>10:24–10:44 IST · Client demo</summary><p>Diya Roy · Demonstrate the release to the client.</p></details></section>}
+ {tool==='Budget'&&<section><h2>Budget sheet</h2><dl>{[['Approved amount','₹18,000'],['Draft amount','₹22,000'],['Difference','₹4,000'],['Status',ledger(run)]].map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></section>}
+ {tool==='History'&&<section><h2>Event and decision history</h2>{run.events.map(e=><details key={e.id}><summary>{e.id} · {e.time} IST · {e.actor}</summary><p>{e.text}</p>{e.before&&e.after&&<p>{e.before.owner} / {e.before.status} → {e.after.owner} / {e.after.status}</p>}<button onClick={()=>openThread(e.incident)}>View source</button></details>)}</section>}
+ </div></div></>}</div></main>
+}

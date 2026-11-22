@@ -1,0 +1,13 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> skillchain@0.1.0 test
+> vitest run
+
+
+ RUN  v5.1.1 /workspace/scratch/6257b6652ae0/skillchain
+
+
+ Test Files  2 passed (2)
+      Tests  34 passed (34)
+   Start at  17:55:49
+   Duration  208ms (transform 38%, import 36%, tests 21%, worker 5%)

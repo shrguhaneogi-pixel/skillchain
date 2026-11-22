@@ -1,0 +1,12 @@
+{
+  "expanded": "true",
+  "closed": "false",
+  "platformFocus": "Platform",
+  "skipFocus": "main",
+  "focusAfterNavigation": "A: Pricing",
+  "afterBack": "http://127.0.0.1:4173/#main",
+  "menuOpen": true,
+  "menuClosed": true,
+  "contactPrefill": true,
+  "draft": "http://127.0.0.1:4173/contact/?topic=standard&c=30&r=1"
+}

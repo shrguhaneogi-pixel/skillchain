@@ -1,0 +1,18 @@
+{
+  "endEvidence": {
+    "captions": "showing",
+    "current": 70,
+    "duration": 70,
+    "ended": true
+  },
+  "readTranscript": "",
+  "videoAx": [
+    "\t\t\t\t\t204 slider video time scrubber",
+    "\t\t\t\t104 button (expanded) Read transcript, Secondary Actions: Collapse",
+    "\t\t\t\t\t105 text Read transcript",
+    "English transcript with visual descriptions · 70 seconds",
+    "\t\t\t\t113 button (collapsed) Read transcript, Secondary Actions: Expand",
+    "\t\t\t\t\t114 text Read transcript",
+    "The focused UI element is 104 button (expanded) Read transcript, Secondary Actions: Collapse"
+  ]
+}

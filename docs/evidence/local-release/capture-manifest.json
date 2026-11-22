@@ -1,0 +1,77 @@
+[
+  {
+    "filename": "bento-mail.png",
+    "route": "/demo/",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "fixture": "PC-FOUNDATION-01 v1.0",
+    "choices": "",
+    "pane": "Rahul before D1",
+    "alt": "Rahul asks who owns the demo server recovery check.",
+    "revision": "d92f5944b177aa74132fe0ae9728172bc5585603",
+    "capturedAt": "2026-11-22T14:05:34.428Z",
+    "procedure": "Fresh context and approved UI controls"
+  },
+  {
+    "filename": "bento-board.png",
+    "route": "/demo/",
+    "viewport": {
+      "width": 1200,
+      "height": 900
+    },
+    "fixture": "PC-FOUNDATION-01 v1.0",
+    "choices": "A",
+    "pane": "Tasks",
+    "alt": "The recovery check is assigned to Rahul and marked In progress.",
+    "revision": "d92f5944b177aa74132fe0ae9728172bc5585603",
+    "capturedAt": "2026-11-22T14:05:36.822Z",
+    "procedure": "Fresh context and approved UI controls"
+  },
+  {
+    "filename": "bento-brief.png",
+    "route": "/simulations/",
+    "viewport": {
+      "width": 960,
+      "height": 720
+    },
+    "fixture": "PC-FOUNDATION-01 v1.0",
+    "choices": "",
+    "pane": "Project Coordinator · Foundation",
+    "alt": "Foundation brief for the playable Project Coordinator role.",
+    "revision": "d92f5944b177aa74132fe0ae9728172bc5585603",
+    "capturedAt": "2026-11-22T14:05:38.873Z",
+    "procedure": "Fresh context and approved UI controls"
+  },
+  {
+    "filename": "bento-credential.png",
+    "route": "/trustchain/#credential",
+    "viewport": {
+      "width": 960,
+      "height": 720
+    },
+    "fixture": "PC-FOUNDATION-01 v1.0",
+    "choices": "",
+    "pane": "DEMO-ORG-04 · Employer details",
+    "alt": "Sample employer record with a fictional verification status.",
+    "revision": "d92f5944b177aa74132fe0ae9728172bc5585603",
+    "capturedAt": "2026-11-22T14:05:40.589Z",
+    "procedure": "Fresh context and approved UI controls"
+  },
+  {
+    "filename": "bento-evidence.png",
+    "route": "/fairhire/#report",
+    "viewport": {
+      "width": 960,
+      "height": 720
+    },
+    "fixture": "PC-FOUNDATION-01 v1.0",
+    "choices": "A/A/A",
+    "pane": "C-017 · Client communication source",
+    "alt": "A sample communication finding points to the reply to Alex.",
+    "revision": "d92f5944b177aa74132fe0ae9728172bc5585603",
+    "capturedAt": "2026-11-22T14:05:42.402Z",
+    "procedure": "Fresh context and approved UI controls"
+  }
+]

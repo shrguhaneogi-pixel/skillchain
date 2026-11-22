@@ -1,0 +1,25 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: Simulations
+  - heading "Choose a working day." [level=1]
+  - paragraph: Try the Project Coordinator foundation scenario. Explore how the responsibilities change across roles and difficulty levels.
+  - complementary:
+    - heading "Role" [level=2]
+    - button "Project Coordinator" [pressed]
+    - button "Operations Associate"
+    - button "Administrative Coordinator"
+  - article:
+    - generic: Fictional demo data · Foundation
+    - heading "Project Coordinator" [level=2]
+    - paragraph: Recover a client demo slot.
+    - paragraph: Assign one owner and agree the next update.
+    - paragraph:
+      - link "Start this simulation":
+        - /url: /demo/
+  - complementary:
+    - heading "Difficulty" [level=2]
+    - button "Foundation" [pressed]
+    - button "Intermediate"
+    - button "Advanced"
+- alert

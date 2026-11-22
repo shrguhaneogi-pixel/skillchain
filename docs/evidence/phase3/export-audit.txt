@@ -1,0 +1,1 @@
+Checked 14 exported HTML files and 31 JS files for third-party script tags and known analytics markers.

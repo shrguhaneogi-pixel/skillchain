@@ -1,0 +1,38 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Timed practice
+  - button "Exit demo"
+  - dialog "Simulation paused":
+    - heading "Simulation paused" [level=2]
+    - paragraph: Practice time and incoming requests are paused.
+    - button "Resume" [active]
+  - generic: PC-FOUNDATION-01 v1.0 · Banyan Desk Studio
+  - heading "Project Coordinator" [level=1]
+  - generic: Practice time remaining · 82s
+  - status
+  - navigation "Work tools":
+    - button "Inbox":
+      - text: Inbox
+    - button "Tasks" [pressed]:
+      - text: Tasks
+    - button "Calendar":
+      - text: Calendar
+    - button "Budget":
+      - text: Budget
+    - button "History":
+      - text: History
+  - heading "Task board" [level=2]
+  - heading "Waiting" [level=3]
+  - heading "In progress" [level=3]
+  - article:
+    - heading "Recovery check" [level=3]
+    - paragraph: Alex / In progress
+    - text: "At decision: Rahul / In progress"
+    - text: "Current board: Alex / In progress"
+    - button "View source · Demo server down"
+  - heading "Done" [level=3]
+- alert

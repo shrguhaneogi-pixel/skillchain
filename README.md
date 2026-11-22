@@ -1,73 +1,52 @@
 # SkillChain
 
-Team DEBUGGERS · Skills-first recruitment · Stage 1 foundation
+The Project Coordinator demo runs entirely in the browser. Three fictional coworkers ask for a recovery owner, a client update and a decision on a vendor draft. Open the reviewer view after a run to trace each finding back to the message, reply and consequence. Direct visits to FairHire open the fixed fictional sample C-017.
 
-Three real Supabase email/password accounts share a Next.js application. The platform admin sees the employer register. HR sees its own organization and separate representative verification state. Applicants can save or clear two optional profile links. Database policies isolate the roles, and link changes add an audit event.
+## Run the demo
 
-## Run the local demo
+Use Node 22.18 or newer and npm. From the repository root run `npm ci`, then `npm run dev`. Open http://localhost:3000/ for the public routes or http://localhost:3000/demo/ for the simulation.
 
-Use Node.js 22.12+ (Node 24 was used for this build), npm and Docker with its engine running. Run the following from this directory. All services run locally; the demo uses no AI API, blockchain wallet or cloud account.
+## Check and build
 
-~~~sh
-npm ci
-npx supabase start
-npx supabase migration up --local
-npx supabase status
-~~~
+    npm run typecheck
+    npm run lint -- --max-warnings=0
+    npm test
+    npm run build
 
-On a clean project, start may already have applied the migration. Copy .env.example to .env.local (PowerShell: Copy-Item .env.example .env.local). Enter the values shown by your own local instance.
+The production export is in `out/`. Serve that directory with a static host that supports directory indexes. Trailing-slash routes map directly to exported files, for example `/skillproof/` serves `out/skillproof/index.html`. Refreshing a deep link must serve that route, not the Home document. A fragment such as `#mailbox` is applied in the browser after its page loads; the host does not receive it. Default to canonical trailing-slash links, and serve the exported 404 with an HTTP 404 for unknown routes. For browser tests, build first and start the export in a separate terminal:
 
-| Variable | Value to supply |
-| --- | --- |
-| NEXT_PUBLIC_SUPABASE_URL | The local **Project URL** or **API URL**, normally http://127.0.0.1:54321. |
-| NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY | The displayed **Publishable** key. Older local stacks may use the **anon** key. |
-| SUPABASE_SERVICE_ROLE_KEY | The local **Secret** or legacy **service_role** key. Used only by the local seed CLI; omit from deployed Next.js environments. |
-| SKILLCHAIN_DEMO_PASSWORD | Choose a demo-only password of at least 12 characters. The seed uses it for the three synthetic accounts. |
-| SKILLCHAIN_SHOW_DEMO_ACCOUNTS | Set true for email shortcuts on the sign-in page. A shortcut never grants access. |
+    node scripts/dev.mjs --strictPort --host 127.0.0.1 --port 3000
 
-~~~sh
-npm run seed:demo
-npm run dev
-~~~
+In the first terminal run:
 
-Open **http://localhost:3000**. Sign out between roles or use separate browser profiles. The seed may be rerun on this dedicated local database. It resets the three reserved accounts' passwords to the configured value and preserves existing organization states and applicant links. Keep these synthetic addresses reserved for fixtures.
+    npx playwright install chromium
+    npm run test:e2e
 
-| Email | Workspace | What to check |
-| --- | --- | --- |
-| admin@skillchain.example | Platform Admin | Banyan Fieldworks and Delta Loom Studio appear in the register with pending review. |
-| hr@skillchain.example | Authorized HR | Only Banyan Fieldworks appears. Employer and representative review are both pending. |
-| applicant@skillchain.example | Applicant | Save an HTTPS portfolio link, reload, inspect the activity entry and clear the link. |
+The test runner accepts PLAYWRIGHT_BASE_URL and PLAYWRIGHT_CHROMIUM_EXECUTABLE. See .env.example for build-time settings. The demo requires no secrets, accounts or external services. Refreshing clears the practice run.
 
-Try /workspace/admin while signed in as the applicant, then sign out and open it again. The first visit returns to the applicant workspace; the second requires sign-in. A signed-in account without an assigned membership gets an access-pending screen.
+The handoff from the original main branch is archived in docs/ORIGINAL_README.md. See docs/PROGRESS.md for observed results and release gates.
 
-## Checks
+## Re-record the media at native resolution
 
-~~~sh
-npm run typecheck
-npm run lint
-npm test
+Install Chromium for Playwright and install FFmpeg with H.264 support. Build the site, then serve the production export in a separate terminal.
+
+```sh
+npx playwright install chromium
 npm run build
-npx playwright install chromium --only-shell
-npm run test:e2e
-~~~
+node scripts/dev.mjs --strictPort --host 127.0.0.1 --port 3000
+```
 
-Vitest applies the real migration to disposable PostgreSQL-compatible PGlite databases and tests row isolation and constraints. Playwright exercises the production web app against the locally seeded Auth and database services. It starts Next.js on port 3000 if the app is not already running. An existing local Chromium binary can be selected with PLAYWRIGHT_CHROMIUM_EXECUTABLE. For an isolated run, stop the dev server before the production test. Browser tests use the synthetic applicant account, restore its original links, and leave the corresponding audit history.
+Run this in another terminal from the checkout using Node 22.18 or newer.
 
-For a hosted Supabase development project, apply the migration and provision Auth users, memberships and an applicant profile through trusted admin tooling. Disable public signup for this invitation-only scope. Set only the public project URL and publishable key on the web host, serve over HTTPS, and leave demo email shortcuts disabled. The local fixture script intentionally targets loopback. No remote deployment is required for this stage.
+```sh
+node scripts/capture-media.ts test-results/media
+```
 
-## Project map
+The script opens a fresh browser context for each PNG and records both approved shot lists at a native 1920 × 1080 viewport. It writes results to the designated directory. It leaves the current public files in place. Review the framing and role labels and compare the actual timing JSON with the cue and transcript text before replacing media. The existing responsive images are derived from managed Chrome JPEG captures. See [the capture manifest](docs/CAPTURE_MANIFEST.md).
 
-- app/ and components/ — sign-in, server actions, responsive dashboards and shared UI.
-- proxy.ts and lib/ — session rotation, trusted membership resolution, role guards, validation and domain types.
-- supabase/ — local stack configuration, Stage 1 schema, grants, RLS and audit trigger.
-- scripts/seed-demo.mjs — idempotent local fixture provisioning using Supabase's Auth admin API.
-- tests/ — SQL policy, validation and browser coverage.
-- SPEC.md — foundation criteria and eight future MVP acceptance tests.
-- ARCHITECTURE.md — execution boundaries, remaining relations, proposed ABI and recovery design.
-- TASKS.md — staged backlog and the exact next implementation task.
 
-Employer registration, private document uploads, ledger attestations, job posting, simulations, scoring and HR hiring decisions are scheduled in Stages 2–4. All visible seed records are fictional. The repository contains no paid AI integration.
+## Vercel deployment
 
-## Verified in this handoff
+After release sign-off, import the repository in Vercel and select the approved revision. Set the build command to `npm run build` and the output directory to `out` for the Next.js static export. Use the Node version documented above. Keep the contact mailbox unset until the team confirms the recipient. Keep `NEXT_PUBLIC_USE_WORDMARK` false until artwork rights are cleared. Leave Vercel Analytics and Speed Insights off. Use the branch publication and deployment steps in [OWNER_CHECKLIST.md](docs/OWNER_CHECKLIST.md).
 
-The production build, TypeScript, ESLint, 16 Vitest checks and 7 Playwright integration checks passed. The browser run used a local Chromium headless shell with real Supabase Auth, PostgREST and PostgreSQL. It covered all three roles, a valid unassigned account, failed login, sign-out, direct API access and mobile dark-mode profile editing. The seed was run twice. Docker was unavailable in the build workspace, so the services were started as local binaries; the Docker CLI bootstrap is provided for your machine.
+After deploying, verify all eleven routes and the custom 404, refresh the five bento links and approved queries, run both demo paths, test the confirmed email draft without sending, and test the caption and download paths. Run the release browser checks in [BROWSER_VERIFICATION.md](docs/BROWSER_VERIFICATION.md) before changing the public release status.

@@ -1,0 +1,101 @@
+{
+  "procedure": "Loaded the unmodified demo in a same-origin iframe. Registered lifecycle and focus events on the iframe document and window, and sampled visibility and focus every 200 ms using the iframe monotonic clock. Started Timed practice, switched left using Ctrl+Page Up, confirmed the other tab in the browser chrome, and returned using Ctrl+Page Down.",
+  "before": {
+    "entries": [
+      {
+        "event": "init",
+        "target": "iframe",
+        "ms": 152,
+        "visibility": "visible",
+        "focus": false,
+        "timer": null,
+        "dialog": null
+      },
+      {
+        "event": "sample",
+        "target": "iframe",
+        "ms": 352,
+        "visibility": "visible",
+        "focus": false,
+        "timer": null,
+        "dialog": null,
+        "state": "visible/false"
+      },
+      {
+        "event": "focus",
+        "target": "window",
+        "ms": 8066,
+        "visibility": "visible",
+        "focus": true,
+        "timer": null,
+        "dialog": null
+      },
+      {
+        "event": "sample",
+        "target": "iframe",
+        "ms": 8152,
+        "visibility": "visible",
+        "focus": true,
+        "timer": null,
+        "dialog": null,
+        "state": "visible/true"
+      }
+    ],
+    "current": {
+      "visibility": "visible",
+      "focus": true,
+      "ms": 8952,
+      "timer": null,
+      "dialog": null
+    }
+  },
+  "after": {
+    "entries": [
+      {
+        "event": "init",
+        "target": "iframe",
+        "ms": 152,
+        "visibility": "visible",
+        "focus": false,
+        "timer": null,
+        "dialog": null
+      },
+      {
+        "event": "sample",
+        "target": "iframe",
+        "ms": 352,
+        "visibility": "visible",
+        "focus": false,
+        "timer": null,
+        "dialog": null,
+        "state": "visible/false"
+      },
+      {
+        "event": "focus",
+        "target": "window",
+        "ms": 8066,
+        "visibility": "visible",
+        "focus": true,
+        "timer": null,
+        "dialog": null
+      },
+      {
+        "event": "sample",
+        "target": "iframe",
+        "ms": 8152,
+        "visibility": "visible",
+        "focus": true,
+        "timer": null,
+        "dialog": null,
+        "state": "visible/true"
+      }
+    ],
+    "current": {
+      "visibility": "visible",
+      "focus": true,
+      "ms": 19552,
+      "timer": "PC-FOUNDATION-01 v1.0 · Banyan Desk Studio\nProject Coordinator\nPractice time remaining · 35s",
+      "dialog": null
+    }
+  }
+}

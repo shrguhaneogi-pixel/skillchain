@@ -1,0 +1,48 @@
+{
+  "browser": "157.0.8103.80",
+  "profile": {
+    "offline": false,
+    "latency": 150,
+    "downloadThroughput": 200000,
+    "uploadThroughput": 93750
+  },
+  "cpu": 4,
+  "geometry": {
+    "top": 1,
+    "length": 731
+  },
+  "marks": [
+    {
+      "fraction": 0,
+      "state": "0"
+    },
+    {
+      "fraction": 0.3,
+      "state": "1"
+    },
+    {
+      "fraction": 0.58,
+      "state": "2"
+    },
+    {
+      "fraction": 0.9,
+      "state": "3"
+    },
+    {
+      "fraction": 0.58,
+      "state": "2"
+    },
+    {
+      "fraction": 0.3,
+      "state": "1"
+    },
+    {
+      "fraction": 0.15,
+      "state": "0"
+    }
+  ],
+  "replies": [
+    "In progress",
+    "Waiting"
+  ]
+}

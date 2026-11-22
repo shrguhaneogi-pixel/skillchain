@@ -1,0 +1,46 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> skillchain@0.1.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v5.1.1 /workspace/scratch/6257b6652ae0/skillchain
+
+ ✓ tests/engine.test.ts > 27 fixture paths > A/A/A 4ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/A/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/A/skip 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/B/A 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/B/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/B/skip 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/skip/A 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/skip/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > A/skip/skip 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/A/A 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/A/B 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/A/skip 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/B/A 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/B/B 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/B/skip 0ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/skip/A 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/skip/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > B/skip/skip 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/A/A 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/A/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/A/skip 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/B/A 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/B/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/B/skip 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/skip/A 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/skip/B 1ms
+ ✓ tests/engine.test.ts > 27 fixture paths > skip/skip/skip 1ms
+ ✓ tests/engine.test.ts > deadline 45000 1ms
+ ✓ tests/engine.test.ts > deadline 85000 0ms
+ ✓ tests/engine.test.ts > deadline 125000 1ms
+ ✓ tests/engine.test.ts > pause, double commit, immutable task evidence 1ms
+ ✓ tests/engine.test.ts > candidate renderer receives only strings and preserves audience boundaries 8ms
+
+ Test Files  1 passed (1)
+      Tests  32 passed (32)
+   Start at  12:44:18
+   Duration  418ms (transform 49%, import 27%, tests 21%, worker 3%)
+

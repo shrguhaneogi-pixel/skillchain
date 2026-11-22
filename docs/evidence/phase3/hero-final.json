@@ -1,0 +1,23 @@
+{
+  "start": {
+    "firstRow": 182,
+    "step": "0",
+    "sticky": "true"
+  },
+  "forward": {
+    "firstRow": 181,
+    "step": "2",
+    "sticky": "true"
+  },
+  "reverse": {
+    "firstRow": 182,
+    "step": "0",
+    "sticky": "true"
+  },
+  "staticMode": {
+    "firstRow": -252,
+    "step": "3",
+    "sticky": "false"
+  },
+  "motionOverride": "true"
+}

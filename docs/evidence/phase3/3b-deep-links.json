@@ -1,0 +1,27 @@
+[
+  {
+    "route": "/skillproof/#mailbox",
+    "url": "http://127.0.0.1:4173/skillproof/#mailbox",
+    "visible": "/Demo server down/"
+  },
+  {
+    "route": "/demo/?tool=tasks",
+    "url": "http://127.0.0.1:4173/demo/?tool=tasks",
+    "visible": "Starting board"
+  },
+  {
+    "route": "/simulations/",
+    "url": "http://127.0.0.1:4173/simulations/",
+    "visible": "Start this simulation"
+  },
+  {
+    "route": "/trustchain/#credential",
+    "url": "http://127.0.0.1:4173/trustchain/#credential",
+    "visible": "DEMO-ORG-04"
+  },
+  {
+    "route": "/fairhire/#report",
+    "url": "http://127.0.0.1:4173/fairhire/#report",
+    "visible": "Candidate C-017"
+  }
+]

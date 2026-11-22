@@ -1,0 +1,21 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Self-paced
+  - button "Exit demo"
+  - heading "Practice feedback" [level=1]
+  - paragraph: This is an immediate practice preview. For employer-requested assessments, candidates normally receive strengths and improvement areas within 2–3 business days.
+  - heading "Strengths" [level=2]
+  - list:
+    - listitem: You gave Rahul a clear task and a time to report back.
+    - listitem: You kept the client informed without promising recovery.
+    - listitem: You identified the ₹4,000 variance and routed it for review.
+  - heading "Areas to practise" [level=2]
+  - list:
+    - listitem: For another practice run, try explaining how you would hand off the checkpoint if its owner became unavailable.
+  - button "Explore fictional recruiter view"
+  - button "Play again"
+- alert

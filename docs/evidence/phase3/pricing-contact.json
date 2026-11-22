@@ -1,0 +1,46 @@
+{
+  "values": [
+    {
+      "c": "30",
+      "r": "1",
+      "total": "30 estimated assessment credits."
+    },
+    {
+      "c": "40",
+      "r": "2",
+      "total": "80 estimated assessment credits."
+    },
+    {
+      "c": "0",
+      "r": "3",
+      "total": "0 estimated assessment credits."
+    },
+    {
+      "c": "10000",
+      "r": "3",
+      "total": "30,000 estimated assessment credits."
+    },
+    {
+      "c": "",
+      "r": "1",
+      "total": ""
+    },
+    {
+      "c": "1.5",
+      "r": "1",
+      "total": ""
+    },
+    {
+      "c": "10001",
+      "r": "1",
+      "total": ""
+    }
+  ],
+  "afterReset": "30 estimated assessment credits.",
+  "prefill": false,
+  "focused": "Check your requestEnter a valid reply email address (up to 254 characters).Enter a message of 10–1,500 characters.Confirm that you want these details in your request.",
+  "review": "Review request\nSubject: SkillChain · Standard subscription\n\nTopic: Standard subscription\nReply email: fixture@example.com\nPlanning estimate: 30 candidates × 1 runs = 30 credits\n\nFictional request with A & B #1 and ₹.\n\nDirect delivery is not configured in this preview. You can save your request.\n\nEdit request\nCopy request\nDownload request (.txt)",
+  "copy": "",
+  "download": true,
+  "edit": null
+}

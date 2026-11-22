@@ -1,0 +1,49 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Self-paced
+  - button "Pause":
+    - text: Pause
+  - button "Exit demo"
+  - generic: PC-FOUNDATION-01 v1.0 · Banyan Desk Studio
+  - heading "Project Coordinator" [level=1]
+  - status
+  - navigation "Work tools":
+    - button "Inbox" [pressed]:
+      - text: Inbox
+    - button "Tasks":
+      - text: Tasks
+    - button "Calendar":
+      - text: Calendar
+    - button "Budget":
+      - text: Budget
+    - button "History":
+      - text: History
+  - complementary:
+    - heading "Mailbox" [level=2]
+    - status: 1 unread
+    - button "10:04 IST · Read Rahul Kapoor Demo server down":
+      - generic: 10:04 IST · Read
+      - strong: Rahul Kapoor
+      - text: Demo server down
+    - button "10:04 IST · Unread Diya Roy Client demo · 10:24 IST":
+      - generic: 10:04 IST · Unread
+      - strong: Diya Roy
+      - text: Client demo · 10:24 IST
+  - article:
+    - generic: Senior Developer · 10:04 IST
+    - heading "Demo server down" [level=2]
+    - paragraph: Rahul Kapoor
+    - paragraph: The demo server is unresponsive. I can run a recovery check. Who owns it?
+    - group "Choose a reply":
+      - generic: Choose a reply
+      - radio "Assign Rahul and ask for a checkpoint"
+      - text: Assign Rahul and ask for a checkpoint
+      - radio "Hold while I investigate"
+      - text: Hold while I investigate
+      - button "Send reply" [disabled]
+      - button "Continue without a reply"
+- alert

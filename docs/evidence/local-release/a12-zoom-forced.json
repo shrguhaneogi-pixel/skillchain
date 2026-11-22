@@ -1,0 +1,152 @@
+{
+  "zoomRoutes": [
+    {
+      "route": "/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Your résumé tells a story. Your decisions prove it."
+    },
+    {
+      "route": "/about/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "A first job asks for experience. Where can you show it?"
+    },
+    {
+      "route": "/contact/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Bring us a role your team hires for."
+    },
+    {
+      "route": "/demo/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "You’re the Project Coordinator."
+    },
+    {
+      "route": "/fairhire/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Read the decision behind the score."
+    },
+    {
+      "route": "/pricing/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Employers fund assessments. Candidates participate for free."
+    },
+    {
+      "route": "/privacy/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "How your information is used"
+    },
+    {
+      "route": "/simulations/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Choose a working day."
+    },
+    {
+      "route": "/skillproof/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "What would you do with twenty minutes?"
+    },
+    {
+      "route": "/terms/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Terms of use"
+    },
+    {
+      "route": "/trustchain/",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Who stands behind this work sample?"
+    }
+  ],
+  "zoomWorkflow": [
+    {
+      "stage": "inbox",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Project Coordinator"
+    },
+    {
+      "stage": "board",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Project Coordinator"
+    },
+    {
+      "stage": "feedback",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Practice feedback"
+    },
+    {
+      "stage": "source",
+      "width": 314,
+      "scrollWidth": 314,
+      "dpr": 4,
+      "heading": "Recruiter view"
+    }
+  ],
+  "forcedColors": [
+    {
+      "stage": "inbox",
+      "width": 1258,
+      "scrollWidth": 1258,
+      "dpr": 1,
+      "heading": "Project Coordinator"
+    },
+    {
+      "stage": "board",
+      "width": 1258,
+      "scrollWidth": 1258,
+      "dpr": 1,
+      "heading": "Project Coordinator"
+    },
+    {
+      "stage": "feedback",
+      "width": 1258,
+      "scrollWidth": 1258,
+      "dpr": 1,
+      "heading": "Practice feedback"
+    },
+    {
+      "stage": "source",
+      "width": 1258,
+      "scrollWidth": 1258,
+      "dpr": 1,
+      "heading": "Recruiter view"
+    }
+  ],
+  "browser": "Chrome/159.0.8154.6",
+  "baseline": {
+    "width": 1258,
+    "outer": 1280,
+    "dpr": 1
+  },
+  "browserZoom": 3.9999999999999996,
+  "zoomFocusRestored": true,
+  "forcedColorsActive": true,
+  "forcedFocusRestored": true,
+  "status": "passed"
+}

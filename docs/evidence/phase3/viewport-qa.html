@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>SkillChain local QA viewport</title>
+<style>html,body{margin:0;background:#f0e7d8}iframe{display:block;border:0;transform-origin:top left}pre{position:absolute;left:0;top:0;margin:0;background:white;z-index:1}pre[hidden]{display:none}</style>
+<iframe title="SkillChain route under inspection"></iframe><pre id="result" hidden></pre>
+<script src="/qa-view/axe.min.js"></script>
+<script>
+const params = new URLSearchParams(location.search)
+const width = Number(params.get('w'))
+const height = Number(params.get('h'))
+const route = params.get('route') ?? '/'
+const frame = document.querySelector('iframe')
+const result = document.querySelector('#result')
+frame.width = width
+frame.height = height
+const scale = Math.min(1, Math.floor(innerWidth * 100 / width)/100, Math.floor(innerHeight * 100 / height)/100)
+frame.style.transform = 'scale(' + scale + ')'
+frame.addEventListener('load', async () => {
+  try {
+    const view = frame.contentWindow
+    await view.document.fonts.ready
+    await new Promise(resolve => view.requestAnimationFrame(() => view.requestAnimationFrame(resolve)))
+    const output = {path:route,width:view.innerWidth,height:view.innerHeight,scrollWidth:view.document.documentElement.scrollWidth,
+      scale, h1: view.document.querySelector('main h1')?.textContent || '', displayMedia: view.document.querySelectorAll('video').length }
+    if(params.get('lab')==='1'){
+      const entries = { 'largest-contentful-paint':[], 'layout-shift':[], longtask:[] }
+      const observers = Object.keys(entries).map(type=>{
+        const observer=new view.PerformanceObserver(list=>entries[type].push(...list.getEntries()))
+        observer.observe({type,buffered:true})
+        return observer
+      })
+      await new Promise(resolve=>setTimeout(resolve,750))
+      observers.forEach(observer=>observer.disconnect())
+      const assets=view.performance.getEntriesByType('resource')
+      const lcp=entries['largest-contentful-paint'].at(-1)?.startTime
+      const nav=view.performance.getEntriesByType('navigation')[0]
+      output.lab={lcp:lcp??null,layoutShiftTotal:entries['layout-shift'].filter(e=>!e.hadRecentInput).reduce((a,e)=>a+e.value,0),
+        blockingAfterDCL:entries.longtask.filter(e=>e.startTime>=nav.domContentLoadedEventEnd).reduce((a,e)=>a+Math.max(0,e.duration-50),0),
+        resources:assets.length,videoRequests:assets.filter(e=>/\.mp4(?:$|\?)/.test(e.name)).map(e=>e.name),load:nav.loadEventEnd}
+    }
+    if(params.get('axe')==='1'){
+      const script=view.document.createElement('script')
+      script.src='/qa-view/axe.min.js'
+      await new Promise((resolve,reject)=>{script.onload=resolve;script.onerror=reject;view.document.head.append(script)})
+      const audit=await view.axe.run()
+      output.axe={version:audit.testEngine.version,violations:audit.violations.map(issue=>({
+        id:issue.id,impact:issue.impact,nodes:issue.nodes.map(node=>node.target)
+      }))}
+    }
+    result.textContent=JSON.stringify(output)
+  } catch(error) {result.textContent=JSON.stringify({error:String(error),route})}
+})
+if (route.startsWith('/') && !route.startsWith('//')) frame.src=route
+</script>
