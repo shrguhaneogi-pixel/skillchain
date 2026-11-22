@@ -3,10 +3,12 @@ import {useEffect,useRef,useState} from 'react'
 import {useRouter} from 'next/navigation'
 import {Mail,ListTodo,CalendarDays,Receipt,History,Pause,ArrowLeft,ArrowRight} from 'lucide-react'
 import {start,reduce,version,welcome,incidents,ledger,feedback,owners,statuses,type Task,type Run,type Action,type Mode} from '@/lib/engine'
+import DemoFooter from './DemoFooter'
 import {Report,CandidateFeedback} from './Report'
 const tools=['Inbox','Tasks','Calendar','Budget','History'] as const
 const icons=[Mail,ListTodo,CalendarDays,Receipt,History]
 const clock=()=>performance.now()
+const maximumTickGap = 2000
 const timingNote='This is an immediate practice preview. For employer-requested assessments, candidates normally receive strengths and improvement areas within 2–3 business days.'
 function BoardCard({r,i,send,source}:{r:Run,i:number,send:(a:Action)=>void,source:()=>void}){
  const t=r.tasks[i]!,initial=r.events.find(e=>e.incident===i&&e.kind==='board')?.after
@@ -15,13 +17,29 @@ function BoardCard({r,i,send,source}:{r:Run,i:number,send:(a:Action)=>void,sourc
 }
 export default function Demo({now=clock}:{now?:()=>number}){
  const router=useRouter()
- const [run,setRun]=useState<Run|null>(null),ref=useRef<Run|null>(null),anchor=useRef(0),offset=useRef(0)
+ const [run,setRun]=useState<Run|null>(null),ref=useRef<Run|null>(null),anchor=useRef(0),offset=useRef(0),lastSample=useRef(0)
  const [mode,setMode]=useState<Mode>('Timed practice'),[ack,setAck]=useState(false),[tool,setTool]=useState<typeof tools[number]>('Inbox'),[thread,setThread]=useState(0),[choice,setChoice]=useState<'A'|'B'|null>(null),[read,setRead]=useState<number[]>([0]),[list,setList]=useState(false)
  const [action,setAction]=useState<'exit'|'restart'|null>(null),[boardPreview,setPreview]=useState(false),[unknown,setUnknown]=useState(false)
  const dlg=useRef<HTMLDialogElement>(null),back=useRef<HTMLElement|null>(null)
  function update(r:Run|null){ref.current=r;setRun(r)}
- function elapsed(){return ref.current?.mode==='Timed practice'?offset.current+Math.max(0,now()-anchor.current):(ref.current?.at??0)}
- function send(a:Action){if(!ref.current)return;const time=elapsed();const original=ref.current;const next=reduce(original,{...a,at:time});if(a.type==='resume'||a.type==='next'||(original.phase==='running'&&next.phase==='paused')){offset.current=next.at;anchor.current=now()}update(next)}
+ function send(action: Action) {
+  const original = ref.current
+  if (!original) return
+  const sampled = now()
+  const timed = original.mode === 'Timed practice'
+  const gap = sampled - lastSample.current
+  const interrupted = original.phase === 'running' && timed && gap > maximumTickGap
+  const elapsed = timed ? offset.current + Math.max(0, sampled - anchor.current) : original.at
+  const next = interrupted
+    ? reduce(original, { type: 'pause', at: original.at })
+    : reduce(original, { ...action, at: elapsed })
+  lastSample.current = sampled
+  if (action.type === 'resume' || action.type === 'next' || next.phase === 'paused') {
+    offset.current = next.at
+    anchor.current = sampled
+  }
+  update(next)
+ }
  useEffect(()=>{const q=new URLSearchParams(location.search);setPreview(q.get('tool')==='tasks');setUnknown(!!q.get('scenario')&&q.get('scenario')!=='PC-FOUNDATION-01')},[])
  useEffect(()=>{if(run?.phase!=='running')return
   const tick=()=>{if(ref.current?.phase==='running'&&ref.current.mode==='Timed practice')send({type:'tick'})}
@@ -34,11 +52,11 @@ export default function Demo({now=clock}:{now?:()=>number}){
  function reset(){update(null);setAck(false);setMode('Timed practice');setTool('Inbox');setThread(0);setChoice(null);setRead([0]);setList(false);setAction(null)}
  function openThread(i:number){setTool('Inbox');setThread(i);setChoice(null);setList(false);setRead(prev=>prev.includes(i)?prev:[...prev,i])}
  function resume(){setAction(null);if(ref.current?.phase==='paused'&&!document.hidden)send({type:'resume'});requestAnimationFrame(()=>back.current?.focus())}
- if(!run)return <main id="main" className="wrap briefing"><a href="/" className="wordmark">SkillChain</a><div className="sectionline">SkillProof / Project Coordinator</div><div className="introgrid"><div><div className="kicker">Scripted demo · fictional people and outcomes</div><h1>You’re the Project Coordinator.</h1><p className="lead">Your client demo starts at 10:24 IST. Keep the developer, project manager and finance lead working from the same facts.</p><p>{timingNote}</p></div><section className="card"><div className="kicker">Fictional demo data · about 3 minutes</div>{unknown&&<p>This scenario is unavailable. Open the coordinator demo.</p>}{boardPreview&&<div><h3>Starting board</h3><p>Recovery check · Unassigned / Waiting</p></div>}<h2>Project Coordinator</h2><p>Your preset replies and board changes stay in this browser for this run. You can pause or clear the run at any time. No report is sent.</p><fieldset><legend>Timing mode</legend>{(['Timed practice','Self-paced'] as const).map(m=><label className="check" key={m}><input type="radio" checked={mode===m} onChange={()=>setMode(m)}/>{m}</label>)}</fieldset><label className="check"><input type="checkbox" checked={ack} onChange={e=>setAck(e.target.checked)}/>I understand and want to start the fictional exercise.</label><button className="primary" disabled={!ack} onClick={()=>{offset.current=0;anchor.current=now();update(start(mode))}}>Start simulation <ArrowRight size={16}/></button><p><a href="/privacy/" target="_blank" rel="noreferrer">Privacy (opens in a new tab)</a> · <a href="/">Leave demo</a></p></section></div></main>
+ if(!run)return <main id="main" className="wrap briefing"><a href="/" className="wordmark">SkillChain</a><div className="sectionline">SkillProof / Project Coordinator</div><div className="introgrid"><div><div className="kicker">Scripted demo · fictional people and outcomes</div><h1>You’re the Project Coordinator.</h1><p className="lead">Your client demo starts at 10:24 IST. Keep the developer, project manager and finance lead working from the same facts.</p><p>{timingNote}</p></div><section className="card"><div className="kicker">Fictional demo data · about 3 minutes</div>{unknown&&<p>This scenario is unavailable. Open the coordinator demo.</p>}{boardPreview&&<div><h3>Starting board</h3><p>Recovery check · Unassigned / Waiting</p></div>}<h2>Project Coordinator</h2><p>Your preset replies and board changes stay in this browser for this run. You can pause or clear the run at any time. No report is sent.</p><fieldset><legend>Timing mode</legend>{(['Timed practice','Self-paced'] as const).map(m=><label className="check" key={m}><input type="radio" checked={mode===m} onChange={()=>setMode(m)}/>{m}</label>)}</fieldset><label className="check"><input type="checkbox" checked={ack} onChange={e=>setAck(e.target.checked)}/>I understand and want to start the fictional exercise.</label><button className="primary" disabled={!ack} onClick={()=>{offset.current=0;lastSample.current=anchor.current=now();update(start(mode))}}>Start simulation <ArrowRight size={16}/></button><p><a href="/privacy/" target="_blank" rel="noreferrer">Privacy (opens in a new tab)</a> · <a href="/">Leave demo</a></p></section></div><DemoFooter/></main>
  const d=thread>=0?incidents[thread]:null,active=run.answers.findIndex(x=>x===null),canReply=run.phase==='running'&&thread===active&&!!run.tasks[thread],remaining=active<0?0:Math.max(0,Math.ceil((incidents[active].deadline-run.at)/1000))
  const dialog=<dialog ref={dlg} onCancel={e=>{e.preventDefault();resume()}} aria-labelledby="dialog-heading"><h2 id="dialog-heading">{action==='exit'?'Exit and clear this run?':action==='restart'?'Start a fresh run?':'Simulation paused'}</h2><p>{action?'Your current run will be cleared.':'Practice time and incoming requests are paused.'}</p><button autoFocus onClick={resume}>{action?'Cancel':'Resume'}</button>{action&&<button className="primary" onClick={()=>{const exit=action==='exit';reset();if(exit)router.push('/')}}>{action==='exit'?'Exit and clear':'Play again'}</button>}</dialog>
  return <main id="main" className="workspace"><header className="deskbar"><span className="wordmark">SkillChain</span><b>Project Coordinator</b><small>Scripted demo · Fictional demo data</small><span>{run.mode}</span>{run.phase==='running'&&<button onClick={()=>send({type:'pause'})}><Pause size={16}/> Pause</button>}<button onClick={()=>{if(run.phase==='running')send({type:'pause'});setAction('exit')}}>Exit demo</button></header>{dialog}
- <div className="deskbody">{run.phase==='feedback'||run.phase==='reviewer'?<><h1>{run.phase==='feedback'?'Practice feedback':'Recruiter view'}</h1>{run.phase==='feedback'?<><p>{timingNote}</p><CandidateFeedback {...feedback(run)}/><button onClick={()=>send({type:'reviewer'})}>Explore fictional recruiter view</button></>:<><Report run={run}/><button onClick={()=>send({type:'feedback'})}>Back to feedback</button></>} <button onClick={()=>setAction('restart')}>Play again</button></>:<>
+ <div className="deskbody">{run.phase==='feedback'||run.phase==='reviewer'?<><h1>{run.phase==='feedback'?'Practice feedback':'Recruiter view'}</h1>{run.phase==='feedback'?<><p>{timingNote}</p><CandidateFeedback {...feedback(run)}/><button onClick={()=>send({type:'reviewer'})}>Explore fictional recruiter view</button></>:<><Report run={run}/><button onClick={()=>send({type:'feedback'})}>Back to feedback</button></>} <button onClick={()=>setAction('restart')}>Play again</button><DemoFooter/></>:<>
  <div className="deskhead"><div><small>{version} · Banyan Desk Studio</small><h1>{run.phase==='review'?'Review your desk':'Project Coordinator'}</h1></div>{run.phase==='review'?<div><p>The client demo is still scheduled. Review the commitments your team made.</p><button className="primary" onClick={()=>send({type:'finish'})}>Finish simulation</button></div>:<div>{run.mode==='Timed practice'&&active>=0&&<span>Practice time remaining · {remaining}s</span>}<div role="status">{run.mode==='Timed practice'&&remaining<=10&&remaining>0?'Ten seconds or less remain for this decision.':''}</div></div>}</div>
  <div className="workgrid"><nav className="toolrail" aria-label="Work tools">{tools.map((t,i)=>{const Icon=icons[i];return <button key={t} aria-pressed={tool===t} onClick={()=>{setTool(t);if(t==='Inbox')setList(true)}}><Icon size={19}/>{t}</button>})}</nav><div className="surface">
  {tool==='Inbox'&&<div className={'mailgrid '+(list?'showlist':'showthread')}><aside className="threads"><h2>Mailbox</h2><p role="status">{[-1,...run.tasks.flatMap((t,i)=>t?[i]:[])].filter(i=>!read.includes(i)).length} unread</p>{[2,1,0,-1].filter(i=>i<0||run.tasks[i]).map(i=>{const msg=i===-1?welcome:incidents[i];return <button key={i} className={thread===i?'selected':''} onClick={()=>openThread(i)}><small>{i===-1?'10:04':incidents[i].time} IST · {read.includes(i)?'Read':'Unread'}</small><strong>{msg.sender}</strong>{msg.subject}</button>})}</aside><article className="thread"><button className="backmobile" onClick={()=>setList(true)}><ArrowLeft size={16}/>Back to inbox</button><div className="kicker">{d?.role??welcome.role} · {d?.time??'10:04'} IST</div><h2>{d?.subject??welcome.subject}</h2><p><b>{d?.sender??welcome.sender}</b></p><p className="message">{d?.question??welcome.text}</p>{thread>=0&&run.events.filter(e=>e.incident===thread&&['reply','close','consequence'].includes(e.kind)).map(e=><div className="message" key={e.id}><small>{e.actor} · {e.time} IST</small><p>{e.text}</p></div>)}

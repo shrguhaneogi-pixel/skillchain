@@ -51,3 +51,11 @@ Phase 2 includes the real candidate walkthrough and five captured fixture states
 Open items include A06 hidden-tab pause, A07 browser network and storage verification, standalone Playwright, lossless bento originals, public media integration and employer walkthrough.
 PR
 ```
+
+## Phase 3a · Shell and simple routes
+
+Completed the sticky marketing header, disclosure, mobile menu, footer, motion override, route focus and 404. Added pricing, contact, about and draft Terms and Privacy. Contact defaults to copy and download until a confirmed mailbox is configured.
+
+Phase 2 revision 77f35c2 was archived and verified before implementation. Work continues on the local feature branch. GitHub publication and the draft PR are owner actions using the commands above.
+
+A06 reproduced as a code defect with a late visibility event and a separate long scheduling gap. The original component advanced through deadlines before pausing. With the revised clock, the hidden interval preserves the last elapsed timestamp and the first deadline still accepts the run at 44.999 seconds exactly. A07 static lint guard and two mounted full runs with forbidden browser APIs throw-stubbed passed. Real browser checks remain separate. TypeScript, strict ESLint and 48 affected tests passed.
