@@ -136,3 +136,11 @@
 }
 @media(prefers-reduced-motion:reduce){.home *, .menu-sheet{transition:none!important;animation:none!important}}
 :root[data-reduced-motion="true"] .home *, :root[data-reduced-motion="true"] .menu-sheet{transition:none!important;animation:none!important}
+
+.brand-lockup,.briefing > .brand-lockup { display:inline-flex; align-items:center; gap:8px; white-space:nowrap }
+.brand-lockup .brand-shield { flex:none; width:32px; height:32px; object-fit:contain }
+.masthead .brand-shield { width:clamp(22px, 5vw, 32px); height:clamp(22px, 5vw, 32px) }
+.deskbar .brand-shield { width:26px; height:26px; padding:2px; background:var(--paper); border-radius:3px }
+@media(max-width:380px){
+ .masthead .brand-lockup { font-size:24px; gap:5px }
+}
