@@ -1,0 +1,206 @@
+{
+  "revision": "d92f5944b177aa74132fe0ae9728172bc5585603",
+  "profile": {
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 150,
+    "downloadThroughputKbps": 1600,
+    "uploadThroughputKbps": 750
+  },
+  "method": "devtools",
+  "runs": {
+    "home": [
+      {
+        "pass": 1,
+        "metrics": [
+          2148.644,
+          0.04649298341693007,
+          1744.4419999999973
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 605106,
+        "videoRequests": []
+      },
+      {
+        "pass": 2,
+        "metrics": [
+          3790.956,
+          0.04649298341693007,
+          2879.0679999999993
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 605106,
+        "videoRequests": []
+      },
+      {
+        "pass": 3,
+        "metrics": [
+          4465.223,
+          0.04482974700976725,
+          4012.0019999999968
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 605106,
+        "videoRequests": []
+      }
+    ],
+    "demo": [
+      {
+        "pass": 1,
+        "metrics": [
+          3517.968,
+          0.001955912291522811,
+          2733.3590000000004
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 583112,
+        "videoRequests": []
+      },
+      {
+        "pass": 2,
+        "metrics": [
+          3262.595,
+          0.002283584290762199,
+          3667.9939999980925
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 583112,
+        "videoRequests": []
+      },
+      {
+        "pass": 3,
+        "metrics": [
+          3348.578,
+          0.002283584290762199,
+          3276.992
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 583112,
+        "videoRequests": []
+      }
+    ],
+    "fairhire": [
+      {
+        "pass": 1,
+        "metrics": [
+          2162.303,
+          0.004748571284326742,
+          1860.4820000000013
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 574268,
+        "videoRequests": []
+      },
+      {
+        "pass": 2,
+        "metrics": [
+          1746.343,
+          0.004748571284326742,
+          923.3140000000003
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 574268,
+        "videoRequests": []
+      },
+      {
+        "pass": 3,
+        "metrics": [
+          1730.45,
+          0.004748571284326742,
+          2129.3420000000006
+        ],
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "screen": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "transferBytes": 574268,
+        "videoRequests": []
+      }
+    ]
+  },
+  "medians": {
+    "home": {
+      "lcpMs": 3790.956,
+      "cls": 0.04649298341693007,
+      "tbtMs": 2879.0679999999993,
+      "budgetsMet": false
+    },
+    "demo": {
+      "lcpMs": 3348.578,
+      "cls": 0.002283584290762199,
+      "tbtMs": 3276.992,
+      "budgetsMet": false
+    },
+    "fairhire": {
+      "lcpMs": 1746.343,
+      "cls": 0.004748571284326742,
+      "tbtMs": 1860.4820000000013,
+      "budgetsMet": false
+    }
+  },
+  "budgets": [
+    2500,
+    0.1,
+    200
+  ],
+  "coldState": "Separate temporary Chrome profile for every run, with Lighthouse storage reset enabled."
+}

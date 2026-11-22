@@ -2,6 +2,8 @@
 
 The current release status is **NOT READY**. Run the steps in order. Record dates, browser version, results and links to evidence in the acceptance report. Use fictional inputs throughout testing.
 
+The 22 November 2026 Windows run recorded the local results and remaining gaps. [Windows release evidence](evidence/local-release/README.md)
+
 ### 1. Publish the feature branch
 
 - [ ] Publish only `build/skillchain-workplace-demo` to `shrguhaneogi-pixel/skillchain` and open a draft PR into `main`. If restoring from the bundle, clone it with `git clone -b build/skillchain-workplace-demo path/to/SkillChain.bundle skillchain`, enter that checkout and set its origin to the authorized GitHub URL with `git remote set-url origin https://github.com/shrguhaneogi-pixel/skillchain.git`. From the intended checkout, run:
@@ -45,7 +47,7 @@ The current release status is **NOT READY**. Run the steps in order. Record date
 
 ### 4. Verify untouched Home traffic
 
-- [ ] In DevTools Network, enable Disable cache, clear the request table, reload Home and wait for the initial load without clicking or playing anything. Inspect Media, search for `.mp4` and check every host.
+- [x] In DevTools Network, enable Disable cache, clear the request table, reload Home and wait for the initial load without clicking or playing anything. Inspect Media, search for `.mp4` and check every host. The local Chrome run passed. The hosted repeat is in step 12.
 
   **Pass** if video transfers zero bytes and only first-party hosts appear. **Fail** if video bytes transfer or any third-party host appears.
 

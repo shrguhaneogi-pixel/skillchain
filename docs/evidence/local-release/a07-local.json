@@ -1,0 +1,94 @@
+[
+  {
+    "browser": "157.0.8103.80",
+    "path": "A",
+    "status": "passed",
+    "urls": {
+      "before": "http://127.0.0.1:3100/demo/",
+      "Rahul Kapoor": "http://127.0.0.1:3100/demo/",
+      "Alex Morgan": "http://127.0.0.1:3100/demo/",
+      "Meera Sen": "http://127.0.0.1:3100/demo/",
+      "feedback": "http://127.0.0.1:3100/demo/",
+      "source": "http://127.0.0.1:3100/demo/",
+      "reviewer": "http://127.0.0.1:3100/demo/"
+    },
+    "before": {
+      "local": {},
+      "session": {},
+      "indexedDB": [],
+      "databaseNames": [],
+      "cookies": []
+    },
+    "after": {
+      "local": {},
+      "session": {},
+      "indexedDB": [],
+      "databaseNames": [],
+      "cookies": []
+    },
+    "fairHire": {
+      "url": "http://127.0.0.1:3100/fairhire/",
+      "heading": "Candidate C-017"
+    },
+    "requests": [
+      {
+        "type": "Image",
+        "method": "GET",
+        "url": "http://127.0.0.1:3100/brand/assigned-task.svg"
+      },
+      {
+        "type": "Image",
+        "method": "GET",
+        "url": "http://127.0.0.1:3100/brand/evidence-record.svg"
+      }
+    ],
+    "cookieActivity": [],
+    "webSockets": []
+  },
+  {
+    "browser": "157.0.8103.80",
+    "path": "B",
+    "status": "passed",
+    "urls": {
+      "before": "http://127.0.0.1:3100/demo/",
+      "Rahul Kapoor": "http://127.0.0.1:3100/demo/",
+      "Alex Morgan": "http://127.0.0.1:3100/demo/",
+      "Meera Sen": "http://127.0.0.1:3100/demo/",
+      "feedback": "http://127.0.0.1:3100/demo/",
+      "source": "http://127.0.0.1:3100/demo/",
+      "reviewer": "http://127.0.0.1:3100/demo/"
+    },
+    "before": {
+      "local": {},
+      "session": {},
+      "indexedDB": [],
+      "databaseNames": [],
+      "cookies": []
+    },
+    "after": {
+      "local": {},
+      "session": {},
+      "indexedDB": [],
+      "databaseNames": [],
+      "cookies": []
+    },
+    "fairHire": {
+      "url": "http://127.0.0.1:3100/fairhire/",
+      "heading": "Candidate C-017"
+    },
+    "requests": [
+      {
+        "type": "Image",
+        "method": "GET",
+        "url": "http://127.0.0.1:3100/brand/assigned-task.svg"
+      },
+      {
+        "type": "Image",
+        "method": "GET",
+        "url": "http://127.0.0.1:3100/brand/evidence-record.svg"
+      }
+    ],
+    "cookieActivity": [],
+    "webSockets": []
+  }
+]
