@@ -1,0 +1,40 @@
+{
+  "headings": [
+    "  - heading \"Your résumé tells a story. Your decisions prove it.\" [level=1]",
+    "    - heading \"Rahul Kapoor · Senior Developer\" [level=2]",
+    "    - heading \"Alex Morgan · Project Manager\" [level=2]",
+    "  - heading \"What happens after the interview?\" [level=2]",
+    "  - heading \"Rahul is waiting for a reply.\" [level=2]",
+    "  - heading \"Follow the work through five screens.\" [level=2]",
+    "      - heading \"Inside the mailbox\" [level=3]",
+    "      - heading \"On the task board\" [level=3]",
+    "      - heading \"In the role brief\" [level=3]",
+    "      - heading \"On the credential record\" [level=3]",
+    "      - heading \"Behind a finding\" [level=3]",
+    "  - heading \"From a work sample to a hiring conversation.\" [level=2]",
+    "  - heading \"Watch the same incident from both desks.\" [level=2]",
+    "    - heading \"A day inside SkillProof\" [level=3]",
+    "    - heading \"The employer’s perspective\" [level=3]",
+    "  - heading \"What would you like to see?\" [level=2]",
+    "    - heading \"Show how you work.\" [level=3]",
+    "  - heading \"Employers fund the assessment.\" [level=2]",
+    "    - heading \"Standard subscription\" [level=3]",
+    "    - heading \"Professional customization\" [level=3]",
+    "  - heading \"Plan your assessment credits.\" [level=2]",
+    "  - heading \"Know what gets recorded.\" [level=2]",
+    "  - heading \"The client demo starts at 10:24. Your inbox is open.\" [level=2]",
+    "    - heading \"Platform\" [level=2]",
+    "    - heading \"Explore\" [level=2]",
+    "    - heading \"Team\" [level=2]",
+    "    - heading \"Policies\" [level=2]"
+  ],
+  "revealed": "false",
+  "previewA": "Rahul is waiting for a reply.\n\nThe client demo starts in twenty minutes. Who should take the recovery check? Choose a reply to see what changes on the task board.\n\nOne scripted decision · no sign-up.\n\nAssign Rahul and ask for a checkpoint\nHold while I investigate\nScripted demo\n\nRahul owns the recovery check. Alex now has an owner to name in the client update.\n\nRecovery check · Rahul / In progress\n\nTry the other reply\nStart the full simulation",
+  "previewB": "Rahul is waiting for a reply.\n\nThe client demo starts in twenty minutes. Who should take the recovery check? Choose a reply to see what changes on the task board.\n\nOne scripted decision · no sign-up.\n\nAssign Rahul and ask for a checkpoint\nHold while I investigate\nScripted demo\n\nRecovery is waiting on you. Alex still needs an owner for the client update.\n\nRecovery check · Coordinator / Waiting\n\nTry the other reply\nStart the full simulation",
+  "startFilm": [
+    "\t\t\t\t104 button (collapsed) Read transcript, Secondary Actions: Expand",
+    "\t\t\t\t\t105 text Read transcript",
+    "\t\t\t\t113 button (collapsed) Read transcript, Secondary Actions: Expand",
+    "\t\t\t\t\t114 text Read transcript"
+  ]
+}

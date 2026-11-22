@@ -63,3 +63,9 @@ A06 reproduced as a code defect with a late visibility event and a separate long
 ## Phase 3b · Product routes
 
 Added SkillProof's shared fixture mailbox, keyboard-operable tool tour, role library and labelled proposed architecture. Added the closing employer request link and mobile catalogue controls. Managed Chrome verified all five approved destinations on reload, the Finance-first ordering, exact finance source, restored focus and the request link. Recorded the 40-second employer film from the working site with a real frame for the poster and synchronized captions. The local Playwright capture script is documented in the README. Native-resolution recordings and lossless PNG originals await an unrestricted browser. Seven affected component and privacy tests, TypeScript and strict ESLint passed.
+
+## Phase 3c · Landing page
+
+Added the ten-section landing page, scroll thresholds and static fallbacks, stateless-to-navigation reply excerpt, responsive genuine bento assets and both walkthrough players. Affected tests passed (13) with strict ESLint, TypeScript and a production build. Chrome observed both preview outcomes, released the incident sequence with Read all incidents, and played the candidate clip to 70 seconds with English captions showing. The transcript expanded in the integrated player. Native scrubber seek did not register during the managed run. The isolated Phase 2 player had previously verified seek. A04 stays PARTIAL because the released recording has no audio stream and the full download-failure path remains unverified in the final player.
+
+The candidate poster is the recorded split inbox frame at 12.500 s, 25,908 bytes, wired to the player. The media guard checks that the static page renders no active video source before intent. The production audit found 14 HTML documents and 31 bundles with no external script tags or known tracker markers. Untouched Home network measurement still needs a browser request inspection.

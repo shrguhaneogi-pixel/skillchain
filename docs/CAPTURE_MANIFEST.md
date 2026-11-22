@@ -37,3 +37,23 @@ The finance-first FairHire control put Financial judgement first. The capture ch
 The 40-second silent recording starts at the employer credential and continues through FairHire setup, Finance-first, Financial judgement source, Back to finding and the Request employer demo path. The visible controls used real fictional fixtures. This managed recording used 1,188 viewport frames at 1363 × 936. FFmpeg fitted them into 1920 × 1080, 30 fps. The poster is frame 00:25.000, scaled to 960 × 540. See docs/evidence/phase3/employer-timeline.json and employer-ffprobe.json.
 
 The five existing PNGs are derivatives of JPEG originals. The lossless capture script creates separate files with the same base names under its chosen output directory.
+
+## Adding owner-supplied voiceover
+
+The public candidate MP4 contains only video. Its companion VTT is a captioned walkthrough of a silent recording. Record narration aligned to the actual action timestamps in candidate-timeline.json. Export it as a WAV starting at the first video frame. To re-mux without re-encoding the picture, run from the checkout root:
+
+```sh
+ffmpeg -i public/media/candidate-walkthrough.mp4 -i narration.wav \
+  -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 128k \
+  -af 'apad=whole_dur=70' -t 70 -movflags +faststart candidate-with-voiceover.mp4
+ffprobe -v error -show_entries stream=codec_name,codec_type:format=duration,size candidate-with-voiceover.mp4
+```
+
+For a uniform narration offset, copy timing with a signed offset in seconds. This example shifts all cues 350 ms later:
+
+```sh
+ffmpeg -itsoffset 0.350 -i public/media/candidate-walkthrough.en.vtt \
+  -map 0:s:0 -c:s webvtt -t 70 candidate-voiceover.en.vtt
+```
+
+If phrases drift independently, align each cue to the WAV in a subtitle editor. Set the in point at the first audible word and the out point before the next cue or end of playback. Keep at most two short lines, preserve the timing of visual references, and make sure the final cue ends by 00:01:10.000. Compare the exported VTT and actual narration for a full playback. Replace the public candidate MP4 and VTT only after the 12 MiB size cap, captions, seek and sound controls pass. Update the transcript and the nearby silent notice to match the new recording.
