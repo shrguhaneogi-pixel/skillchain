@@ -1,6 +1,6 @@
 # Browser sign-off
 
-Use a normal Chrome or Firefox window where DevTools is allowed. Serve the production export as described in the README. Repeat the checks against the hosted release before approving publication.
+Use a normal Chrome or Firefox window where DevTools is allowed. Serve the production export as described in the README. Repeat the checks against the hosted release before approving publication. [Ordered release checklist](OWNER_CHECKLIST.md)
 
 ## A06 · Hidden-tab pause
 
@@ -13,7 +13,7 @@ Use a normal Chrome or Firefox window where DevTools is allowed. Serve the produ
 document.addEventListener('visibilitychange', () => console.info(document.visibilityState, performance.now()))
 ```
 
-A normal browser should log hidden and then visible. The managed retest advanced from 45 to 9 seconds with no Resume dialog. The implementation passes the late-event and long-gap cases in a mounted component. The managed browser did not prove whether its tab switch delivered a visibility event.
+A normal browser should log hidden and then visible. The closing managed-Chrome probe recorded only visible states across a tab switch, with no visibilitychange event. It observed the demo running when back in view. This is an environment limitation for that probe. The mounted component passes hidden and delayed transitions, pagehide and freeze, and continues running on ordinary window blur.
 
 ## A07 · Network, URLs and persistence
 

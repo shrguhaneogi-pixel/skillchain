@@ -9,11 +9,11 @@ Use Node 22.18 or newer and npm. From the repository root run `npm ci`, then `np
 ## Check and build
 
     npm run typecheck
-    npm run lint
+    npm run lint -- --max-warnings=0
     npm test
     npm run build
 
-The production export is in `out/`. Serve that directory with a static host that supports directory indexes. For browser tests, build first and start the export in a separate terminal:
+The production export is in `out/`. Serve that directory with a static host that supports directory indexes. Trailing-slash routes map directly to exported files, for example `/skillproof/` serves `out/skillproof/index.html`. Refreshing a deep link must serve that route, not the Home document. A fragment such as `#mailbox` is applied in the browser after its page loads; the host does not receive it. Default to canonical trailing-slash links, and serve the exported 404 with an HTTP 404 for unknown routes. For browser tests, build first and start the export in a separate terminal:
 
     node scripts/dev.mjs --strictPort --host 127.0.0.1 --port 3000
 
@@ -47,6 +47,6 @@ The script opens a fresh browser context for each PNG and records both approved 
 
 ## Vercel deployment
 
-After release sign-off, import the repository in Vercel and select the approved revision. Set the build command to `npm run build` and the output directory to `out` for the Next.js static export. Use the Node version documented above. Keep the contact mailbox unset until the team confirms the recipient. Keep `NEXT_PUBLIC_USE_WORDMARK` false until artwork rights are cleared. Use the draft PR instructions in [PROGRESS.md](docs/PROGRESS.md) for the authorized feature branch.
+After release sign-off, import the repository in Vercel and select the approved revision. Set the build command to `npm run build` and the output directory to `out` for the Next.js static export. Use the Node version documented above. Keep the contact mailbox unset until the team confirms the recipient. Keep `NEXT_PUBLIC_USE_WORDMARK` false until artwork rights are cleared. Leave Vercel Analytics and Speed Insights off. Use the branch publication and deployment steps in [OWNER_CHECKLIST.md](docs/OWNER_CHECKLIST.md).
 
 After deploying, verify all eleven routes and the custom 404, refresh the five bento links and approved queries, run both demo paths, test the confirmed email draft without sending, and test the caption and download paths. Run the release browser checks in [BROWSER_VERIFICATION.md](docs/BROWSER_VERIFICATION.md) before changing the public release status.
