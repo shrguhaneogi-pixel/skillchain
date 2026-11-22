@@ -126,3 +126,29 @@ it.each([0, 1] as const)('runs a full preset path (%s) without transport, storag
   expect(push).not.toHaveBeenCalled()
   expect(forbidden).not.toHaveBeenCalled()
 })
+
+it.each(['pagehide', 'freeze'] as const)('pauses on %s and waits for Resume after returning', event => {
+  begin('Timed practice')
+  tick(1200)
+  const before = container.querySelector('.deskhead')?.textContent
+  const target = event === 'pagehide' ? window : document
+  act(() => target.dispatchEvent(new Event(event)))
+  expect(container.querySelector('dialog[open]')?.textContent).toContain('Resume')
+  tick(100_000)
+  act(() => (event === 'pagehide' ? window : document).dispatchEvent(new Event(event === 'pagehide' ? 'pageshow' : 'resume')))
+  expect(container.querySelector('dialog[open]')?.textContent).toContain('Resume')
+  expect(container.querySelector('.deskhead')?.textContent).toBe(before)
+  click('button', 'Resume')
+  click('label', incidents[0].choices[0])
+  click('button', 'Send reply')
+  expect(container.textContent).toContain(incidents[0].choices[0])
+  expect(container.textContent).not.toContain('Decision window closed')
+})
+
+it('keeps running on ordinary window blur', () => {
+  begin('Timed practice')
+  act(() => window.dispatchEvent(new Event('blur')))
+  tick(1500)
+  expect(container.querySelector('dialog[open]')).toBeNull()
+  expect(container.textContent).toContain('Practice time remaining · 44s')
+})

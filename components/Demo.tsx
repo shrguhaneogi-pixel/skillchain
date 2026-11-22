@@ -42,10 +42,21 @@ export default function Demo({now=clock}:{now?:()=>number}){
   update(next)
  }
  useEffect(()=>{const q=new URLSearchParams(location.search);setPreview(q.get('tool')==='tasks');setUnknown(!!q.get('scenario')&&q.get('scenario')!=='PC-FOUNDATION-01')},[])
- useEffect(()=>{if(run?.phase!=='running')return
+ useEffect(()=>{
+  if(run?.phase!=='running')return
   const tick=()=>{if(ref.current?.phase==='running'&&ref.current.mode==='Timed practice')send({type:'tick'})}
-  const hide=()=>{if(document.hidden&&ref.current?.phase==='running')send({type:'pause'})}
-  const id=setInterval(tick,150);document.addEventListener('visibilitychange',hide);return()=>{clearInterval(id);document.removeEventListener('visibilitychange',hide)}
+  const pause=()=>{if(ref.current?.phase==='running')send({type:'pause'})}
+  const hide=()=>{if(document.hidden)pause()}
+  const id=setInterval(tick,150)
+  document.addEventListener('visibilitychange',hide)
+  document.addEventListener('freeze',pause)
+  window.addEventListener('pagehide',pause)
+  return ()=>{
+   clearInterval(id)
+   document.removeEventListener('visibilitychange',hide)
+   document.removeEventListener('freeze',pause)
+   window.removeEventListener('pagehide',pause)
+  }
  // The injected clock and run references are stable throughout a run.
  // eslint-disable-next-line react-hooks/exhaustive-deps
  },[run?.phase])
