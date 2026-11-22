@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './home-fixture'
 
 const sizes = [[1366, 768], [1440, 900], [1920, 1080], [2560, 1080], [768, 1024], [390, 844]]
 

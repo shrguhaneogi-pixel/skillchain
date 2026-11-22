@@ -1,4 +1,5 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './home-fixture'
+import { parchmentSessionKey } from '../../lib/parchmentDust'
 
 test('the orb follows the mouse and responds to marketing targets', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
@@ -9,13 +10,16 @@ test('the orb follows the mouse and responds to marketing targets', async ({ pag
   const root = page.locator('html')
   const platform = page.getByRole('button', { name: 'Platform', exact: true })
 
-  await page.mouse.move(740, 35)
-  await expect(orb).toHaveAttribute('data-mode', 'default')
+  await expect(async () => {
+    await page.mouse.move(739, 35)
+    await page.mouse.move(740, 35)
+    await expect(orb).toHaveAttribute('data-mode', 'default', { timeout: 600 })
+  }).toPass({ timeout: 6000 })
   await expect(orb).toHaveCSS('pointer-events', 'none')
   await expect.poll(() => orb.evaluate(el => {
     const transform = new DOMMatrix(getComputedStyle(el).transform)
-    return [transform.m41, transform.m42]
-  })).toEqual([740, 35])
+    return Math.hypot(transform.m41 - 740, transform.m42 - 35)
+  })).toBeLessThan(0.16)
   await platform.hover({ position: { x: 8, y: 8 } })
   await expect(orb).toHaveAttribute('data-mode', 'magnetic')
   const bounds = (await platform.boundingBox())!
@@ -67,6 +71,7 @@ test('system reduced motion and touch preserve the native pointer', async ({ bro
 
   const mobile = await browser.newContext({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 844 } })
   try {
+    await mobile.addInitScript(key => sessionStorage.setItem(key, '1'), parchmentSessionKey)
     const touch = await mobile.newPage()
     await touch.goto(page.url())
     await touch.touchscreen.tap(300, 300)

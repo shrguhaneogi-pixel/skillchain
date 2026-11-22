@@ -1,4 +1,4 @@
-import { expect, test, type Locator } from '@playwright/test'
+import { expect, test, type Locator } from './home-fixture'
 
 async function enter(picture: Locator, fraction: number) {
   await picture.evaluate((element, progress) => {

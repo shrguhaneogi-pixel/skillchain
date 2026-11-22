@@ -23,7 +23,7 @@ export default function ScrollVideoHero() {
 
     function update() {
       frame = 0
-      if (!enabled) return
+      if (!enabled || track.closest('[inert]')) return
       const { top, height } = stage.getBoundingClientRect()
       const headerHeight = header?.offsetHeight ?? 0
       if (!height || top + height <= headerHeight || top >= window.innerHeight) return
