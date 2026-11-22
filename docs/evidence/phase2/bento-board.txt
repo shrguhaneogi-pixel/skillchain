@@ -1,0 +1,38 @@
+- link "Skip to content":
+  - /url: "#main"
+- main:
+  - generic: SkillChain
+  - generic: Project Coordinator
+  - generic: Scripted demo · Fictional demo data
+  - generic: Self-paced
+  - button "Pause":
+    - text: Pause
+  - button "Exit demo"
+  - generic: PC-FOUNDATION-01 v1.0 · Banyan Desk Studio
+  - heading "Project Coordinator" [level=1]
+  - status
+  - navigation "Work tools":
+    - button "Inbox":
+      - text: Inbox
+    - button "Tasks" [active] [pressed]:
+      - text: Tasks
+    - button "Calendar":
+      - text: Calendar
+    - button "Budget":
+      - text: Budget
+    - button "History":
+      - text: History
+  - heading "Task board" [level=2]
+  - heading "Waiting" [level=3]
+  - article:
+    - heading "Client update" [level=3]
+    - paragraph: Alex / Waiting
+    - button "View source · Client update"
+  - heading "In progress" [level=3]
+  - article:
+    - heading "Recovery check" [level=3]
+    - paragraph: Rahul / In progress
+    - button "View source · Demo server down"
+    - button "Edit task"
+  - heading "Done" [level=3]
+- alert
