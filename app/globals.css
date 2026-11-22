@@ -108,6 +108,27 @@
 .bento-tile img{height:auto;object-fit:contain}
 .bento-tile figcaption{padding:16px;border-top:1px solid var(--line)}
 .bento-tile h3,.bento-tile p{margin-bottom:8px}
+
+@keyframes bento-open {
+ from { opacity:.12; clip-path:inset(39% 13%); transform:translateY(8px) scale(.98) }
+ to { opacity:1; clip-path:inset(0); transform:none }
+}
+@media (prefers-reduced-motion:no-preference) {
+ @supports (view-timeline-name: --bento-image) and (animation-timeline: --bento-image) and (animation-range: entry 12% entry 82%) {
+  .bento picture { view-timeline:--bento-image block; view-timeline-inset:0 }
+  :root:not([data-reduced-motion="true"]) .bento:not([data-reveal-fallback]) .bento-tile:not(:focus-visible) img {
+   animation:bento-open linear both;
+   animation-timeline:--bento-image;
+   animation-range:entry 12% entry 82%;
+  }
+ }
+ :root:not([data-reduced-motion="true"]) .bento[data-reveal-fallback] .bento-tile:not(:focus-visible) img {
+  --unrevealed:calc(1 - var(--bento-reveal, 1));
+  opacity:calc(1 - var(--unrevealed) * .88);
+  clip-path:inset(calc(var(--unrevealed) * 39%) calc(var(--unrevealed) * 13%));
+  transform:translateY(calc(var(--unrevealed) * 8px)) scale(calc(1 - var(--unrevealed) * .02));
+ }
+}
 .workflow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:decimal inside;margin-bottom:16px}
 .workflow .card{padding:16px}
 .workflow details{border-top:0}

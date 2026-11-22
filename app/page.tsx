@@ -4,13 +4,14 @@ import { AudienceSelector, IncidentDesk, PrivacyDisclosures, ReplyExcerpt } from
 import Estimator from '@/components/Estimator'
 import Walkthrough from '@/components/Walkthrough'
 import ScrollVideoHero from '@/components/ScrollVideoHero'
+import BentoReveals from '@/components/BentoReveals'
 
 const tiles = [
   ['mail', 'Inside the mailbox', 'Read the incident that starts the day.', '/skillproof/#mailbox', 'Rahul asks who owns the demo server recovery check.', 1440, 900],
-  ['board', 'On the task board', 'See who owns the recovery check.', '/demo/?tool=tasks', 'The recovery check is assigned to Rahul and marked In progress.', 1200, 900],
-  ['brief', 'In the role brief', 'See what a coordinator is responsible for.', '/simulations/', 'Foundation brief for the playable Project Coordinator role.', 960, 720],
   ['credential', 'On the credential record', 'Inspect a fictional employer check.', '/trustchain/#credential', 'Sample employer record with a fictional verification status.', 960, 720],
   ['evidence', 'Behind a finding', 'Follow a reviewer’s score back to a reply.', '/fairhire/#report', 'A sample communication finding points to the reply to Alex.', 960, 720],
+  ['brief', 'In the role brief', 'See what a coordinator is responsible for.', '/simulations/', 'Foundation brief for the playable Project Coordinator role.', 960, 720],
+  ['board', 'On the task board', 'See who owns the recovery check.', '/demo/?tool=tasks', 'The recovery check is assigned to Rahul and marked In progress.', 1200, 900],
 ] as const
 
 const workflow = [
@@ -42,10 +43,12 @@ export default function Home() {
     <ReplyExcerpt/>
     <section id="product-screens" className="wrap home-section">
       <h2>Follow the work through five screens.</h2><p>Open a desk, a role brief or a report and inspect the details yourself.</p>
-      <div className="bento">{tiles.map(([name, title, caption, href, alt, width, height]) => {
+      <BentoReveals>{tiles.map(([name, title, caption, href, alt, width, height], index) => {
         const path = '/media/bento/bento-' + name
         const sources = (format: string) => [400, 800, width].map(pixels => `${path}-${pixels}.${format} ${pixels}w`).join(', ')
-        const sizes = '(min-width: 1200px) 42vw, (min-width: 768px) 45vw, 92vw'
+        const desktopSize = index === 0 ? '54vw' : index === 1 ? '38vw' : '30vw'
+        const tabletSize = index === tiles.length - 1 ? '92vw' : '45vw'
+        const sizes = `(min-width: 1200px) ${desktopSize}, (min-width: 768px) ${tabletSize}, 92vw`
         return <a className="bento-tile" href={href} key={name} data-cursor="view"><figure>
           <picture><source type="image/avif" srcSet={sources('avif')} sizes={sizes}/>
             <img src={path+'-400.webp'} srcSet={sources('webp')} sizes={sizes} alt={alt}
@@ -53,7 +56,7 @@ export default function Home() {
           </picture>
           <figcaption><h3>{title}</h3><p>{caption}</p></figcaption>
         </figure></a>
-      })}</div>
+      })}</BentoReveals>
     </section>
     <section id="workflow" className="wrap home-section">
       <h2>From a work sample to a hiring conversation.</h2>
