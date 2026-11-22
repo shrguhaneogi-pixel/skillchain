@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { incidents, reduce, start } from '@/lib/engine'
 
-export function IncidentDesk() {
+export function IncidentDesk({ embedded = false }: { embedded?: boolean }) {
   const stage = useRef<HTMLElement>(null)
   const scene = useRef<HTMLDivElement>(null)
   const [readAll, setReadAll] = useState(false)
@@ -11,7 +11,7 @@ export function IncidentDesk() {
   const [step, setStep] = useState(0)
 
   useEffect(() => {
-    if (!stage.current || !scene.current || readAll) return
+    if (!stage.current || !scene.current || readAll || embedded) return
     const container = stage.current
     const content = scene.current
     const reduced = matchMedia('(prefers-reduced-motion: reduce)')
@@ -44,16 +44,18 @@ export function IncidentDesk() {
       size.removeEventListener('change', schedule)
       window.removeEventListener('scroll', schedule)
     }
-  }, [readAll])
+  }, [readAll, embedded])
 
   return <section ref={stage} id="incident-desk" className="hero-stage" data-sticky={sticky && !readAll} data-step={step}>
     <div className="hero-scene wrap" ref={scene}>
       <header>
-        <p className="kicker">WORKPLACE READINESS, REIMAGINED</p>
-        <h1>Your résumé tells a story. Your decisions prove it.</h1>
+        {embedded ? <h2>Step into the incident desk.</h2> : <>
+          <p className="kicker">WORKPLACE READINESS, REIMAGINED</p>
+          <h1>Your résumé tells a story. Your decisions prove it.</h1>
+        </>}
         <p className="lead">Enter a realistic workplace simulation. Show how you set priorities, keep a client informed and help a team recover when the plan changes.</p>
-        <div className="controlrow"><a className="primary" href="/demo/">Experience a simulation</a>
-          <a className="secondary" href="/skillproof/">Explore SkillProof</a></div>
+        {!embedded && <div className="controlrow"><a className="primary" href="/demo/">Experience a simulation</a>
+          <a className="secondary" href="/skillproof/">Explore SkillProof</a></div>}
       </header>
       <div className="incident-pane">
         <div className="incident-pane-head">PROJECT COORDINATOR / SIMULATION 01 · Scripted preview</div>
