@@ -1,0 +1,13 @@
+/ · 63 unique internal destinations/assets
+/about/ · 21 unique internal destinations/assets
+/contact/ · 22 unique internal destinations/assets
+/demo/ · 18 unique internal destinations/assets
+/fairhire/ · 26 unique internal destinations/assets
+/pricing/ · 26 unique internal destinations/assets
+/privacy/ · 27 unique internal destinations/assets
+/simulations/ · 23 unique internal destinations/assets
+/skillproof/ · 22 unique internal destinations/assets
+/terms/ · 27 unique internal destinations/assets
+/trustchain/ · 23 unique internal destinations/assets
+/404.html · 21 unique internal destinations/assets
+Checked 74 unique HTTP paths, including approved queries, and the 404 response.

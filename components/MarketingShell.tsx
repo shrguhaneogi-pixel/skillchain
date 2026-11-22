@@ -101,7 +101,11 @@ export default function MarketingShell({children}: {children: ReactNode}) {
   </Link>)
 
   return <>
-    <a className="skip" href="#main">Skip to content</a>
+    <a className="skip" href="#main" onClick={() => {
+      const content = document.getElementById('main')
+      content?.setAttribute('tabindex', '-1')
+      content?.focus()
+    }}>Skip to content</a>
     {!demo && <header className="marketing-header">
       <div className="masthead wrap"><Wordmark/>
         <nav className="desktop-nav" aria-label="Main navigation">

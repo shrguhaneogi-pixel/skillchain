@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Inside the mailbox",
+    "url": "http://127.0.0.1:4173/skillproof/#mailbox",
+    "fixture": "Demo server down"
+  },
+  {
+    "title": "On the task board",
+    "url": "http://127.0.0.1:4173/demo/?tool=tasks",
+    "fixture": "Starting board"
+  },
+  {
+    "title": "In the role brief",
+    "url": "http://127.0.0.1:4173/simulations/",
+    "fixture": "Start this simulation"
+  },
+  {
+    "title": "On the credential record",
+    "url": "http://127.0.0.1:4173/trustchain/#credential",
+    "fixture": "DEMO-ORG-04"
+  },
+  {
+    "title": "Behind a finding",
+    "url": "http://127.0.0.1:4173/fairhire/#report",
+    "fixture": "Candidate C-017"
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "path": "/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Your résumé tells a story. Your decisions prove it.",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "home-390x844.jpg"
+  },
+  {
+    "path": "/about/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "A first job asks for experience. Where can you show it?",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "about-390x844.jpg"
+  },
+  {
+    "path": "/contact/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Bring us a role your team hires for.",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "contact-390x844.jpg"
+  },
+  {
+    "path": "/demo/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "You’re the Project Coordinator.",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "demo-390x844.jpg"
+  },
+  {
+    "path": "/fairhire/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Read the decision behind the score.",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "fairhire-390x844.jpg"
+  },
+  {
+    "path": "/pricing/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Employers fund assessments. Candidates participate for free.",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "pricing-390x844.jpg"
+  },
+  {
+    "path": "/privacy/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "How your information is used",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "privacy-390x844.jpg"
+  },
+  {
+    "path": "/simulations/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Choose a working day.",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "simulations-390x844.jpg"
+  },
+  {
+    "path": "/skillproof/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "What would you do with twenty minutes?",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "skillproof-390x844.jpg"
+  },
+  {
+    "path": "/terms/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Terms of use",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "terms-390x844.jpg"
+  },
+  {
+    "path": "/trustchain/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Who stands behind this work sample?",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "trustchain-390x844.jpg"
+  },
+  {
+    "path": "/skillchain-unknown-route/",
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 375,
+    "scale": 1,
+    "h1": "Page not found",
+    "displayMedia": 0,
+    "axe": {
+      "version": "4.14.1",
+      "violations": []
+    },
+    "screenshot": "skillchain-unknown-route-390x844.jpg"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "w": 1440,
+    "h": 900,
+    "sections": [
+      "incident-desk",
+      "gap",
+      "preview",
+      "product-screens",
+      "workflow",
+      "walkthroughs",
+      "audiences",
+      "funding",
+      "privacy-overview",
+      "invitation"
+    ],
+    "position": {
+      "bottom": 627.671875,
+      "viewport": 900
+    }
+  },
+  {
+    "w": 834,
+    "h": 1112,
+    "sections": [
+      "incident-desk",
+      "gap",
+      "preview",
+      "product-screens",
+      "workflow",
+      "walkthroughs",
+      "audiences",
+      "funding",
+      "privacy-overview",
+      "invitation"
+    ],
+    "position": {
+      "bottom": 525.796875,
+      "viewport": 1112
+    }
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "sections": [
+      "incident-desk",
+      "gap",
+      "preview",
+      "product-screens",
+      "workflow",
+      "walkthroughs",
+      "audiences",
+      "funding",
+      "privacy-overview",
+      "invitation"
+    ],
+    "position": {
+      "bottom": 425.65625,
+      "viewport": 844
+    }
+  }
+]

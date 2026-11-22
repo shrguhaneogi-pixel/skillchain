@@ -1,54 +1,47 @@
-# SkillChain acceptance report
+# SkillChain Phase 3 acceptance
 
-22 November 2026. Gate 1 is **PARTIAL** and the owner approved Phase 2. Gate 2 is **PARTIAL**. Live observations came from the managed desktop Chrome preview of the production export. Candidate and reviewer captures were repeated on application revision 1060164. The earlier timed journey and direct employer report were observed on the recovered implementation (7b29268). All three incidents use PC-FOUNDATION-01 v1.0.
+22 November 2026. This report covers the local production export and the final feature branch. Phase 3 implementation is complete. Release sign-off remains open.
 
-| ID | Status | Evidence or outstanding work |
+## A01–A14
+
+| ID | Status | Observed result and evidence |
 |---|---|---|
-| A01 Landing | Blocked | Phase 3 awaits prior gates. |
-| A02 Scroll | Blocked | Phase 3 awaits prior gates. |
-| A03 Bento | Partial | Five genuine JPEG captures with exact-size PNG derivatives and WebP/AVIF variants passed visual review and byte checks. True lossless originals are pending. Four destinations worked on reload. The /skillproof#mailbox route returns 404 until Phase 3, and the public tile crawl remains pending. |
-| A04 Video | Media QA passed, public integration pending | Candidate MP4 is 70 s, 1920 × 1080 at 30 fps, with silent AAC. Chrome test player played to the end, sought to 35 s, toggled mute, displayed English captions, opened the transcript and returned HTTP 404 for the deliberately missing download. Source frames were 1362 × 766. The employer closing link and public player are pending. |
-| A05 Branches | Pass | resume-unit.log lists 27 decision combinations. managed/reviewer-A and reviewer-B (.txt and .jpg) show the two real UI runs, exact client message, selected reply, consequence, task and resulting scores. |
-| A06 Timing | Blocked on complete evidence | Unit checks passed at 44.999/45, 84.999/85 and 124.999/125 seconds. In Chrome, paused and resumed the desk, changed Rahul’s task to Alex, saw the original owner retained, let D2/D3 expire, restarted and reloaded to a fresh briefing. See managed/paused-after-edit and timed-expiry. Opening a second managed tab did not trigger an observable pause. A genuine hidden-document transition and a passing Playwright timing trace remain outstanding. |
-| A07 Audience boundary | Blocked on complete evidence | managed/candidate-A, candidate-B, reviewer-A, reviewer-B and fairhire-direct show separate candidate/reviewer output and the independent employer fixture. Unit renderer check passed. No passing transport/storage inspection from standalone Playwright. |
-| A08 Navigation | Blocked | Four Phase 1 routes built. Full public route crawl pending. |
-| A09 Pricing | Blocked | Phase 3. |
-| A10 Contact | Blocked | Phase 3. |
-| A11 Legal and trust | Blocked | Credential viewer implemented. Draft policies and full network audit pending. |
-| A12 Accessibility | Blocked | Candidate trees inspected. Cross-route automated, responsive, keyboard and human screen-reader checks pending. |
-| A13 Performance | Blocked | Production lab and field metrics pending. |
-| A14 Release | Blocked | Production export and typecheck succeeded. Full browser suite, media, public routes and deployment smoke tests pending. |
-
-Paths above are relative to docs/evidence/. The Chrome screenshots are actual browser captures. The text files are snapshots of the rendered accessibility structure. System time and per-test timings can differ between the managed browser and terminal.
-
-## Checks and local browser limitations
-
-- npm run typecheck succeeded. npm run lint returned zero errors and three warnings (internal navigation, two config exports). npm test passed 32/32. Production build produced the four requested Phase 1 routes. Exact output is in resume-typecheck.log, resume-lint.log, resume-unit.log and resume-build.log.
-- The system Chromium Playwright invocation included --no-sandbox, --disable-dev-shm-usage and --remote-debugging-pipe. It stopped before opening a page with “socket() failed: Operation not permitted (1)”. See resume-system-chromium.log. The earlier standalone attempt is preserved in gate1-browser.log.
-- Installing Playwright’s matching Chromium headless shell failed with HTTP 403. Firefox and WebKit launch checks found no installed browser. See resume-browser-install.log and resume-other-engines.log. Failed browser launches are excluded from UI acceptance evidence.
-- The preview supports real UI actions and screenshots. This run obtained no browser request trace proving the absence of transmitted run data. The pending assertions live in tests/e2e/gate1.spec.ts.
+| A01 Landing | PASSED | Ten sections in order at CSS widths 1440, 834 and 390. Primary CTA within the first viewport at all three sizes. Both preview choices applied the matching owner/status. [Viewport observations](evidence/phase3/a01-first-cta.json) · [Replies](evidence/phase3/3c-home.json) |
+| A02 Scroll | PARTIAL | Forward step 0→2, reverse 2→0, Rahul row held within 1 px. Read all incidents released the sticky area, and the footer override persisted across route navigation with Alex visible. OS preference and throttled interaction trace remain pending. [Thresholds](evidence/phase3/hero-final.json) · [Override](evidence/phase3/reduced-and-console.json) |
+| A03 Bento | PASSED | Five live-state images served from responsive WebP/AVIF. Followed all public tiles, reloaded and checked the intended fixture. Native lossless originals remain tracked under the approved partial Gate 2. [Public tile paths](evidence/phase3/a03-public-gallery.json) · [Capture manifest](CAPTURE_MANIFEST.md) |
+| A04 Video | PARTIAL | Actual Home player reached 70 s, showed English captions and expanded the transcript. Both recorded posters meet the byte cap. Native seek and failed download in the final player remain unverified. Sound-control acceptance cannot be completed on a video-only recording. [Home playback](evidence/phase3/3c-player.json) · [Candidate streams](evidence/phase3/candidate-ffprobe.json) · [Employer streams](evidence/phase3/employer-ffprobe.json) |
+| A05 Branches | PASSED | All 27 engine combinations passed and Chrome completed A/A/A and B/B/B. The client communication finding showed the exact submitted reply. [A run](evidence/phase3/practice-0.json) · [B run](evidence/phase3/practice-1.json) · [Fixture tests](../tests/engine.test.ts) |
+| A06 Hidden-tab timing | OPEN | The old component advanced through a deadline on a late visibility event. Mounted tests passed after the fix, including fallback pause on an abnormal gap. Managed Chrome's native tab switch advanced from 45 to 9 seconds and showed no Resume. Normal-browser hidden/visible lifecycle remains a manual release check. [Original regression](evidence/phase3/a06-before.log) · [Retest](evidence/phase3/a06-return.json) · [Component cases](../tests/demo.test.tsx) |
+| A07 Audience and data | OPEN | Both live feedback views excluded scores and grades. The reviewer and independent C-017 behaved as specified. The lint guard, mounted throw-stubbed sessions, href assertions and output audit passed. DevTools restrictions left browser transmission and persistence open and release-blocking. [Live paths](evidence/phase3/practice-0.json) · [Code-level tests](../tests/demo.test.tsx) · [Export audit](evidence/phase3/export-audit.txt) |
+| A08 Navigation | PASSED | 74 internal HTTP targets and the unknown-route response passed. Keyboard disclosure, Escape, skip target, heading focus, mobile modal and browser Back were observed. [Crawl](evidence/phase3/link-crawl.txt) · [Menu and keyboard](evidence/phase3/keyboard.json) · [Route focus](evidence/phase3/route-focus.json) |
+| A09 Estimator | PASSED | All required valid and invalid examples, reset, credit-only output and prefilled counts passed. [Estimator run](evidence/phase3/pricing-contact.json) · [Prefill](evidence/phase3/keyboard.json) |
+| A10 Contact | PARTIAL | Chrome focused the error summary, reviewed special characters, confirmed the missing-recipient copy and downloaded a request. Encoding passed at code level. Clipboard failure and a live confirmed mailbox/local mail handler are outstanding. [Request run](evidence/phase3/pricing-contact.json) · [Draft encoding tests](../tests/requests.test.ts) |
+| A11 Policies and credential | PARTIAL | Reviewed linked draft notices and all three labelled synthetic credential states. Browser-level request audit and owner legal review remain pending. [Trust viewer states](evidence/phase3/trust-fixtures.json) · [Policy and anchor crawl](evidence/phase3/link-crawl.txt) |
+| A12 Accessibility | PARTIAL | Axe 4.14.1 found no serious or critical violations across the desktop and 390 CSS-px scans after the media label fix. Fixed a moderate duplicate catalogue landmark after the scan. All 48 route/viewport combinations reported no horizontal overflow. Keyboard evidence is recorded. Native screenshot resolution, 400% zoom and assistive-technology journeys remain open. [Desktop axe](evidence/phase3/viewports-1440.json) · [Phone axe](evidence/phase3/viewports-390.json) · [Screenshots](evidence/phase3/viewports/) |
+| A13 Performance | PARTIAL | Three unthrottled managed Chrome baseline runs on Home, Demo and FairHire. Home recorded zero MP4 resource entries. Build gzip estimates met modern JS, initial asset, poster and video limits. Cold throttled browser runs and a hosted waterfall remain open. Field INP is pending traffic. [Baseline](evidence/phase3/lab-final.json) · [Byte estimates](evidence/phase3/transfer-budgets.txt) |
+| A14 Release | BLOCKED | Production static export, TypeScript, strict ESLint and 52 tests passed. Standalone Chromium failed to launch and the hosted preview was outside the approved release scope. [Build log](evidence/phase3/build.log) · [Browser blocker](evidence/phase3/standalone-playwright.log) · [Browser sign-off](BROWSER_VERIFICATION.md) |
 
 ## Open verification items
 
-| Item | Status | Must be closed before |
+| Item | Status | Closes by |
 |---|---|---|
-| A06 automatic pause on tab hidden, then manual resume | **OPEN.** In managed Chrome, started a timed run, pressed Ctrl+Page Up, confirmed the adjacent tab was foregrounded, then returned with Ctrl+Page Down. The timer went from 45 to 37 seconds and no Resume dialog appeared. The browser did not expose its visibility lifecycle to the test. The result did not establish automatic pause. | Phase 3 sign-off |
-| A07 run data in network payloads, URLs, localStorage, sessionStorage, IndexedDB and cookies | **BLOCKED** for a complete inspection. The managed browser blocked DevTools. The managed evaluation surface returned undefined for storage access. Before/after URLs for observed A/A/A and B/B/B stayed on /demo/ without query or fragment data. Network payloads, browser storage and cookies remain unverified. | Phase 3 sign-off, release-blocking |
-| A07 no candidate score or grade in DOM or accessibility tree | **VERIFIED** for both live A/A/A and B/B/B candidate result views. The rendered main content and native accessibility tree contain Strengths and Areas to practise. A negative text assertion on both saved observations found no scores, grades, ranks or percentiles. Direct FairHire showed C-017 when refreshed. | Closed for these scenarios |
-| Standalone Playwright and tests/e2e | **BLOCKED.** The local Chromium retry failed at socket creation. The matching browser install previously returned HTTP 403. | Managed Chrome evidence may substitute where it covers the same check |
+| A06 hidden-tab pause | OPEN · code-level verified | Observe hidden, return, manual Resume and one decision in a normal browser. |
+| A07 browser-level transmission and storage proof | OPEN · release-blocking | Run the owner Network, URL, Application and Cookies checks. |
+| Lossless PNG originals for the five bento captures | OPEN | Run scripts/capture-media.ts locally and verify native capture framing. |
+| Candidate film voiceover | OWNER ACTION | Record and re-mux per CAPTURE_MANIFEST.md, then verify audible controls. |
+| Employer walkthrough | RECORDED | Finance-first and source path passed. Silent 40 s film and poster are wired to Home. |
+| /skillproof#mailbox bento destination | VERIFIED | Five public tiles followed and refreshed in Chrome. |
+| Candidate poster | VERIFIED | Real frame at 12.500 s, 25.3 KiB, wired to the Home player. |
+| Candidate source frames 1362 × 766 | DISCLOSED | Re-record at native 1920 × 1080 with the capture script. |
+| GitHub push and draft PR | OWNER ACTION | Use the feature-branch commands in PROGRESS.md. |
+| Screen-reader journeys, artwork rights, contact mailbox/operator details, legal review | OWNER ACTION | Complete browser sign-off and owner review before release. Text masthead is the interim asset. |
+| Standalone Playwright, full-resolution screenshot run and prescribed lab profile | BLOCKED | Run on a local browser with Chromium launch and DevTools access. |
+| Field metrics | PENDING | Measure after traffic is available. |
 
+## Lab and screenshot conditions
 
-### Manual browser checks
+Managed Chrome rendered all eleven public routes and the 404 at 1440×900, 834×1112, 390×844 and 320×640 CSS pixels inside a temporary same-origin frame. Evidence JPEGs use the managed browser output. Desktop and tablet images were scaled to fit its 1363×936 capture surface. They document actual responsive rendering at the stated CSS layout sizes. The named output width is the layout width.
 
-1. Open the production export at /demo/ in a fresh private Chrome or Firefox window. Start Timed practice, note the remaining time, switch to another tab for at least 50 seconds and return. Expect “Simulation paused” and a stable countdown until you explicitly select Resume. Record the elapsed wall time, countdown before and after, and the dialog.
-2. In a browser that permits DevTools on the production origin, open Network with Preserve log, and note the Application panel entries for local storage, session storage, IndexedDB and cookies before starting. Clear the Network table once static assets have finished loading. Run each scenario through candidate feedback, reviewer view and a source link. Inspect all requests, including Fetch/XHR, beacons and WebSocket messages. Check method, URL, query, request payload and cookies. Compare all Application panel entries and the address bar after each run. Verify there were no run-derived network or storage changes. Repeat on the final hosted origin before sign-off.
+The 390×844 lab frame recorded median LCP of 44 ms for Home, 96 ms for Demo and 52 ms for FairHire. Home's accumulated layout-shift values fell from about 0.600 to 0.006 after reserving the body margin at first paint. Demo was about 0.022 and FairHire about 0.019. The post-DOMContentLoaded long-task blocking proxy was zero in these short runs. It is not Lighthouse TBT. The runs used an unthrottled managed environment. They do not establish the specified network/CPU profile or field performance.
 
-
-## Phase 2 evidence
-
-Files are in `docs/evidence/phase2/`. Run the isolated player QA by copying `player-qa.html` to `out/media-qa/index.html` after a build and serving the production export. It tests the media and failure path before building the public player.
-
-- `a03-deep-links.json` records the four available intended destinations and their selected states after reload.
-- `a04-player.json` records the completed playback, cue at 35 seconds, mute changes, loaded transcript and failed-download result.
-- `candidate-timeline.json`, `candidate-ffprobe.json` and `media-checks.log` record actual operator actions, stream metadata, validated sizes and English cue bounds.
-- The fixture suite returned 34/34. TypeScript and strict ESLint passed. See `docs/evidence/phase2-*.log`.
+Console sampling showed managed browser extension errors rather than app-origin errors. The HTTP crawl checked static assets. Full standalone page-error, tracing and playback-interception runs are still blocked by the socket failure.

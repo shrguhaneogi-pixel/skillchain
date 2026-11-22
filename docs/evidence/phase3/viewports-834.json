@@ -1,0 +1,122 @@
+[
+  {
+    "path": "/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Your résumé tells a story. Your decisions prove it.",
+    "displayMedia": 0,
+    "screenshot": "home-834x1112.jpg"
+  },
+  {
+    "path": "/about/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 834,
+    "scale": 0.84,
+    "h1": "A first job asks for experience. Where can you show it?",
+    "displayMedia": 0,
+    "screenshot": "about-834x1112.jpg"
+  },
+  {
+    "path": "/contact/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Bring us a role your team hires for.",
+    "displayMedia": 0,
+    "screenshot": "contact-834x1112.jpg"
+  },
+  {
+    "path": "/demo/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 834,
+    "scale": 0.84,
+    "h1": "You’re the Project Coordinator.",
+    "displayMedia": 0,
+    "screenshot": "demo-834x1112.jpg"
+  },
+  {
+    "path": "/fairhire/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Read the decision behind the score.",
+    "displayMedia": 0,
+    "screenshot": "fairhire-834x1112.jpg"
+  },
+  {
+    "path": "/pricing/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Employers fund assessments. Candidates participate for free.",
+    "displayMedia": 0,
+    "screenshot": "pricing-834x1112.jpg"
+  },
+  {
+    "path": "/privacy/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "How your information is used",
+    "displayMedia": 0,
+    "screenshot": "privacy-834x1112.jpg"
+  },
+  {
+    "path": "/simulations/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Choose a working day.",
+    "displayMedia": 0,
+    "screenshot": "simulations-834x1112.jpg"
+  },
+  {
+    "path": "/skillproof/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "What would you do with twenty minutes?",
+    "displayMedia": 0,
+    "screenshot": "skillproof-834x1112.jpg"
+  },
+  {
+    "path": "/terms/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Terms of use",
+    "displayMedia": 0,
+    "screenshot": "terms-834x1112.jpg"
+  },
+  {
+    "path": "/trustchain/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 819,
+    "scale": 0.84,
+    "h1": "Who stands behind this work sample?",
+    "displayMedia": 0,
+    "screenshot": "trustchain-834x1112.jpg"
+  },
+  {
+    "path": "/skillchain-unknown-route/",
+    "width": 834,
+    "height": 1112,
+    "scrollWidth": 834,
+    "scale": 0.84,
+    "h1": "Page not found",
+    "displayMedia": 0,
+    "screenshot": "skillchain-unknown-route-834x1112.jpg"
+  }
+]

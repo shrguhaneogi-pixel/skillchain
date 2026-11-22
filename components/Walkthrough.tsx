@@ -24,7 +24,7 @@ export default function Walkthrough({ name, title, lead, transcript, fallback, a
     <p id={name+'-video-note'}>This clip is silent and captioned.</p>
     <div className="film-frame">
       {!requested
-        ? <button className="video-activate" aria-label={'Play ' + title} type="button" onClick={() => request(true)}>
+        ? <button className="video-activate" aria-label={'Play walkthrough: ' + title} type="button" onClick={() => request(true)}>
           <img src={path+'-poster.webp'} alt="" width="960" height="540" loading="lazy"/>
           <span>Play walkthrough</span>
         </button>

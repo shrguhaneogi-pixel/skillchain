@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Employer",
+    "state": "Fictional demo data · TrustChain\nBanyan Desk Studio\nRecord\nDEMO-ORG-04\nSubject\nBanyan Desk Studio\nSource\nExample employer register\nStatus\nVerified · fictional example\nHistory\nRequest opened → Sample reviewed → Example status issued.\nReference details\n\nDEMO-ORG-04 · Network: none · Registry write: none\n\nNo external lookup runs in this viewer."
+  },
+  {
+    "label": "Candidate",
+    "state": "Fictional demo data · TrustChain\nCandidate C-017\nRecord\nDEMO-PER-08\nSubject\nCandidate C-017\nSource\nExample identity review\nStatus\nPending · fictional example\nHistory\nRequest opened → Awaiting sample review.\nReference details\n\nDEMO-PER-08 · Network: none · Registry write: none\n\nNo external lookup runs in this viewer."
+  },
+  {
+    "label": "Qualification",
+    "state": "Fictional demo data · TrustChain\nCourse record Q-02\nRecord\nDEMO-EDU-02\nSubject\nCourse record Q-02\nSource\nOptional course evidence\nStatus\nNot requested · fictional example\nHistory\nOptional check skipped.\nReference details\n\nDEMO-EDU-02 · Network: none · Registry write: none\n\nNo external lookup runs in this viewer."
+  }
+]

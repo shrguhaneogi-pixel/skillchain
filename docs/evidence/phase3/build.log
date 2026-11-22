@@ -1,0 +1,37 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> skillchain@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config.mjs took 29ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.6s
+  Running TypeScript ...
+  Finished TypeScript in 2.3s ...
+  Collecting page data using 8 workers ...
+  Generating static pages using 8 workers (0/13) ...
+  Generating static pages using 8 workers (3/13)
+  Generating static pages using 8 workers (6/13)
+  Generating static pages using 8 workers (9/13)
+✓ Generating static pages using 8 workers (13/13) in 529ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /contact
+├ ○ /demo
+├ ○ /fairhire
+├ ○ /pricing
+├ ○ /privacy
+├ ○ /simulations
+├ ○ /skillproof
+├ ○ /terms
+└ ○ /trustchain
+
+
+○  (Static)  prerendered as static content

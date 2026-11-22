@@ -1,0 +1,6 @@
+Build estimate with gzip level 6. Modern Chrome skips nomodule scripts. The estimate counts both self-hosted web fonts. No hosted waterfall.
+/            modern initial JS 142.7 KiB ≤ 150 KiB (True); includes fallback separately 38.5 KiB; modern CSS/HTML/JS/fonts 206.9 KiB ≤ 350 KiB (True)
+/demo/       modern initial JS 146.2 KiB ≤ 200 KiB (True); includes fallback separately 38.5 KiB; modern CSS/HTML/JS/fonts 204.8 KiB ≤ 350 KiB (True)
+/fairhire/   modern initial JS 141.5 KiB ≤ 150 KiB (True); includes fallback separately 38.5 KiB; modern CSS/HTML/JS/fonts 200.8 KiB ≤ 350 KiB (True)
+candidate  MP4 1.79 MiB ≤ 12 MiB (True); poster 25.3 KiB ≤ 90 KiB (True)
+employer   MP4 0.81 MiB ≤ 7 MiB (True); poster 26.8 KiB ≤ 90 KiB (True)
