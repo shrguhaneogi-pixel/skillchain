@@ -4,7 +4,7 @@ const sections: PolicySection[] = [
   [
     "public-demo",
     "Public demo",
-    "The exercise uses fictional people and preset replies. Your browser holds the choices, task changes and evidence for the current run in memory. Exit and clear the run, or reload the page, to remove it. The example report on FairHire is a separate fictional sample. The demo has no recruiter submission action."
+    "The exercise uses fictional people and preset replies. Your browser holds the choices, task changes and evidence for the current run in memory. Exit and clear the run, or reload the page, to remove it. The example report on FairHire is a separate fictional sample. Your run is not sent to a recruiter."
   ],
   [
     "what-the-workspace-records",

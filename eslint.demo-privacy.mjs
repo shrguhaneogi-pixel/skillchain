@@ -9,7 +9,7 @@ const memberRestrictions = restricted.flatMap(name => [
 ])
 
 export const demoPrivacy = {
-  files: ['app/demo/**/*.tsx', 'components/{Demo,Report,DemoFooter,Mailbox}.tsx', 'lib/{engine,practice-clock}.ts'],
+  files: ['app/demo/**/*.tsx', 'components/{Demo,Report,DemoFooter,Mailbox,Products}.tsx', 'lib/{engine,practice-clock}.ts'],
   rules: {
     'no-restricted-globals': ['error', ...restricted],
     'no-restricted-syntax': ['error', ...memberRestrictions],
