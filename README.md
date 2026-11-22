@@ -25,3 +25,21 @@ In the first terminal run:
 The test runner accepts PLAYWRIGHT_BASE_URL and PLAYWRIGHT_CHROMIUM_EXECUTABLE. See .env.example for build-time settings. The Phase 1 demo requires no secrets, accounts or external services. Refreshing clears the practice run.
 
 The handoff from the original main branch is archived in docs/ORIGINAL_README.md. See docs/PROGRESS.md for observed results and release gates.
+
+## Re-record the media at native resolution
+
+Install Chromium for Playwright and install FFmpeg with H.264 support. Build the site, then serve the production export in a separate terminal.
+
+```sh
+npx playwright install chromium
+npm run build
+node scripts/dev.mjs --strictPort --host 127.0.0.1 --port 3000
+```
+
+Run this in another terminal from the checkout using Node 22.18 or newer.
+
+```sh
+node scripts/capture-media.ts test-results/media
+```
+
+The script opens a fresh browser context for each PNG and records both approved shot lists at a native 1920 × 1080 viewport. It writes results to the designated directory. It leaves the current public files in place. Review the framing and role labels and compare the actual timing JSON with the cue and transcript text before replacing media. The existing responsive images are derived from managed Chrome JPEG captures. See [the capture manifest](docs/CAPTURE_MANIFEST.md).

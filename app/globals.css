@@ -61,3 +61,17 @@
  .mobile-nav{gap:8px}
  .mobile-nav a,.mobile-nav button{padding-inline:8px}
 }
+
+.mail-preview-row{display:grid;padding:8px 12px;margin-bottom:7px;border:1px solid var(--line);background:var(--work)}
+.tool-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tool-tabs [aria-selected="true"]{box-shadow:inset 3px 0 var(--red);background:var(--paper)}
+.tool-tabs + [role="tabpanel"]{border:1px solid var(--line);background:white}
+.architecture{list-style:decimal inside}
+.architecture li{padding:10px 0;border-top:1px solid var(--line)}
+.catalog-selectors{display:none}
+@media(max-width:767px){
+ .catalog-selectors{display:grid;gap:12px}
+ .catalog aside{display:none}
+ .tool-tabs{display:grid;grid-template-columns:1fr 1fr}
+ .tool-tabs button{padding-inline:8px}
+}

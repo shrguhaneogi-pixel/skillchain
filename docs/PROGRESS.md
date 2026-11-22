@@ -59,3 +59,7 @@ Completed the sticky marketing header, disclosure, mobile menu, footer, motion o
 Phase 2 revision 77f35c2 was archived and verified before implementation. Work continues on the local feature branch. GitHub publication and the draft PR are owner actions using the commands above.
 
 A06 reproduced as a code defect with a late visibility event and a separate long scheduling gap. The original component advanced through deadlines before pausing. With the revised clock, the hidden interval preserves the last elapsed timestamp and the first deadline still accepts the run at 44.999 seconds exactly. A07 static lint guard and two mounted full runs with forbidden browser APIs throw-stubbed passed. Real browser checks remain separate. TypeScript, strict ESLint and 48 affected tests passed.
+
+## Phase 3b · Product routes
+
+Added SkillProof's shared fixture mailbox, keyboard-operable tool tour, role library and labelled proposed architecture. Added the closing employer request link and mobile catalogue controls. Managed Chrome verified all five approved destinations on reload, the Finance-first ordering, exact finance source, restored focus and the request link. Recorded the 40-second employer film from the working site with a real frame for the poster and synchronized captions. The local Playwright capture script is documented in the README. Native-resolution recordings and lossless PNG originals await an unrestricted browser. Seven affected component and privacy tests, TypeScript and strict ESLint passed.

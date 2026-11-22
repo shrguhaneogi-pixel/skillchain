@@ -31,3 +31,9 @@ The following pixel rectangles use `left, top, right, bottom` on the captured vi
 The poster is the real film frame at 00:12.500, scaled to 960 × 540 and encoded as WebP. Rahul is selected and Alex is unread. Human narration is an owner action.
 
 The finance-first FairHire control put Financial judgement first. The capture check also required the closing employer-demo link in the approved shot sheet. It was absent from the current Phase 1 workspace, so the employer film and its public tile are deferred.
+
+## Phase 3 employer walkthrough
+
+The 40-second silent recording starts at the employer credential and continues through FairHire setup, Finance-first, Financial judgement source, Back to finding and the Request employer demo path. The visible controls used real fictional fixtures. This managed recording used 1,188 viewport frames at 1363 × 936. FFmpeg fitted them into 1920 × 1080, 30 fps. The poster is frame 00:25.000, scaled to 960 × 540. See docs/evidence/phase3/employer-timeline.json and employer-ffprobe.json.
+
+The five existing PNGs are derivatives of JPEG originals. The lossless capture script creates separate files with the same base names under its chosen output directory.
