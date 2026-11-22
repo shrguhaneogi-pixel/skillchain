@@ -27,3 +27,11 @@ Paths above are relative to docs/evidence/. The Chrome screenshots are actual br
 - The system Chromium Playwright invocation included --no-sandbox, --disable-dev-shm-usage and --remote-debugging-pipe. It stopped before opening a page with “socket() failed: Operation not permitted (1)”. See resume-system-chromium.log. The earlier standalone attempt is preserved in gate1-browser.log.
 - Installing Playwright’s matching Chromium headless shell failed with HTTP 403. Firefox and WebKit launch checks found no installed browser. See resume-browser-install.log and resume-other-engines.log. Failed browser launches are excluded from UI acceptance evidence.
 - The preview supports real UI actions and screenshots. This run obtained no browser request trace proving the absence of transmitted run data. The pending assertions live in tests/e2e/gate1.spec.ts.
+## Open verification items
+
+| Item | Status | Must be closed before |
+|---|---|---|
+| A06 automatic pause on tab hidden, then manual resume | OPEN | Phase 3 sign-off |
+| A07 run data in network payloads, URLs, localStorage, sessionStorage, IndexedDB and cookies | OPEN | Phase 3 sign-off, release-blocking |
+| A07 no candidate score or grade in the DOM or accessibility tree | A/A/A and B/B/B observed through the managed Chrome tree during Gate 1. Standalone assertions were authored and remain unrun. | Phase 3 sign-off |
+| Standalone Playwright and tests/e2e | BLOCKED in Gate 1 by the socket denial and matching browser download HTTP 403 | Managed Chrome evidence may substitute |

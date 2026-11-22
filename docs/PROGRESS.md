@@ -13,3 +13,16 @@ A05 passed with the 27-path matrix and both real UI paths. A06 and A07 have real
 The source and QA evidence are committed locally on the existing feature branch. Automatic approval review rejected the push to github.com/shrguhaneogi-pixel/skillchain because explicit authorization for that destination and branch publication was missing. Opening a PR depends on an authorized push.
 
 Owner decisions still needed before release include artwork rights, monitored contact mailbox and operator details, legal review of the shipped data flow, human voiceover and screen-reader journeys.
+
+## Phase 2 · 22 November 2026
+
+The owner approved media capture on a partial Gate 1. Fixed the three ESLint warnings and added two server-render regression assertions for the practice and direct FairHire headings. ESLint with a zero-warning threshold and both regression checks passed.
+
+## Open verification items
+
+| Item | Status | Must be closed before |
+|---|---|---|
+| A06 automatic pause on tab hidden, then manual resume | OPEN | Phase 3 sign-off |
+| A07 run data in network payloads, URLs, localStorage, sessionStorage, IndexedDB and cookies | OPEN | Phase 3 sign-off, release-blocking |
+| A07 no candidate score or grade in the DOM or accessibility tree | A/A/A and B/B/B observed through the managed Chrome tree during Gate 1. Standalone assertions were authored and remain unrun. | Phase 3 sign-off |
+| Standalone Playwright and tests/e2e | BLOCKED in Gate 1 by the socket denial and matching browser download HTTP 403 | Managed Chrome evidence may substitute |
