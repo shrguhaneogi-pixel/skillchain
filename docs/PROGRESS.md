@@ -44,7 +44,7 @@ gh auth login --hostname github.com --git-protocol https --web
 gh auth setup-git --hostname github.com
 git push -u origin refs/heads/build/skillchain-workplace-demo:refs/heads/build/skillchain-workplace-demo
 gh pr create --repo shrguhaneogi-pixel/skillchain --head build/skillchain-workplace-demo --base main --draft --title 'SkillChain workplace demo and Phase 2 media' --body-file - <<'PR'
-[Acceptance report](docs/TEST_REPORT.md) · [Progress log](docs/PROGRESS.md)
+[Acceptance report](https://github.com/shrguhaneogi-pixel/skillchain/blob/build/skillchain-workplace-demo/docs/TEST_REPORT.md) · [Progress log](https://github.com/shrguhaneogi-pixel/skillchain/blob/build/skillchain-workplace-demo/docs/PROGRESS.md)
 
 Phase 2 includes the real candidate walkthrough and five captured fixture states.
 
