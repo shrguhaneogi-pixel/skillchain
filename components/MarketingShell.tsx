@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import Shield from './Shield'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 const products = [
@@ -13,10 +14,10 @@ const mainLinks = [['/simulations/', 'Simulations'], ['/pricing/', 'Pricing'], [
 let motionOverride = false
 
 function Wordmark() {
-  return <Link href="/" prefetch={false} className="wordmark" aria-label="SkillChain Home">
+  return <Link href="/" prefetch={false} className="wordmark brand-lockup" aria-label="SkillChain Home">
     {process.env.NEXT_PUBLIC_USE_WORDMARK === 'true'
       ? <img src="/brand/template-wordmark.png" alt="SkillChain" width="132" height="38"/>
-      : 'SkillChain'}
+      : <><Shield/>SkillChain</>}
   </Link>
 }
 
