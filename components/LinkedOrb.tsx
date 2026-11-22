@@ -20,6 +20,8 @@ export default function LinkedOrb() {
     let y = 0
     let active = false
     let frame = 0
+    let pressedAt = 0
+    let releaseTimer = 0
 
     function hide() {
       pointer = undefined
@@ -28,9 +30,8 @@ export default function LinkedOrb() {
       frame = 0
       root.removeAttribute('data-linked-cursor-active')
       cursor.removeAttribute('data-visible')
+      window.clearTimeout(releaseTimer)
       cursor.removeAttribute('data-pressed')
-      cursor.removeAttribute('data-mode')
-      cursor.removeAttribute('data-tone')
     }
 
     function allowed() {
@@ -56,10 +57,17 @@ export default function LinkedOrb() {
 
       x = active ? x + (toX - x) * 0.55 : toX
       y = active ? y + (toY - y) * 0.55 : toY
+      const remaining = Math.hypot(toX - x, toY - y)
+      if (remaining > 16) {
+        x = toX + (x - toX) * 16 / remaining
+        y = toY + (y - toY) * 16 / remaining
+      }
       cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`
-      cursor.style.setProperty('--badge-offset', pointer.x > innerWidth - 95 ? '-38px' : '38px')
-      cursor.dataset.mode = tile ? 'view' : button ? 'magnetic' : 'default'
-      cursor.dataset.tone = target.closest('[data-cursor-tone="dark"]') ? 'dark' : 'light'
+      const mode = tile ? 'view' : button ? 'magnetic' : 'default'
+      const tone = target.closest('[data-cursor-tone="dark"]') ? 'dark' : 'light'
+      if (tile) cursor.style.setProperty('--badge-offset', pointer.x > innerWidth - 75 ? '-40px' : '40px')
+      if (cursor.dataset.mode !== mode) cursor.dataset.mode = mode
+      if (cursor.dataset.tone !== tone) cursor.dataset.tone = tone
       if (!active) {
         active = true
         cursor.dataset.visible = ''
@@ -82,10 +90,16 @@ export default function LinkedOrb() {
     }
 
     function press(event: PointerEvent) {
-      if (active && event.pointerType === 'mouse' && event.button === 0) cursor.dataset.pressed = ''
+      if (!active || event.pointerType !== 'mouse' || event.button !== 0) return
+      window.clearTimeout(releaseTimer)
+      pressedAt = performance.now()
+      cursor.dataset.pressed = ''
     }
 
-    function release() { cursor.removeAttribute('data-pressed') }
+    function release(event: PointerEvent) {
+      if (event.pointerType !== 'mouse' || event.button !== 0 || !cursor.hasAttribute('data-pressed')) return
+      releaseTimer = window.setTimeout(() => cursor.removeAttribute('data-pressed'), Math.max(0, 85 - (performance.now() - pressedAt)))
+    }
     function preference() { if (!allowed()) hide() }
 
     const settings = new MutationObserver(preference)

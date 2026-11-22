@@ -6,22 +6,23 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 120ms ease;
-  --outline: #142342;
+  --first-link: #142342;
+  --second-link: #b82332;
   --backing: #f0e7d8;
   --gold: #cda765;
 }
 
 .cursor[data-visible] { opacity: 1; }
-.cursor[data-tone='dark'] { --outline: #f0e7d8; --backing: #142342; }
+.cursor[data-tone='dark'] { --first-link: #f0e7d8; --second-link: #cda765; --backing: #142342; }
 .glyph { position: relative; transform: scale(var(--scale, 1)); transition: transform 140ms ease; }
 .cursor[data-mode='magnetic'] .glyph { --scale: 1.14; }
 .cursor[data-pressed] .glyph { --scale: 0.78; }
 
 .links {
   position: absolute;
-  inset: -10px auto auto -13px;
-  width: 26px;
-  height: 20px;
+  inset: -11px auto auto -16px;
+  width: 32px;
+  height: 22px;
   transform: rotate(-28deg);
   transition: transform 150ms ease, opacity 120ms ease;
 }
@@ -29,17 +30,18 @@
 .links::before,
 .links::after {
   position: absolute;
-  top: 5px;
-  width: 16px;
-  height: 10px;
-  border: 1.5px solid var(--outline);
+  top: 4px;
+  width: 20px;
+  height: 14px;
+  box-sizing: border-box;
+  border: 1.7px solid;
   border-radius: 999px;
   box-shadow: 0 0 0 1px var(--backing);
   content: '';
 }
 
-.links::before { left: 0; }
-.links::after { right: 0; }
+.links::before { left: 0; border-color: var(--first-link); }
+.links::after { right: 0; border-color: var(--second-link); }
 .cursor[data-mode='magnetic'] .links { transform: rotate(-28deg) scaleX(0.86); }
 .cursor[data-mode='view'] .links { transform: rotate(0) scaleX(1.5); opacity: 0; }
 
@@ -60,6 +62,8 @@
   padding: 3px 0;
   border-radius: 999px;
   background: #b82332;
+  outline: 1px solid var(--gold);
+  outline-offset: 2px;
   color: #fff;
   text-align: center;
   font: 600 10px/16px ui-monospace, monospace;
@@ -69,7 +73,7 @@
   transition: opacity 120ms ease, transform 150ms ease;
 }
 
-.cursor[data-mode='view'] .badge { opacity: 1; transform: translateX(var(--badge-offset)); }
+.cursor[data-mode='view'] .badge { opacity: 1; transform: translateX(var(--badge-offset, 38px)); }
 
 @media (prefers-reduced-motion: reduce), (forced-colors: active), (any-hover: none), (any-pointer: coarse) and (not (any-pointer: fine)) {
   .cursor { display: none; }

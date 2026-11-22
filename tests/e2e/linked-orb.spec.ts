@@ -1,7 +1,7 @@
 import { expect, test } from './home-fixture'
 import { parchmentSessionKey } from '../../lib/parchmentDust'
 
-test('the orb follows the mouse and responds to marketing targets', async ({ page }) => {
+test('the orb follows the mouse and responds to marketing targets', async ({ page }, info) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   const errors: string[] = []
   page.on('pageerror', error => errors.push(error.message))
@@ -20,10 +20,15 @@ test('the orb follows the mouse and responds to marketing targets', async ({ pag
     const transform = new DOMMatrix(getComputedStyle(el).transform)
     return Math.hypot(transform.m41 - 740, transform.m42 - 35)
   })).toBeLessThan(0.16)
+  await expect(orb).toHaveCSS('--first-link', '#142342')
+  await expect(orb).toHaveCSS('--second-link', '#b82332')
+  await expect(orb).toHaveCSS('opacity', '1')
+  await page.screenshot({ path: info.outputPath('default.png') })
   await platform.hover({ position: { x: 8, y: 8 } })
   await expect(orb).toHaveAttribute('data-mode', 'magnetic')
   const bounds = (await platform.boundingBox())!
   await expect.poll(async () => orb.evaluate((el, pointerX) => new DOMMatrix(getComputedStyle(el).transform).m41 - pointerX, bounds.x + 8)).toBeGreaterThan(1)
+  await page.screenshot({ path: info.outputPath('magnetic.png') })
   await page.mouse.down()
   await expect(orb).toHaveAttribute('data-pressed', '')
   await page.mouse.up()
@@ -35,10 +40,16 @@ test('the orb follows the mouse and responds to marketing targets', async ({ pag
 
   await page.mouse.move(700, 300)
   await expect(orb).toHaveAttribute('data-tone', 'dark')
+  await expect(orb).toHaveCSS('--first-link', '#f0e7d8')
+  await expect(orb).toHaveCSS('--second-link', '#cda765')
+  await page.locator('#invitation').hover()
+  await expect(orb).toHaveAttribute('data-tone', 'dark')
+  await page.screenshot({ path: info.outputPath('dark.png') })
   const bento = page.locator('[data-cursor="view"]').first()
   await bento.locator('img').hover()
   await expect(orb).toHaveAttribute('data-mode', 'view')
   await expect(orb.getByText('VIEW')).toHaveCSS('opacity', '1')
+  await page.screenshot({ path: info.outputPath('view.png') })
   await page.mouse.move(-5, -5)
   await expect(orb).not.toHaveAttribute('data-visible', '')
   await bento.click()
