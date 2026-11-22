@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Shield from './Shield'
+import LinkedOrb from './LinkedOrb'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 const products = [
@@ -102,6 +103,7 @@ export default function MarketingShell({children}: {children: ReactNode}) {
   </Link>)
 
   return <>
+    {!demo && <LinkedOrb key={pathname}/>}
     <a className="skip" href="#main" onClick={() => {
       const content = document.getElementById('main')
       content?.setAttribute('tabindex', '-1')
