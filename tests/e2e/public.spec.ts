@@ -43,12 +43,16 @@ test('untouched Home transfers zero video and the product tiles reload at their 
   }
 })
 
-test('candidate player plays native video with captions, supports seek and exposes a media fallback', async ({page}) => {
+test('candidate player supports captions, seeking, media fallback and download', async ({page}) => {
   await page.goto('/')
   await page.getByRole('button',{name:'Play walkthrough: A day inside SkillProof'}).click()
   const player = page.locator('.walkthrough video').first()
   await expect.poll(()=>player.evaluate((video:HTMLVideoElement)=>video.currentTime)).toBeGreaterThan(0)
   await expect.poll(()=>player.evaluate((video:HTMLVideoElement)=>video.textTracks[0].mode)).toBe('showing')
+  await player.evaluate((video: HTMLVideoElement) => { video.textTracks[0].mode = 'hidden' })
+  await expect.poll(() => player.evaluate((video: HTMLVideoElement) => video.textTracks[0].mode)).toBe('hidden')
+  await player.evaluate((video: HTMLVideoElement) => { video.textTracks[0].mode = 'showing' })
+  await expect.poll(() => player.evaluate((video: HTMLVideoElement) => video.textTracks[0].mode)).toBe('showing')
   await player.evaluate((video:HTMLVideoElement)=>{video.pause();video.currentTime=35})
   await expect.poll(()=>player.evaluate((video:HTMLVideoElement)=>video.currentTime)).toBeCloseTo(35,0)
   await page.locator('.walkthrough summary').first().click()
@@ -57,4 +61,12 @@ test('candidate player plays native video with captions, supports seek and expos
   await page.reload()
   await page.getByRole('button',{name:'Play walkthrough: A day inside SkillProof'}).click()
   await expect(page.getByText('Video playback is unavailable.',{exact:false})).toBeVisible()
+  await page.locator('.walkthrough summary').first().click()
+  await expect(page.getByText(/The recording is silent/).first()).toBeVisible()
+  await page.unroute('**/candidate-walkthrough.mp4')
+  const download = page.waitForEvent('download')
+  await page.locator('.walkthrough').first().getByRole('link', {name:'Download video'}).click()
+  const file = await download
+  expect(file.suggestedFilename()).toBe('candidate-walkthrough.mp4')
+  expect(await file.failure()).toBeNull()
 })

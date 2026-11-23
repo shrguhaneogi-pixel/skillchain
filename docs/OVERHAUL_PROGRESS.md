@@ -18,9 +18,9 @@
 
 - The managed browser timed out attaching to the public preview and connecting to localhost. Repository Playwright is the fallback.
 - The first Playwright CLI run cleared its ignored default `test-results` directory, including local tools and previous output. Tracked evidence and screenshots were preserved. Follow-up runs use `--output=test-results/overhaul-run` and installed Chrome.
-- GitHub push and deployment are owner actions.
-- Release is **NOT READY**. A06, hosted A07, NVDA with Firefox, the broader performance retest and the remaining owner checks are open. [Manual steps](evidence/overhaul/README.md#owner-verification-still-open)
+- The branch is published. Preview verification, deployment and final approval remain owner actions.
+- Release is **NOT READY**. A06, hosted A07, NVDA with Firefox and the remaining owner checks are open. The release retest exceeded the TBT budget. [Current release evidence and manual steps](evidence/release-prep/README.md)
 
 ## Next
 
-- The owner can verify the release blockers and use the branch-specific publication commands in [build progress](PROGRESS.md).
+- Review the published branch and close the remaining acceptance items. [Build progress](PROGRESS.md) · [Release preparation evidence](evidence/release-prep/README.md)

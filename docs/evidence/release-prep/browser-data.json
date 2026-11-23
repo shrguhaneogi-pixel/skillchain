@@ -1,0 +1,97 @@
+{
+  "browser": "Chrome 157.0.8103.80",
+  "status": "LOCAL PASS",
+  "serving": "final local static export",
+  "runs": [
+    {
+      "path": "A",
+      "origin": "http://127.0.0.1:3143",
+      "urlsDuringRun": [
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/"
+      ],
+      "unchanged": {
+        "localStorage": true,
+        "sessionStorage": true,
+        "indexedDB": true,
+        "cookies": true
+      },
+      "calls": [
+        {
+          "method": "GET",
+          "type": "image",
+          "pathname": "/brand/skillchain-shield.png",
+          "firstParty": true,
+          "staticAsset": true
+        },
+        {
+          "method": "GET",
+          "type": "image",
+          "pathname": "/brand/assigned-task.svg",
+          "firstParty": true,
+          "staticAsset": true
+        },
+        {
+          "method": "GET",
+          "type": "image",
+          "pathname": "/brand/evidence-record.svg",
+          "firstParty": true,
+          "staticAsset": true
+        }
+      ],
+      "sockets": [],
+      "setCookieResponses": 0
+    },
+    {
+      "path": "B",
+      "origin": "http://127.0.0.1:3143",
+      "urlsDuringRun": [
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/",
+        "http://127.0.0.1:3143/demo/"
+      ],
+      "unchanged": {
+        "localStorage": true,
+        "sessionStorage": true,
+        "indexedDB": true,
+        "cookies": true
+      },
+      "calls": [
+        {
+          "method": "GET",
+          "type": "image",
+          "pathname": "/brand/skillchain-shield.png",
+          "firstParty": true,
+          "staticAsset": true
+        },
+        {
+          "method": "GET",
+          "type": "image",
+          "pathname": "/brand/assigned-task.svg",
+          "firstParty": true,
+          "staticAsset": true
+        },
+        {
+          "method": "GET",
+          "type": "image",
+          "pathname": "/brand/evidence-record.svg",
+          "firstParty": true,
+          "staticAsset": true
+        }
+      ],
+      "sockets": [],
+      "setCookieResponses": 0
+    }
+  ]
+}

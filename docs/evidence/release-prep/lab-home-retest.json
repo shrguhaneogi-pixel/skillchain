@@ -1,0 +1,63 @@
+{
+  "source": "0afa6fa1d36ca779bc33d598a55d4de37c63851a",
+  "export": "Candidate built locally, served over loopback with gzip on compressible assets",
+  "homeCssBlob": "c411e78d0860654d826df800283b0b2a053e805d",
+  "coldState": "Fresh temporary Chrome profile and Lighthouse storage reset per run",
+  "throttlingMethod": "devtools",
+  "throttling": {
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 150,
+    "downloadThroughputKbps": 1600,
+    "uploadThroughputKbps": 750
+  },
+  "budgets": {
+    "lcpMs": 2500,
+    "cls": 0.1,
+    "tbtMs": 200
+  },
+  "routes": {
+    "home": {
+      "path": "/",
+      "runs": [
+        {
+          "run": 1,
+          "lcpMs": 2145.472,
+          "cls": 0,
+          "tbtMs": 1492.5500000000006,
+          "bytes": 297670,
+          "videoRequests": 0
+        },
+        {
+          "run": 2,
+          "lcpMs": 1995.221,
+          "cls": 0.001692474790362665,
+          "tbtMs": 1079.4560000000004,
+          "bytes": 297670,
+          "videoRequests": 0
+        },
+        {
+          "run": 3,
+          "lcpMs": 1956.012,
+          "cls": 0.001692474790362665,
+          "tbtMs": 975.0319999999999,
+          "bytes": 297670,
+          "videoRequests": 0
+        }
+      ],
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "viewport": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "median": {
+        "lcpMs": 1995.221,
+        "cls": 0.001692474790362665,
+        "tbtMs": 1079.4560000000004
+      },
+      "passed": false
+    }
+  }
+}

@@ -527,3 +527,10 @@
     gap: 4px;
   }
 }
+
+@media (max-width: 479px) {
+  .hero-copy .controlrow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
