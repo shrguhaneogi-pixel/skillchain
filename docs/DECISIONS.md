@@ -47,3 +47,39 @@ Changed one public sentence in Privacy, “The demo has no recruiter submission 
 The before screenshots capture the supplied existing export, which included the entrance from the checkout’s newer starting revision. The feature head was used for the code baseline and new branch.
 
 The concept film uses a 47,620-byte WebP from its 13.5-second closing frame. The gallery names come from the visible title links. Each card caption and the fictional-data label are linked as descriptions.
+
+## Cinematic opening
+
+The first-visit opening supersedes the homepage overhaul's direct-entry rule. The application, its links and its CTA render underneath the decorative curtain. The public reference is the owner's design. The supplied PNG is kept under `design-reference/` and the comparison is kept under `docs/evidence/intro/`. The export has neither file.
+
+### Palette and artwork
+
+The values below are exact RGB pixels or dominant exact RGB colours in sampled regions of the 1332 × 667 attachment. Edge pixels and texture produce small variations.
+
+| Sample | Colour | Sampling location |
+| --- | --- | --- |
+| Ivory ground | `#FEF6ED` | Dominant in the clear lower-left band of the upper panel |
+| Presentation title | `#D6161D` | Dominant in THE DEBUGGERS |
+| Deep display red | `#A00000` | Dominant in SKILL CHAIN |
+| Pink flourish | `#FDA89D` | Dominant in the left flourish ink |
+| Crimson ground | `#A00201` | Dominant in the sampled open lower-right ground |
+| Dark tile | `#8D0000` | Pixel (968, 560) in the lower design |
+| Mandala ink | `#4B0402` | Dominant dark ink in the central lower motif |
+| Fleuron | `#CE703D` | Sampled within the centre ornament |
+
+The reference gold `#CDA765` gives 3.72:1 on the sampled crimson. The display uses a lighter `#E0BC79`, which gives 4.65:1. The white label gives 8.39:1. The progress fill and track use `#FFE2B7` and `#73251E`. Their contrast is 8.36:1. The fixed Skip button uses the ivory and deep red pair and a three-pixel ink ring with a two-pixel offset. The site shield is reused at its existing URL with its original pixels. Patterns, arches, flourishes, fleuron and mandala use original SVG paths and repeated shapes.
+
+Cinzel and Cinzel Decorative were compared for roman capitals and ornamented capitals respectively. The upper line uses Cinzel Semibold and the lockup uses Cinzel Decorative Bold. Their static text is outlined and the live equivalents remain in the accessibility tree. The lockup outlines are fitted to the reference's wider aspect ratio. The sources are [Cinzel](https://github.com/google/fonts/tree/main/ofl/cinzel) and [Cinzel Decorative](https://github.com/google/fonts/tree/main/ofl/cinzeldecorative), both under the SIL Open Font License 1.1. The two licence files sit next to the artwork. PRESENTS uses the existing Spectral face and the progress label uses the existing Source Sans.
+
+### First document, motion and privacy
+
+- The original session key `skillchain.parchment-entered` holds the value `1` in session storage. The first document writes it even on another route, a deep link or a reduced-motion visit. A Home cover requires path `/`, an empty hash, an unseen flag and both motion settings off. Existing sessions with the legacy flag bypass the cover.
+- Refresh, Back, Forward and client Home links leave the flag consumed. An independent tab session can see the opening. Storage denial leaves the page directly usable. Finish and Skip leave the flag set.
+- A pre-paint script sets the HTML attribute. The default stylesheet hides the server markup. A separate inline controller owns the transient DOM, outside the application root. There is no hydration dependency for dismissal. No JavaScript means no intro or scroll lock.
+- OS reduced motion and the footer override take precedence. A hidden document, navigation event or a change to reduced motion releases the cover. Finish removes the opening, inert state, scroll lock, timers, listeners and animation frame. When the document is still active, focus returns to the document start.
+- LOADING is the single label constant, and the percentage is a decorative timeline value hidden from assistive technology. It carries no network timing or completion claim.
+- The Privacy page's exact statements apply to the public exercise and current-run data. The opening flag holds none of those values, so the claims remain literally true. If the operator wants the notice to enumerate all browser storage, proposed owner wording is “The opening screen stores a single seen flag in this tab’s session storage.” The reviewed notice is unchanged.
+
+### Scope and comparison differences
+
+The historical parchment component, CSS module, canvas logic and browser test were already absent from the selected branch. No tracked files needed deletion. The visible Skip button, contrast-adjusted gold, outlined lettering and phone stack intentionally differ from the reference. The ornaments follow the reference's composition with independently drawn geometry. The screenshot alone does not identify the origin of its ornaments.

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './home-fixture'
 
 test('Home decorates only the two controls while preserving the native pointer', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
