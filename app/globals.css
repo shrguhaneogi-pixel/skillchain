@@ -51,7 +51,7 @@
 .policy-body{min-width:0}
 @media(max-width:1199px){
  html{scroll-padding-top:72px}
- .masthead.wrap{height:60px}
+ .masthead.wrap{height:auto;min-height:60px;padding-block:7px}
  .desktop-nav{display:none}
  .mobile-nav{display:flex}
  .policy-layout{grid-template-columns:1fr}
@@ -64,6 +64,7 @@
  .footer-base{align-items:start;flex-direction:column}
  .mobile-nav{gap:8px}
  .mobile-nav a,.mobile-nav button{padding-inline:8px}
+ .mobile-nav .primary{white-space:nowrap;font-size:clamp(.875rem,4vw,1rem)}
 }
 
 .mail-preview-row{display:grid;padding:8px 12px;margin-bottom:7px;border:1px solid var(--line);background:var(--work)}

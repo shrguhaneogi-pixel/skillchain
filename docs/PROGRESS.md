@@ -2,6 +2,17 @@
 
 ## Current status
 
+- **Homepage overhaul** is on `design/homepage-overhaul`. See [overhaul progress](OVERHAUL_PROGRESS.md) and the [current acceptance results](TEST_REPORT.md).
+- **Owner action** after authorization from the intended checkout:
+
+  ```sh
+  git switch design/homepage-overhaul
+  git remote get-url --push origin
+  git push -u origin refs/heads/design/homepage-overhaul:refs/heads/design/homepage-overhaul
+  ```
+
+  Confirm the push URL is `https://github.com/shrguhaneogi-pixel/skillchain.git` before the push. Deployment remains an owner action after the release checks.
+
 - **Revision under test** `461a382` on `build/skillchain-workplace-demo`. The final archive ref identifies the closing documentation commit.
 - **Gate 3** is **PARTIAL / NOT READY**.
 - [Owner release checklist](OWNER_CHECKLIST.md) contains the normal-browser checks, publication commands and release gates.

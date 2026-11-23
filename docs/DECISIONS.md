@@ -45,3 +45,5 @@ Changed one public sentence in Privacy, “The demo has no recruiter submission 
 | Audience and footer CTA | “Choose your path.” replaces “What would you like to see?”. “Employers” replaces “Recruiters”. Existing audience descriptions are trimmed at sentence boundaries. “Demo data is fictional, and candidates are never charged to apply or complete employer-requested assessments.” links to the moved disclosures and estimator. |
 
 The before screenshots capture the supplied existing export, which included the entrance from the checkout’s newer starting revision. The feature head was used for the code baseline and new branch.
+
+The concept film uses a 47,620-byte WebP from its 13.5-second closing frame. The gallery names come from the visible title links. Each card caption and the fictional-data label are linked as descriptions.

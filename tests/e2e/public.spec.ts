@@ -36,7 +36,7 @@ test('untouched Home transfers zero video and the product tiles reload at their 
     ['View a sample report','Candidate C-017'],
   ]
   for (const [title, marker] of states) {
-    await page.locator('.bento-tile').filter({hasText:title}).click()
+    await page.locator('.bento').getByRole('link', {name:title, exact:true}).click()
     await page.reload()
     await expect(page.getByText(marker,{exact:true}).first()).toBeVisible()
     await page.goto('/')

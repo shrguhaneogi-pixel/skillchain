@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { IncidentDesk } from '@/components/HomeInteractive'
+import HomeCursor from '@/components/HomeCursor'
 import Walkthrough from '@/components/Walkthrough'
 import { canonical } from '@/lib/engine'
 import './home.css'
@@ -64,7 +65,7 @@ export default function Home() {
           <dt>{rowNames[index]}<small>{event.time} IST · {event.actor}</small></dt>
           <dd>{event.text}</dd>
         </div>)}</dl>
-        <a className="evidence-link" href={report}>View evidence</a>
+        <a className="evidence-link" href={report} data-home-cursor-target>View evidence</a>
       </article>
       <div id="product-screens" className="evidence-captures">
         <p id="capture-label" className="kicker">Fictional demo data</p>
@@ -72,15 +73,16 @@ export default function Home() {
         const path = '/media/bento/bento-' + name
         const sources = (format: string) => [400, 800, width].map(pixels => `${path}-${pixels}.${format} ${pixels}w`).join(', ')
         const sizes = '(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 90vw'
-        return <a className="bento-tile" href={href} key={name} aria-labelledby={name+'-tile-title'} aria-describedby="capture-label">
-          <figure>
+        return <figure className="bento-tile" key={name}>
             <picture><source type="image/avif" srcSet={sources('avif')} sizes={sizes}/>
               <img src={path+'-400.webp'} srcSet={sources('webp')} sizes={sizes} alt={alt}
                 width={width} height={height} loading="lazy" decoding="async"/>
             </picture>
-            <figcaption><h3 id={name+'-tile-title'}>{title}</h3><p>{caption}</p></figcaption>
-          </figure>
-        </a>
+            <figcaption>
+              <h3><a href={href} aria-describedby={name+'-tile-description capture-label'}>{title}</a></h3>
+              <p id={name+'-tile-description'}>{caption}</p>
+            </figcaption>
+        </figure>
         })}</div>
       </div>
     </section>
@@ -112,5 +114,6 @@ export default function Home() {
       </div>
       <p><a id="privacy-overview" href="/privacy/#privacy-overview">Demo data is fictional</a>, and <a id="funding" href="/pricing/#estimator"><span id="estimator">candidates are never charged to apply or complete employer-requested assessments</span></a>.</p>
     </div></section>
+    <HomeCursor/>
   </main>
 }

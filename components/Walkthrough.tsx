@@ -28,7 +28,8 @@ export default function Walkthrough({ name, title, lead, transcript, fallback, a
     <div className="film-frame">
       {!requested
         ? <button className="video-activate" aria-label={concept ? undefined : 'Play walkthrough: ' + title}
-          aria-describedby={concept ? id+'-video-label' : undefined} type="button" onClick={() => request(true)}>
+          aria-describedby={concept ? id+'-video-label' : undefined} data-home-cursor-target={concept || undefined}
+          type="button" onClick={() => request(true)}>
           <img src={path+'-poster.webp'} alt="" width={concept ? 1280 : 960} height={concept ? 720 : 540}
             loading={concept ? 'eager' : 'lazy'}/>
           <span>{concept ? 'Play' : 'Play walkthrough'}</span>

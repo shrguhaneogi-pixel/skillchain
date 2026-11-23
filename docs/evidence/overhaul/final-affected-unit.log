@@ -1,0 +1,12 @@
+
+> skillchain@0.1.0 test
+> vitest run tests/home-player.test.tsx
+
+
+ RUN  v5.1.1 C:/Users/Dell/Downloads/skillchain
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:57:09
+   Duration  7.01s (environment 77%, transform 12%, import 7%, tests 4%, worker 1%)
