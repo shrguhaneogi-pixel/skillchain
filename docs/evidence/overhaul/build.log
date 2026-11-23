@@ -1,0 +1,36 @@
+
+> skillchain@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config.mjs took 93ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.5s
+  Running TypeScript ...
+  Finished TypeScript in 6.3s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/13) ...
+  Generating static pages using 7 workers (3/13)
+  Generating static pages using 7 workers (6/13)
+  Generating static pages using 7 workers (9/13)
+✓ Generating static pages using 7 workers (13/13) in 1870ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /contact
+├ ○ /demo
+├ ○ /fairhire
+├ ○ /pricing
+├ ○ /privacy
+├ ○ /simulations
+├ ○ /skillproof
+├ ○ /terms
+└ ○ /trustchain
+
+
+○  (Static)  prerendered as static content

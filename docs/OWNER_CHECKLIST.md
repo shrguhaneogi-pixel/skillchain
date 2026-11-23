@@ -2,27 +2,12 @@
 
 The current release status is **NOT READY**. Run the steps in order. Record dates, browser version, results and links to evidence in the acceptance report. Use fictional inputs throughout testing.
 
-The 22 November 2026 Windows run recorded the local results and remaining gaps. [Windows release evidence](evidence/local-release/README.md)
+The 23 November 2026 release preparation refreshed the local evidence for the homepage overhaul. Use the published `design/homepage-overhaul` branch for the remaining checks. [Release preparation evidence](evidence/release-prep/README.md)
 
 ### 1. Publish the feature branch
 
-- [ ] Publish only `build/skillchain-workplace-demo` to `shrguhaneogi-pixel/skillchain` and open a draft PR into `main`. If restoring from the bundle, clone it with `git clone -b build/skillchain-workplace-demo path/to/SkillChain.bundle skillchain`, enter that checkout and set its origin to the authorized GitHub URL with `git remote set-url origin https://github.com/shrguhaneogi-pixel/skillchain.git`. From the intended checkout, run:
-
-  ```sh
-  git switch build/skillchain-workplace-demo
-  gh auth login --hostname github.com --git-protocol https --web
-  gh auth setup-git --hostname github.com
-
-  test "$(git remote get-url --push origin)" = 'https://github.com/shrguhaneogi-pixel/skillchain.git' &&
-  git push -u origin refs/heads/build/skillchain-workplace-demo:refs/heads/build/skillchain-workplace-demo &&
-  gh pr create --repo shrguhaneogi-pixel/skillchain --head build/skillchain-workplace-demo --base main --draft --title 'SkillChain workplace demo and release evidence' --body-file - <<'PR'
-  [Acceptance report](https://github.com/shrguhaneogi-pixel/skillchain/blob/build/skillchain-workplace-demo/docs/TEST_REPORT.md) · [Owner checklist](https://github.com/shrguhaneogi-pixel/skillchain/blob/build/skillchain-workplace-demo/docs/OWNER_CHECKLIST.md)
-
-  Release status is NOT READY. A06 and A07 require browser-level evidence. Media, accessibility, performance, contact, legal and hosted smoke checks are tracked in the owner checklist.
-  PR
-  ```
-
-  **Pass** if the draft PR targets `main`, its head is the named feature branch and it shows the intended commit. **Fail** if the remote check, push or draft creation fails. Leave `main` alone and avoid force-push.
+- [x] Publish `design/homepage-overhaul` to `shrguhaneogi-pixel/skillchain` and verify GitHub's head matches the intended revision. The feature branch includes the verified `main` tip without restoring the retired entrance and cursors. [Published branch](https://github.com/shrguhaneogi-pixel/skillchain/tree/design/homepage-overhaul)
+- [ ] Open a draft PR with `design/homepage-overhaul` as the head and `main` as the base. Include the acceptance report and the current **NOT READY** status in the description. [Compare the branch](https://github.com/shrguhaneogi-pixel/skillchain/compare/main...design/homepage-overhaul?expand=1)
 
 ### 2. A06 — Observe a real hidden-tab pause
 
@@ -53,7 +38,7 @@ The 22 November 2026 Windows run recorded the local results and remaining gaps. 
 
 ### 5. A04 — Exercise the native player
 
-- [ ] Play the candidate video. Seek to the middle, turn English captions off and back on, and open **Read transcript**. Test audible mute and unmute after adding the real voiceover in step 8. Use DevTools request blocking for `*candidate-walkthrough.mp4*`. Reload, try Play, then try **Download video**. Remove the block afterward.
+- [ ] Play the candidate video. Seek to the middle, turn English captions off and back on, and open **Read transcript**. Test audible mute and unmute after adding the real voiceover in step 8. Use DevTools request blocking for `*candidate-walkthrough.mp4*`. Reload and try Play to verify the fallback. Remove the block and verify **Download video**.
 
   **Pass** if native seek, audible controls and caption toggling work, and the deliberate failure leaves transcript and interactive fallback available. **Fail** if controls or fallbacks are broken. Schedule this check now and run the audible portion again after step 8 before scoring it.
 

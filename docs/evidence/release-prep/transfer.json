@@ -1,0 +1,81 @@
+{
+  "server": "Loopback production export with gzip on HTML, JS, CSS, SVG and text",
+  "bytes": [
+    {
+      "width": 1440,
+      "height": 900,
+      "videoRequests": 0,
+      "routeJsBytes": 147078,
+      "firstViewportBytes": 299752,
+      "allInitialBytes": 325571,
+      "posterBytes": 47620
+    },
+    {
+      "width": 834,
+      "height": 1112,
+      "videoRequests": 0,
+      "routeJsBytes": 147078,
+      "firstViewportBytes": 299752,
+      "allInitialBytes": 325571,
+      "posterBytes": 47620
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "videoRequests": 0,
+      "routeJsBytes": 147078,
+      "firstViewportBytes": 299752,
+      "allInitialBytes": 299752,
+      "posterBytes": 47620
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "videoRequests": 0,
+      "routeJsBytes": 147078,
+      "firstViewportBytes": 299752,
+      "allInitialBytes": 299752,
+      "posterBytes": 47620
+    }
+  ],
+  "pricingAlignment": [
+    {
+      "width": 1440,
+      "ctaBottoms": [
+        761.09375,
+        761.09375,
+        761.09375
+      ]
+    },
+    {
+      "width": 834,
+      "ctaBottoms": [
+        683.734375,
+        683.734375,
+        683.734375
+      ]
+    },
+    {
+      "width": 390,
+      "ctaBottoms": [
+        641.125,
+        886.9375,
+        1163.5625
+      ]
+    },
+    {
+      "width": 320,
+      "ctaBottoms": [
+        683.921875,
+        960.546875,
+        1263.171875
+      ]
+    }
+  ],
+  "contrast": {
+    "navySection": 15.57,
+    "navyMetadata": 12.7,
+    "crimsonChoice": 6.32,
+    "cursorLabel": 15.57
+  }
+}

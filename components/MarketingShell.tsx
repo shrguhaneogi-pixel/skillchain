@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Shield from './Shield'
-import LinkedOrb from './LinkedOrb'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 const products = [
@@ -11,32 +10,36 @@ const products = [
   ['/trustchain/', 'TrustChain', 'Inspect a fictional verification record.'],
   ['/fairhire/', 'FairHire', 'Trace a finding to its evidence.'],
 ] as const
-const mainLinks = [['/simulations/', 'Simulations'], ['/pricing/', 'Pricing'], ['/contact/', 'Request a demo'], ['/demo/', 'Try the demo']] as const
+const mainLinks = [['/simulations/', 'Simulations'], ['/pricing/', 'Pricing'], ['/contact/?topic=demo', 'Request an employer demo'], ['/demo/', 'Try the simulation']] as const
 let motionOverride = false
 
-function Wordmark() {
-  return <Link href="/" prefetch={false} className="wordmark brand-lockup" aria-label="SkillChain Home">
+function currentPage(pathname: string, href: string) {
+  return pathname.replace(/\/$/, '') === href.split('?')[0].replace(/\/$/, '') ? 'page' as const : undefined
+}
+
+function Wordmark({home}: {home: boolean}) {
+  return <Link href="/" prefetch={false} className="wordmark brand-lockup" aria-label="SkillChain Home" aria-current={home ? 'page' : undefined}>
     {process.env.NEXT_PUBLIC_USE_WORDMARK === 'true'
       ? <img src="/brand/template-wordmark.png" alt="SkillChain" width="132" height="38"/>
       : <><Shield/>SkillChain</>}
   </Link>
 }
 
-function Footer({ reduced, toggle }: {reduced: boolean; toggle: () => void}) {
+function Footer({ pathname, reduced, toggle }: {pathname: string; reduced: boolean; toggle: () => void}) {
   const groups = [
     ['Platform', products],
-    ['Explore', [['/simulations/', 'Simulations'], ['/demo/', 'Interactive demo'], ['/pricing/', 'Pricing']]],
+    ['Explore', [['/simulations/', 'Simulations'], ['/demo/', 'Try the simulation'], ['/pricing/', 'Pricing']]],
     ['Team', [['/about/', 'About'], ['/contact/', 'Contact']]],
     ['Policies', [['/terms/', 'Terms'], ['/privacy/', 'Privacy']]],
   ] as const
   return <footer className="marketing-footer"><div className="wrap">
     <div className="footer-columns">
-      <div><Wordmark/><p>A workplace simulation for early-career hiring in India.</p></div>
+      <div><Wordmark home={pathname === '/'}/><p>A workplace simulation for early-career hiring in India.</p></div>
       {groups.map(([heading, links]) => <nav key={heading} aria-label={heading}><h2>{heading}</h2>
-        {links.map(([href, label]) => <Link prefetch={false} key={href} href={href}>{label}</Link>)}
+        {links.map(([href, label]) => <Link prefetch={false} key={href} href={href} aria-current={currentPage(pathname, href)}>{label}</Link>)}
       </nav>)}
     </div>
-    <div className="footer-base"><p>Candidates are never charged to apply or complete employer-requested assessments.</p>
+    <div className="footer-base">{pathname !== '/' && <p>Candidates are never charged to apply or complete employer-requested assessments.</p>}
       <button type="button" onClick={toggle} aria-pressed={reduced}>Reduce motion</button>
     </div>
   </div></footer>
@@ -90,11 +93,11 @@ export default function MarketingShell({children}: {children: ReactNode}) {
     }
   }, [expanded])
 
-  const current = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '') ? 'page' as const : undefined
+  const current = (href: string) => currentPage(pathname, href)
   const close = () => { menu.current?.close(); menuButton.current?.focus() }
   const links = (mobile: boolean) => <>
     {mainLinks.map(([href, label]) => <Link key={href} href={href} prefetch={false} aria-current={current(href)}
-      className={href === '/demo/' ? 'primary' : href === '/contact/' ? 'secondary' : undefined}
+      className={href === '/demo/' ? 'primary' : href.startsWith('/contact/') ? 'secondary' : undefined}
       onClick={mobile ? close : undefined}>{label}</Link>)}
   </>
   const productLinks = (mobile: boolean) => products.map(([href,label,summary]) => <Link key={href} href={href} prefetch={false}
@@ -103,22 +106,21 @@ export default function MarketingShell({children}: {children: ReactNode}) {
   </Link>)
 
   return <>
-    {!demo && <LinkedOrb key={pathname}/>}
     <a className="skip" href="#main" onClick={() => {
       const content = document.getElementById('main')
       content?.setAttribute('tabindex', '-1')
       content?.focus()
     }}>Skip to content</a>
     {!demo && <header className="marketing-header">
-      <div className="masthead wrap"><Wordmark/>
+      <div className="masthead wrap"><Wordmark home={pathname === '/'}/>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <div className="platform-disclosure" ref={disclosure}>
-            <button type="button" ref={platform} aria-expanded={expanded} aria-controls="platform-links" onClick={() => setExpanded(!expanded)}>Platform</button>
+          <div className="platform-disclosure" ref={disclosure} data-current={products.some(([href]) => current(href)) || undefined}>
+            <button type="button" ref={platform} aria-expanded={expanded} aria-controls="platform-links" onClick={() => setExpanded(!expanded)}>Platform<span className="platform-chevron" aria-hidden="true"/></button>
             <div id="platform-links" className="platform-links" hidden={!expanded}>{productLinks(false)}</div>
           </div>
           {links(false)}
         </nav>
-        <nav className="mobile-nav" aria-label="Main navigation"><Link href="/demo/" prefetch={false} className="primary">Try the demo</Link>
+        <nav className="mobile-nav" aria-label="Main navigation"><Link href="/demo/" prefetch={false} className="primary">Try the simulation</Link>
           <button type="button" ref={menuButton} onClick={() => menu.current?.showModal()}>Menu</button>
         </nav>
       </div>
@@ -131,7 +133,7 @@ export default function MarketingShell({children}: {children: ReactNode}) {
       </dialog>
     </header>}
     {children}
-    {!demo && <Footer reduced={reduced} toggle={() => {
+    {!demo && <Footer pathname={pathname} reduced={reduced} toggle={() => {
       motionOverride = !reduced
       document.documentElement.dataset.reducedMotion = String(motionOverride)
       setReduced(motionOverride)

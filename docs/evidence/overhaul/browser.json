@@ -1,0 +1,818 @@
+{
+  "environment": "http://127.0.0.1:3136",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "title": "SkillChain | Workplace simulations",
+      "heading": "Experience the workplace. Prove your potential.",
+      "overflow": 0,
+      "cta": {
+        "top": 459.03125,
+        "bottom": 505.03125,
+        "width": 166.734375,
+        "height": 46
+      },
+      "filmTop": 123.390625,
+      "gate": 0,
+      "videoElements": 0,
+      "sections": [
+        "Experience the workplace. Prove your potential.",
+        "Step into the incident desk.",
+        "From decision to evidence.",
+        "Choose your path.",
+        "The client demo starts at 10:24. Your inbox is open."
+      ],
+      "filmRequests": [],
+      "errors": []
+    },
+    {
+      "width": 834,
+      "height": 1112,
+      "title": "SkillChain | Workplace simulations",
+      "heading": "Experience the workplace. Prove your potential.",
+      "overflow": 0,
+      "cta": {
+        "top": 337.53125,
+        "bottom": 383.53125,
+        "width": 166.734375,
+        "height": 46
+      },
+      "filmTop": 93,
+      "gate": 0,
+      "videoElements": 0,
+      "sections": [
+        "Experience the workplace. Prove your potential.",
+        "Step into the incident desk.",
+        "From decision to evidence.",
+        "Choose your path.",
+        "The client demo starts at 10:24. Your inbox is open."
+      ],
+      "filmRequests": [],
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "title": "SkillChain | Workplace simulations",
+      "heading": "Experience the workplace. Prove your potential.",
+      "overflow": 0,
+      "cta": {
+        "top": 314.1875,
+        "bottom": 360.1875,
+        "width": 166.734375,
+        "height": 46
+      },
+      "filmTop": 471.59375,
+      "gate": 0,
+      "videoElements": 0,
+      "sections": [
+        "Experience the workplace. Prove your potential.",
+        "Step into the incident desk.",
+        "From decision to evidence.",
+        "Choose your path.",
+        "The client demo starts at 10:24. Your inbox is open."
+      ],
+      "filmRequests": [],
+      "errors": []
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "title": "SkillChain | Workplace simulations",
+      "heading": "Experience the workplace. Prove your potential.",
+      "overflow": 0,
+      "cta": {
+        "top": 314.1875,
+        "bottom": 360.1875,
+        "width": 166.734375,
+        "height": 46
+      },
+      "filmTop": 471.59375,
+      "gate": 0,
+      "videoElements": 0,
+      "sections": [
+        "Experience the workplace. Prove your potential.",
+        "Step into the incident desk.",
+        "From decision to evidence.",
+        "Choose your path.",
+        "The client demo starts at 10:24. Your inbox is open."
+      ],
+      "filmRequests": [],
+      "errors": []
+    }
+  ],
+  "axe": [
+    {
+      "width": 1440,
+      "state": "hydrated",
+      "violations": [],
+      "linkNameRulePassed": true
+    },
+    {
+      "width": 1440,
+      "state": "server HTML with application scripts stripped",
+      "violations": [],
+      "linkNameRulePassed": true
+    },
+    {
+      "width": 390,
+      "state": "hydrated",
+      "violations": [],
+      "linkNameRulePassed": true
+    },
+    {
+      "width": 390,
+      "state": "server HTML with application scripts stripped",
+      "violations": [],
+      "linkNameRulePassed": true
+    }
+  ],
+  "captures": [
+    {
+      "name": "Inside the mailbox",
+      "path": "/skillproof/#mailbox",
+      "reloadMarker": "Demo server down"
+    },
+    {
+      "name": "On the task board",
+      "path": "/demo/?tool=tasks",
+      "reloadMarker": "Starting board"
+    },
+    {
+      "name": "In the role brief",
+      "path": "/simulations/",
+      "reloadMarker": "Try the simulation"
+    },
+    {
+      "name": "On the credential record",
+      "path": "/trustchain/#credential",
+      "reloadMarker": "DEMO-ORG-04"
+    },
+    {
+      "name": "View a sample report",
+      "path": "/fairhire/#report",
+      "reloadMarker": "Candidate C-017"
+    }
+  ],
+  "previews": [
+    {
+      "key": "Enter",
+      "fields": [
+        "Rahul",
+        "In progress"
+      ],
+      "announcement": "Updated · Rahul / In progress. Rahul owns the recovery check. Alex now has an owner to name in the client update.",
+      "liveRegions": 1,
+      "focusStayed": true,
+      "animation": "0.3s",
+      "style": {
+        "background": "rgb(184, 35, 50)",
+        "text": "rgb(255, 255, 255)",
+        "outline": "3px",
+        "offset": "2px"
+      }
+    },
+    {
+      "key": "Space",
+      "fields": [
+        "Coordinator",
+        "Waiting"
+      ],
+      "announcement": "Updated · Coordinator / Waiting. Recovery is waiting on you. Alex still needs an owner for the client update.",
+      "liveRegions": 1,
+      "focusStayed": true,
+      "animation": "0.3s",
+      "style": {
+        "background": "rgb(184, 35, 50)",
+        "text": "rgb(255, 255, 255)",
+        "outline": "3px",
+        "offset": "2px"
+      }
+    }
+  ],
+  "legacy": [
+    "main",
+    "scroll-hero-title",
+    "incident-desk",
+    "gap",
+    "preview",
+    "product-screens",
+    "workflow",
+    "walkthroughs",
+    "audiences",
+    "funding",
+    "privacy-overview",
+    "invitation",
+    "estimator"
+  ],
+  "estimator": [
+    {
+      "candidates": "30",
+      "runs": "1",
+      "output": "30 estimated assessment credits."
+    },
+    {
+      "candidates": "40",
+      "runs": "2",
+      "output": "80 estimated assessment credits."
+    },
+    {
+      "candidates": "0",
+      "runs": "3",
+      "output": "0 estimated assessment credits."
+    },
+    {
+      "candidates": "10000",
+      "runs": "3",
+      "output": "30,000 estimated assessment credits."
+    },
+    {
+      "candidates": "",
+      "runs": "1",
+      "output": ""
+    },
+    {
+      "candidates": "1.5",
+      "runs": "1",
+      "output": ""
+    },
+    {
+      "candidates": "10001",
+      "runs": "1",
+      "output": ""
+    },
+    {
+      "candidates": "40",
+      "runs": "0",
+      "output": ""
+    },
+    {
+      "candidates": "40",
+      "runs": "4",
+      "output": ""
+    },
+    {
+      "reset": true,
+      "prefill": "?topic=standard&c=30&r=1",
+      "displayed": "30 candidates × 1 runs · 30 estimated credits"
+    }
+  ],
+  "budgets": [
+    {
+      "width": 1440,
+      "height": 900,
+      "routeJsGzipBytes": 144678,
+      "firstViewportGzipBytes": 294925,
+      "allInitialGzipBytes": 319244,
+      "allInitialObservedTransferBytes": 710504,
+      "heroPosterBytes": 47620,
+      "assets": [
+        {
+          "path": "/",
+          "type": "navigation",
+          "transfer": 41652,
+          "gzip": 8289
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "link",
+          "transfer": 17747,
+          "gzip": 17447
+        },
+        {
+          "path": "/media/scroll-hero-poster.webp",
+          "type": "link",
+          "transfer": 47920,
+          "gzip": 47620
+        },
+        {
+          "path": "/_next/static/css/9dca4a2acd762549.css",
+          "type": "link",
+          "transfer": 19410,
+          "gzip": 5459
+        },
+        {
+          "path": "/_next/static/css/080dcb0ef8c92aa8.css",
+          "type": "link",
+          "transfer": 7532,
+          "gzip": 2177
+        },
+        {
+          "path": "/_next/static/chunks/webpack-96f70062190e791e.js",
+          "type": "link",
+          "transfer": 3715,
+          "gzip": 1750
+        },
+        {
+          "path": "/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "type": "script",
+          "transfer": 204021,
+          "gzip": 64057
+        },
+        {
+          "path": "/_next/static/chunks/794-96ab5d7caefc5d69.js",
+          "type": "script",
+          "transfer": 242582,
+          "gzip": 67462
+        },
+        {
+          "path": "/_next/static/chunks/main-app-02957dd65dc602bd.js",
+          "type": "script",
+          "transfer": 813,
+          "gzip": 221
+        },
+        {
+          "path": "/_next/static/chunks/500-fc3b64d9ff4a32a7.js",
+          "type": "script",
+          "transfer": 7942,
+          "gzip": 3246
+        },
+        {
+          "path": "/_next/static/chunks/app/layout-973ea83a6e41c062.js",
+          "type": "script",
+          "transfer": 5996,
+          "gzip": 2187
+        },
+        {
+          "path": "/_next/static/chunks/app/not-found-d23792e6d6ed29f9.js",
+          "type": "script",
+          "transfer": 483,
+          "gzip": 161
+        },
+        {
+          "path": "/_next/static/chunks/app/page-f44825859b30c484.js",
+          "type": "script",
+          "transfer": 14717,
+          "gzip": 5594
+        },
+        {
+          "path": "/fonts/spectral.woff2",
+          "type": "css",
+          "transfer": 23236,
+          "gzip": 22936
+        },
+        {
+          "path": "/fonts/source.woff2",
+          "type": "css",
+          "transfer": 29172,
+          "gzip": 28872
+        },
+        {
+          "path": "/media/bento/bento-mail-400.avif",
+          "type": "img",
+          "transfer": 5085,
+          "gzip": 4785
+        },
+        {
+          "path": "/media/bento/bento-board-400.avif",
+          "type": "img",
+          "transfer": 3976,
+          "gzip": 3676
+        },
+        {
+          "path": "/media/bento/bento-brief-400.avif",
+          "type": "img",
+          "transfer": 3929,
+          "gzip": 3629
+        },
+        {
+          "path": "/media/bento/bento-credential-400.avif",
+          "type": "img",
+          "transfer": 6092,
+          "gzip": 5792
+        },
+        {
+          "path": "/media/bento/bento-evidence-400.avif",
+          "type": "img",
+          "transfer": 6737,
+          "gzip": 6437
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "other",
+          "transfer": 17747,
+          "gzip": 17447
+        }
+      ]
+    },
+    {
+      "width": 834,
+      "height": 1112,
+      "routeJsGzipBytes": 144678,
+      "firstViewportGzipBytes": 294925,
+      "allInitialGzipBytes": 319244,
+      "allInitialObservedTransferBytes": 710504,
+      "heroPosterBytes": 47620,
+      "assets": [
+        {
+          "path": "/",
+          "type": "navigation",
+          "transfer": 41652,
+          "gzip": 8289
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "link",
+          "transfer": 17747,
+          "gzip": 17447
+        },
+        {
+          "path": "/media/scroll-hero-poster.webp",
+          "type": "link",
+          "transfer": 47920,
+          "gzip": 47620
+        },
+        {
+          "path": "/_next/static/css/9dca4a2acd762549.css",
+          "type": "link",
+          "transfer": 19410,
+          "gzip": 5459
+        },
+        {
+          "path": "/_next/static/css/080dcb0ef8c92aa8.css",
+          "type": "link",
+          "transfer": 7532,
+          "gzip": 2177
+        },
+        {
+          "path": "/_next/static/chunks/webpack-96f70062190e791e.js",
+          "type": "link",
+          "transfer": 3715,
+          "gzip": 1750
+        },
+        {
+          "path": "/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "type": "script",
+          "transfer": 204021,
+          "gzip": 64057
+        },
+        {
+          "path": "/_next/static/chunks/794-96ab5d7caefc5d69.js",
+          "type": "script",
+          "transfer": 242582,
+          "gzip": 67462
+        },
+        {
+          "path": "/_next/static/chunks/main-app-02957dd65dc602bd.js",
+          "type": "script",
+          "transfer": 813,
+          "gzip": 221
+        },
+        {
+          "path": "/_next/static/chunks/500-fc3b64d9ff4a32a7.js",
+          "type": "script",
+          "transfer": 7942,
+          "gzip": 3246
+        },
+        {
+          "path": "/_next/static/chunks/app/layout-973ea83a6e41c062.js",
+          "type": "script",
+          "transfer": 5996,
+          "gzip": 2187
+        },
+        {
+          "path": "/_next/static/chunks/app/not-found-d23792e6d6ed29f9.js",
+          "type": "script",
+          "transfer": 483,
+          "gzip": 161
+        },
+        {
+          "path": "/_next/static/chunks/app/page-f44825859b30c484.js",
+          "type": "script",
+          "transfer": 14717,
+          "gzip": 5594
+        },
+        {
+          "path": "/fonts/spectral.woff2",
+          "type": "css",
+          "transfer": 23236,
+          "gzip": 22936
+        },
+        {
+          "path": "/fonts/source.woff2",
+          "type": "css",
+          "transfer": 29172,
+          "gzip": 28872
+        },
+        {
+          "path": "/media/bento/bento-mail-400.avif",
+          "type": "img",
+          "transfer": 5085,
+          "gzip": 4785
+        },
+        {
+          "path": "/media/bento/bento-board-400.avif",
+          "type": "img",
+          "transfer": 3976,
+          "gzip": 3676
+        },
+        {
+          "path": "/media/bento/bento-brief-400.avif",
+          "type": "img",
+          "transfer": 3929,
+          "gzip": 3629
+        },
+        {
+          "path": "/media/bento/bento-credential-400.avif",
+          "type": "img",
+          "transfer": 6092,
+          "gzip": 5792
+        },
+        {
+          "path": "/media/bento/bento-evidence-400.avif",
+          "type": "img",
+          "transfer": 6737,
+          "gzip": 6437
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "other",
+          "transfer": 17747,
+          "gzip": 17447
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "routeJsGzipBytes": 144678,
+      "firstViewportGzipBytes": 294925,
+      "allInitialGzipBytes": 294925,
+      "allInitialObservedTransferBytes": 684685,
+      "heroPosterBytes": 47620,
+      "assets": [
+        {
+          "path": "/",
+          "type": "navigation",
+          "transfer": 41652,
+          "gzip": 8289
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "link",
+          "transfer": 17747,
+          "gzip": 17447
+        },
+        {
+          "path": "/media/scroll-hero-poster.webp",
+          "type": "link",
+          "transfer": 47920,
+          "gzip": 47620
+        },
+        {
+          "path": "/_next/static/css/9dca4a2acd762549.css",
+          "type": "link",
+          "transfer": 19410,
+          "gzip": 5459
+        },
+        {
+          "path": "/_next/static/css/080dcb0ef8c92aa8.css",
+          "type": "link",
+          "transfer": 7532,
+          "gzip": 2177
+        },
+        {
+          "path": "/_next/static/chunks/webpack-96f70062190e791e.js",
+          "type": "link",
+          "transfer": 3715,
+          "gzip": 1750
+        },
+        {
+          "path": "/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "type": "script",
+          "transfer": 204021,
+          "gzip": 64057
+        },
+        {
+          "path": "/_next/static/chunks/794-96ab5d7caefc5d69.js",
+          "type": "script",
+          "transfer": 242582,
+          "gzip": 67462
+        },
+        {
+          "path": "/_next/static/chunks/main-app-02957dd65dc602bd.js",
+          "type": "script",
+          "transfer": 813,
+          "gzip": 221
+        },
+        {
+          "path": "/_next/static/chunks/500-fc3b64d9ff4a32a7.js",
+          "type": "script",
+          "transfer": 7942,
+          "gzip": 3246
+        },
+        {
+          "path": "/_next/static/chunks/app/not-found-d23792e6d6ed29f9.js",
+          "type": "script",
+          "transfer": 483,
+          "gzip": 161
+        },
+        {
+          "path": "/_next/static/chunks/app/layout-973ea83a6e41c062.js",
+          "type": "script",
+          "transfer": 5996,
+          "gzip": 2187
+        },
+        {
+          "path": "/_next/static/chunks/app/page-f44825859b30c484.js",
+          "type": "script",
+          "transfer": 14717,
+          "gzip": 5594
+        },
+        {
+          "path": "/fonts/spectral.woff2",
+          "type": "css",
+          "transfer": 23236,
+          "gzip": 22936
+        },
+        {
+          "path": "/fonts/source.woff2",
+          "type": "css",
+          "transfer": 29172,
+          "gzip": 28872
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "other",
+          "transfer": 17747,
+          "gzip": 17447
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "routeJsGzipBytes": 144678,
+      "firstViewportGzipBytes": 294925,
+      "allInitialGzipBytes": 294925,
+      "allInitialObservedTransferBytes": 684685,
+      "heroPosterBytes": 47620,
+      "assets": [
+        {
+          "path": "/",
+          "type": "navigation",
+          "transfer": 41652,
+          "gzip": 8289
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "link",
+          "transfer": 17747,
+          "gzip": 17447
+        },
+        {
+          "path": "/media/scroll-hero-poster.webp",
+          "type": "link",
+          "transfer": 47920,
+          "gzip": 47620
+        },
+        {
+          "path": "/_next/static/css/9dca4a2acd762549.css",
+          "type": "link",
+          "transfer": 19410,
+          "gzip": 5459
+        },
+        {
+          "path": "/_next/static/css/080dcb0ef8c92aa8.css",
+          "type": "link",
+          "transfer": 7532,
+          "gzip": 2177
+        },
+        {
+          "path": "/_next/static/chunks/webpack-96f70062190e791e.js",
+          "type": "link",
+          "transfer": 3715,
+          "gzip": 1750
+        },
+        {
+          "path": "/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "type": "script",
+          "transfer": 204021,
+          "gzip": 64057
+        },
+        {
+          "path": "/_next/static/chunks/794-96ab5d7caefc5d69.js",
+          "type": "script",
+          "transfer": 242582,
+          "gzip": 67462
+        },
+        {
+          "path": "/_next/static/chunks/main-app-02957dd65dc602bd.js",
+          "type": "script",
+          "transfer": 813,
+          "gzip": 221
+        },
+        {
+          "path": "/_next/static/chunks/500-fc3b64d9ff4a32a7.js",
+          "type": "script",
+          "transfer": 7942,
+          "gzip": 3246
+        },
+        {
+          "path": "/_next/static/chunks/app/layout-973ea83a6e41c062.js",
+          "type": "script",
+          "transfer": 5996,
+          "gzip": 2187
+        },
+        {
+          "path": "/_next/static/chunks/app/not-found-d23792e6d6ed29f9.js",
+          "type": "script",
+          "transfer": 483,
+          "gzip": 161
+        },
+        {
+          "path": "/_next/static/chunks/app/page-f44825859b30c484.js",
+          "type": "script",
+          "transfer": 14717,
+          "gzip": 5594
+        },
+        {
+          "path": "/fonts/spectral.woff2",
+          "type": "css",
+          "transfer": 23236,
+          "gzip": 22936
+        },
+        {
+          "path": "/fonts/source.woff2",
+          "type": "css",
+          "transfer": 29172,
+          "gzip": 28872
+        },
+        {
+          "path": "/brand/skillchain-shield.png",
+          "type": "other",
+          "transfer": 17747,
+          "gzip": 17447
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "privacySections": [
+      "What does this demo remember?",
+      "Who sees which report?",
+      "What is verified?"
+    ],
+    "menu": {
+      "desktopKeyboard": true,
+      "currentPage": "SkillProof",
+      "routeHeadingFocused": true,
+      "back": true,
+      "skipTarget": "#main",
+      "mobileKeyboard": true
+    }
+  },
+  "cursor": {
+    "rendering": {
+      "pointerEvents": "none",
+      "hiddenFromAT": "true",
+      "transform": "matrix(1, 0, 0, 1, 1100, 317.07)",
+      "nativePointer": "pointer",
+      "labelText": "rgb(255, 255, 255)",
+      "labelBackground": "rgb(20, 35, 66)"
+    },
+    "performance": {
+      "shifts": [],
+      "longTasks": []
+    },
+    "labels": [
+      "Play",
+      "View evidence"
+    ],
+    "onlyControls": true,
+    "overrideAnimation": "none",
+    "osReducedMotion": true,
+    "footerOverride": true,
+    "formAndDemoExcluded": true,
+    "touchExcluded": true,
+    "returnHomeRestores": true
+  },
+  "media": {
+    "scroll-hero": {
+      "duration": 15,
+      "controls": true,
+      "captionMode": "showing",
+      "paused": false,
+      "preload": "none",
+      "transcript": true
+    },
+    "candidate": {
+      "duration": 70,
+      "controls": true,
+      "captionMode": "showing",
+      "paused": false,
+      "preload": "none",
+      "transcript": true
+    },
+    "employer": {
+      "duration": 40,
+      "controls": true,
+      "captionMode": "showing",
+      "paused": false,
+      "preload": "none",
+      "transcript": true
+    }
+  },
+  "browser": "157.0.8103.80"
+}

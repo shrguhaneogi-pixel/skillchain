@@ -1,0 +1,53 @@
+import { expect, test } from '@playwright/test'
+
+test('Home decorates only the two controls while preserving the native pointer', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/')
+  const cursor = page.locator('[data-home-cursor]')
+  const play = page.getByRole('button', { name: 'Play', exact: true })
+  const evidence = page.getByRole('link', { name: 'View evidence', exact: true })
+  const heading = page.getByRole('heading', { level: 1 })
+  await expect(page.locator('[data-home-cursor-target]')).toHaveCount(2)
+  await expect(cursor).toBeHidden()
+  await play.hover()
+  await expect(cursor).toBeVisible()
+  await expect(cursor).toHaveText('Play')
+  await expect(cursor).toHaveAttribute('aria-hidden', 'true')
+  await expect(cursor).toHaveCSS('pointer-events', 'none')
+  await expect(play).toHaveCSS('cursor', 'pointer')
+
+  await heading.hover()
+  await expect(cursor).toBeHidden()
+  await evidence.hover()
+  await expect(cursor).toBeVisible()
+  await expect(cursor).toHaveText('View evidence')
+  await page.locator('.evidence-rows dd').first().hover()
+  await expect(cursor).toBeHidden()
+
+  const override = page.getByRole('button', { name: 'Reduce motion' })
+  await override.click()
+  await play.hover()
+  await expect(cursor).toBeHidden()
+  await override.click()
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await play.hover()
+  await expect(cursor).toBeHidden()
+  await page.emulateMedia({ reducedMotion: 'no-preference' })
+  await heading.hover()
+  await play.hover()
+  await expect(cursor).toBeVisible()
+  await page.locator('.home-hero').getByRole('link', { name: 'Try the simulation' }).press('Enter')
+  await expect(page).toHaveURL(/\/demo\/$/)
+  await expect(cursor).toHaveCount(0)
+})
+
+test.describe('touch', () => {
+  test.use({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 844 } })
+
+  test('the concept control works on touch without the decorative cursor', async ({ page }) => {
+    await page.goto('/')
+    await page.getByRole('button', { name: 'Play', exact: true }).tap()
+    await expect(page.locator('[data-home-cursor]')).toBeHidden()
+    await expect(page.locator('.concept-film video')).toHaveAttribute('controls', '')
+  })
+})

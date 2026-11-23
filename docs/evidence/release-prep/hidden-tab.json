@@ -1,0 +1,32 @@
+{
+  "status": "OPEN",
+  "attempts": [
+    {
+      "scenario": "Timed practice, genuine foreground tab change",
+      "serving": "local production export",
+      "browser": "157.0.8103.80",
+      "before": {
+        "visibility": "visible",
+        "countdown": "Practice time remaining · 45s"
+      },
+      "status": "BLOCKED",
+      "error": "TimeoutError: page.waitForFunction: Timeout 7000ms exceeded."
+    },
+    {
+      "scenario": "Timed practice, genuine foreground tab change",
+      "serving": "local production export",
+      "browser": "157.0.8103.80",
+      "before": {
+        "visibility": "visible",
+        "countdown": "Practice time remaining · 45s"
+      },
+      "hiddenAttempt": {
+        "state": "visible",
+        "events": [],
+        "focused": true
+      },
+      "status": "BLOCKED",
+      "error": "TimeoutError: page.waitForFunction: Timeout 7000ms exceeded."
+    }
+  ]
+}

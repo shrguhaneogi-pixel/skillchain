@@ -3,7 +3,7 @@ export default function AboutPage() {
     <div className="page-split">
       <header><h1>A first job asks for experience. Where can you show it?</h1>
         <p className="lead">SkillChain began with a question about early-career hiring in India. What could an employer learn by seeing a graduate handle a difficult twenty minutes at work?</p>
-        <a className="primary" href="/demo/">Walk through a work sample</a>
+        <a className="primary" href="/demo/">Try the simulation</a>
       </header>
       <section className="card"><h2>Where the project stands</h2>
         <details><summary>Design the work sample</summary><p>The ideathon scenario follows three linked decisions during a threatened client demo.</p></details>

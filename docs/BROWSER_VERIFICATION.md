@@ -27,11 +27,18 @@ Start in a fresh private window to avoid previous site data. Use only the fictio
 | Application → IndexedDB | Expand the serving origin before Start and refresh the database list after both runs. | **Pass:** no run-related database, object store or record. **Fail:** any practice data appears. |
 | Application → Cookies | Select the serving origin and record names and values before Start and after both runs. In Network, inspect Cookie and Set-Cookie headers on same-origin requests. | **Pass:** no new or modified cookie contains run data, and the app does not send run data in a cookie. **Fail:** any practice value appears. |
 
-Keep a written pass/fail result for each row. Repeat once with a manual board edit. Code-level isolation evidence is in tests/demo.test.tsx, tests/demo-privacy.test.ts and the export audit. Browser-level claims about transmission and persistence await this run.
+Keep a written pass/fail result for each row. Include a manual board edit in each run. Local Chrome has passed both paths with the board edit. Run the hosted repeat against a preview that shows the five-section homepage. [Local browser audit](evidence/release-prep/browser-data.json)
+
+The browser test can repeat the same data checks against the approved preview. Use a dedicated output directory.
+
+```powershell
+$env:PLAYWRIGHT_BASE_URL = 'https://<approved-preview-host>'
+npm run test:e2e -- tests/e2e/gate1.spec.ts --grep 'real UI' --output=test-results/hosted-release
+```
 
 ## Home media, accessibility and performance
 
 1. Clear Network on Home, enable Disable cache, reload and wait without interacting. Filter for `mp4` or Media. **Pass** if there are zero video requests and zero transferred video bytes. Select Play and expect requests only for the selected recording, with English captions and a working transcript.
 2. Try end-to-end candidate playback, midpoint seek and captions. Use DevTools request blocking for the candidate MP4, then try Play and Download video. Expect the player failure notice, transcript and interactive fallback. Test audible mute/unmute after the owner supplies narration.
 3. Use NVDA with Firefox or VoiceOver with Safari. At 200% and 400%, verify the skip link, headings, menu focus, dialog pause/resume, tool tabs, candidate feedback, reviewer source focus and captions.
-4. Run three cold mobile Lighthouse tests each on Home, demo and FairHire with 4× CPU slowdown, 1.6 Mb/s and 150 ms RTT. Record browser version, median LCP, CLS, TBT, network bytes and video requests. Capture a Performance trace while scrolling through the hero and choosing both replies. In the managed baseline the preview and local browser conditions differed from this profile, so the release lab remains open. Field INP awaits traffic.
+4. Run three cold mobile Lighthouse tests each on Home, demo and FairHire with 4× CPU slowdown, 1.6 Mb/s and 150 ms RTT. Record browser version, median LCP, CLS, TBT, network bytes and video requests. Capture a Performance trace while scrolling through the hero and choosing both replies. The current local lab used this profile and exceeded the TBT budget. Field INP awaits traffic. [Measured performance](evidence/release-prep/README.md#performance)

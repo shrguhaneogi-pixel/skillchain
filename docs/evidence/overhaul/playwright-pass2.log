@@ -1,0 +1,16 @@
+
+Running 9 tests using 1 worker
+
+(node:19624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\incident-desk.spec.ts:6:3 › both replies update the task and leave keyboard focus in place at 1440px (1.7s)
+  ok 2 tests\e2e\incident-desk.spec.ts:6:3 › both replies update the task and leave keyboard focus in place at 834px (2.1s)
+  ok 3 tests\e2e\incident-desk.spec.ts:6:3 › both replies update the task and leave keyboard focus in place at 390px (2.2s)
+  ok 4 tests\e2e\incident-desk.spec.ts:6:3 › both replies update the task and leave keyboard focus in place at 320px (2.0s)
+  ok 5 tests\e2e\public.spec.ts:24:1 › untouched Home transfers zero video and the product tiles reload at their fixture states (5.9s)
+  ok 6 tests\e2e\public.spec.ts:46:1 › candidate player plays native video with captions, supports seek and exposes a media fallback (3.0s)
+  ok 7 tests\e2e\scroll-hero.spec.ts:4:3 › Home shows the simulation CTA and defers concept media at 1440px (3.3s)
+  ok 8 tests\e2e\scroll-hero.spec.ts:4:3 › Home shows the simulation CTA and defers concept media at 834px (2.4s)
+  ok 9 tests\e2e\scroll-hero.spec.ts:4:3 › Home shows the simulation CTA and defers concept media at 390px (2.4s)
+
+  9 passed (32.8s)

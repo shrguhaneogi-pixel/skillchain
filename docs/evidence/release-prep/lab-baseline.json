@@ -1,0 +1,148 @@
+{
+  "source": "0afa6fa1d36ca779bc33d598a55d4de37c63851a",
+  "export": "Published candidate tree built locally, served over loopback with gzip on compressible assets",
+  "coldState": "Fresh temporary Chrome profile and Lighthouse storage reset per run",
+  "throttlingMethod": "devtools",
+  "throttling": {
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 150,
+    "downloadThroughputKbps": 1600,
+    "uploadThroughputKbps": 750
+  },
+  "budgets": {
+    "lcpMs": 2500,
+    "cls": 0.1,
+    "tbtMs": 200
+  },
+  "routes": {
+    "home": {
+      "path": "/",
+      "runs": [
+        {
+          "run": 1,
+          "lcpMs": 1805.992,
+          "cls": 0.1298144143100597,
+          "tbtMs": 863.4249999999993,
+          "bytes": 297643,
+          "videoRequests": 0
+        },
+        {
+          "run": 2,
+          "lcpMs": 1932.968,
+          "cls": 0,
+          "tbtMs": 1342.3509999999999,
+          "bytes": 297643,
+          "videoRequests": 0
+        },
+        {
+          "run": 3,
+          "lcpMs": 1692.978,
+          "cls": 0.1298144143100597,
+          "tbtMs": 798.7860000000003,
+          "bytes": 297643,
+          "videoRequests": 0
+        }
+      ],
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "viewport": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "median": {
+        "lcpMs": 1805.992,
+        "cls": 0.1298144143100597,
+        "tbtMs": 863.4249999999993
+      },
+      "passed": false
+    },
+    "demo": {
+      "path": "/demo/",
+      "runs": [
+        {
+          "run": 1,
+          "lcpMs": 1297.091,
+          "cls": 0.021221322021384485,
+          "tbtMs": 596.5749999999998,
+          "bytes": 247763,
+          "videoRequests": 0
+        },
+        {
+          "run": 2,
+          "lcpMs": 1129.637,
+          "cls": 0.021221322021384485,
+          "tbtMs": 455.2049999999999,
+          "bytes": 247763,
+          "videoRequests": 0
+        },
+        {
+          "run": 3,
+          "lcpMs": 1007.308,
+          "cls": 0.021221322021384485,
+          "tbtMs": 546.665,
+          "bytes": 247763,
+          "videoRequests": 0
+        }
+      ],
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "viewport": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "median": {
+        "lcpMs": 1129.637,
+        "cls": 0.021221322021384485,
+        "tbtMs": 546.665
+      },
+      "passed": false
+    },
+    "fairhire": {
+      "path": "/fairhire/",
+      "runs": [
+        {
+          "run": 1,
+          "lcpMs": 1518.947,
+          "cls": 0.0001311548028451619,
+          "tbtMs": 704.387,
+          "bytes": 243857,
+          "videoRequests": 0
+        },
+        {
+          "run": 2,
+          "lcpMs": 1424.662,
+          "cls": 0.0001311548028451619,
+          "tbtMs": 619.2729999999997,
+          "bytes": 243857,
+          "videoRequests": 0
+        },
+        {
+          "run": 3,
+          "lcpMs": 1245.103,
+          "cls": 0.0001311548028451619,
+          "tbtMs": 687.8480000000002,
+          "bytes": 243857,
+          "videoRequests": 0
+        }
+      ],
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "viewport": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "median": {
+        "lcpMs": 1424.662,
+        "cls": 0.0001311548028451619,
+        "tbtMs": 687.8480000000002
+      },
+      "passed": false
+    }
+  }
+}

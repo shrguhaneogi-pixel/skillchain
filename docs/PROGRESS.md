@@ -2,9 +2,8 @@
 
 ## Current status
 
-- **Revision under test** `461a382` on `build/skillchain-workplace-demo`. The final archive ref identifies the closing documentation commit.
-- **Gate 3** is **PARTIAL / NOT READY**.
-- [Owner release checklist](OWNER_CHECKLIST.md) contains the normal-browser checks, publication commands and release gates.
+- **Published release candidate** on `design/homepage-overhaul`. Merge commit `0afa6fa` integrates `main` at `877a8c4` with the verified homepage overhaul tree. [Published branch](https://github.com/shrguhaneogi-pixel/skillchain/tree/design/homepage-overhaul)
+- **Release status** remains **NOT READY**. See [current acceptance results](TEST_REPORT.md), [release preparation evidence](evidence/release-prep/README.md) and the [owner release checklist](OWNER_CHECKLIST.md).
 
 ## Phase 1 recovery · 22 November 2026 (historical)
 

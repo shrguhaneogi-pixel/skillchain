@@ -1,0 +1,99 @@
+{
+  "candidate": "Integrated design/homepage-overhaul production export with the mobile action-row fix",
+  "typecheck": "PASSED",
+  "eslint": "PASSED with --max-warnings=0",
+  "vitest": {
+    "passed": 59,
+    "files": 9,
+    "testTimeoutMs": 120000
+  },
+  "build": "PASSED",
+  "export": {
+    "routesAndMissingPage": 12,
+    "crawlPaths": 77,
+    "htmlAudited": 14,
+    "scriptFilesAudited": 33
+  },
+  "chromium": {
+    "passed": 20,
+    "latestDataAuditPassed": 2,
+    "tests": [
+      {
+        "title": "real UI A/A/A",
+        "passed": true
+      },
+      {
+        "title": "real UI B/B/B",
+        "passed": true
+      },
+      {
+        "title": "timing, pause, missed windows, task history and restart",
+        "passed": true
+      },
+      {
+        "title": "self-paced skip keeps the missing observations distinct",
+        "passed": true
+      },
+      {
+        "title": "Home decorates only the two controls while preserving the native pointer",
+        "passed": true
+      },
+      {
+        "title": "both replies update the task and leave keyboard focus in place at 1440px",
+        "passed": true
+      },
+      {
+        "title": "both replies update the task and leave keyboard focus in place at 834px",
+        "passed": true
+      },
+      {
+        "title": "both replies update the task and leave keyboard focus in place at 390px",
+        "passed": true
+      },
+      {
+        "title": "both replies update the task and leave keyboard focus in place at 320px",
+        "passed": true
+      },
+      {
+        "title": "public visual and accessibility checks at 1440",
+        "passed": true
+      },
+      {
+        "title": "public visual and accessibility checks at 834",
+        "passed": true
+      },
+      {
+        "title": "public visual and accessibility checks at 390",
+        "passed": true
+      },
+      {
+        "title": "public visual and accessibility checks at 320",
+        "passed": true
+      },
+      {
+        "title": "untouched Home transfers zero video and the product tiles reload at their fixture states",
+        "passed": true
+      },
+      {
+        "title": "candidate player supports captions, seeking, media fallback and download",
+        "passed": true
+      },
+      {
+        "title": "Home shows the simulation CTA and defers concept media at 1440px",
+        "passed": true
+      },
+      {
+        "title": "Home shows the simulation CTA and defers concept media at 834px",
+        "passed": true
+      },
+      {
+        "title": "Home shows the simulation CTA and defers concept media at 390px",
+        "passed": true
+      },
+      {
+        "title": "the mobile hero keeps action rows when the control font arrives",
+        "passed": true
+      }
+    ]
+  }
+}
