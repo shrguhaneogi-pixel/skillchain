@@ -66,11 +66,13 @@ export default function Home() {
         </div>)}</dl>
         <a className="evidence-link" href={report}>View evidence</a>
       </article>
-      <div id="product-screens" className="bento">{tiles.map(([name, title, caption, href, alt, width, height]) => {
+      <div id="product-screens" className="evidence-captures">
+        <p id="capture-label" className="kicker">Fictional demo data</p>
+        <div className="bento">{tiles.map(([name, title, caption, href, alt, width, height]) => {
         const path = '/media/bento/bento-' + name
         const sources = (format: string) => [400, 800, width].map(pixels => `${path}-${pixels}.${format} ${pixels}w`).join(', ')
         const sizes = '(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 90vw'
-        return <a className="bento-tile" href={href} key={name} aria-labelledby={name+'-tile-title'}>
+        return <a className="bento-tile" href={href} key={name} aria-labelledby={name+'-tile-title'} aria-describedby="capture-label">
           <figure>
             <picture><source type="image/avif" srcSet={sources('avif')} sizes={sizes}/>
               <img src={path+'-400.webp'} srcSet={sources('webp')} sizes={sizes} alt={alt}
@@ -79,7 +81,8 @@ export default function Home() {
             <figcaption><h3 id={name+'-tile-title'}>{title}</h3><p>{caption}</p></figcaption>
           </figure>
         </a>
-      })}</div>
+        })}</div>
+      </div>
     </section>
 
     <section id="audiences" className="wrap home-section" aria-labelledby="audience-heading">
