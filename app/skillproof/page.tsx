@@ -7,7 +7,7 @@ export default function SkillProofPage() {
         <div className="sectionline">SkillProof</div>
         <h1>What would you do with twenty minutes?</h1>
         <p className="lead">A client demo is due, the service is down, and Finance has found a discrepancy. Take the coordinator’s seat.</p>
-        <a href="/demo/" className="primary">Enter the coordinator demo</a>
+        <a href="/demo/" className="primary">Try the simulation</a>
       </header>
       <ToolTour/>
     </div>

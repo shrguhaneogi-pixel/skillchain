@@ -23,3 +23,25 @@
 | TrustChain | The viewer selects among three local records. Its reference fields say Network: none and Registry write: none. It performs no external lookup. Mutual verification, qualifications and any blockchain record are proposed. The lint guard now also covers the product components. |
 
 Changed one public sentence in Privacy, “The demo has no recruiter submission action.” The approved wording from 04-pages is restored, “Your run is not sent to a recruiter.” The browser-level transport and storage audit stays open. The repository has no Vercel Analytics or Speed Insights integration or hosting setting that enables one. Keep both products off in the Vercel project. Operator, legal and deployed-settings checks belong to release sign-off.
+
+## Homepage overhaul
+
+- The five-section order and the copy ledger here replace the ten-section order and verbatim-copy requirement for `05-home.md`. The scripted desk replaces the pinned incident region, its scroll thresholds and “Read all incidents”. The static masthead shield carries the brand without an entrance.
+- The earlier cursor deferral is reversed for Home’s concept poster and evidence example only. The shared Linked Orb and native-pointer suppression are removed.
+- Pricing retains the existing estimator as the sole implementation. Privacy receives the detailed consent accordion with the claim-audited wording preserved exactly. The old Home hashes link to the new locations.
+- CTA standard applies to all equivalent links. “Start the full simulation” and “View evidence” are the explicit context-specific controls named in the overhaul brief.
+
+### Copy ledger
+
+| Surface | New or changed wording |
+| --- | --- |
+| Simulation CTAs | “Try the simulation” replaces “Try the demo”, “Try SkillProof Demo”, “Experience a simulation”, “Interactive demo”, “Try the decision”, “Walk through a work sample”, “Enter the coordinator demo”, “Start this simulation”, “Try the playable coordinator demo” and the simulation fallback instance of “Explore the interactive walkthrough”. |
+| Employer CTAs | “Request an employer demo” replaces “Request a demo” and “Request employer demo”. The masthead now opens Contact with the employer demo topic set. |
+| Report CTAs | “View a sample report” replaces “Read a sample report”, “Inspect the sample report”, “Behind a finding” and the reviewer fallback instance of “Explore the interactive walkthrough”. It replaces the hero’s “Explore the Platform” action with the direct report destination. |
+| Hero | “Up to 2:05 for timed decisions · No sign-up”, “Watch the concept film” and “Play”. Automated A/A/A from Start to candidate feedback took 1.12 s in self-paced and 25.63 s in timed mode on the supplied pre-change export. The timed engine’s final deadline is at 125 s of active practice. |
+| Concept film accessibility | Added a descriptive [transcript](../public/media/scroll-hero-transcript.txt) and [English captions](../public/media/scroll-hero.en.vtt) for the existing silent recording. |
+| Incident desk | “Scripted preview · Fictional demo data”; “Project Coordinator / Simulation 01” reuses the original metadata in sentence case. “Task board”, “Owner”, “Status” and “Updated” label the shared task. “Updated · {owner} / {status}.” leads the same existing outcome text. |
+| Evidence | “From decision to evidence.”, “Make a decision”, “See what changes”, “Review the evidence”, “Read the incident and choose the next action.”, “Source message”, “Selected reply”, “Observed consequence”, “View evidence”, “FairHire · Fictional demo data” and “Proposed TrustChain · Fictional example”. The C-017 values come from existing fixtures. |
+| Audience and footer CTA | “Choose your path.” replaces “What would you like to see?”. “Employers” replaces “Recruiters”. Existing audience descriptions are trimmed at sentence boundaries. “Demo data is fictional, and candidates are never charged to apply or complete employer-requested assessments.” links to the moved disclosures and estimator. |
+
+The before screenshots capture the supplied existing export, which included the entrance from the checkout’s newer starting revision. The feature head was used for the code baseline and new branch.

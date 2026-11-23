@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Shield from './Shield'
-import LinkedOrb from './LinkedOrb'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 const products = [
@@ -11,7 +10,7 @@ const products = [
   ['/trustchain/', 'TrustChain', 'Inspect a fictional verification record.'],
   ['/fairhire/', 'FairHire', 'Trace a finding to its evidence.'],
 ] as const
-const mainLinks = [['/simulations/', 'Simulations'], ['/pricing/', 'Pricing'], ['/contact/', 'Request a demo'], ['/demo/', 'Try the demo']] as const
+const mainLinks = [['/simulations/', 'Simulations'], ['/pricing/', 'Pricing'], ['/contact/?topic=demo', 'Request an employer demo'], ['/demo/', 'Try the simulation']] as const
 let motionOverride = false
 
 function Wordmark() {
@@ -25,7 +24,7 @@ function Wordmark() {
 function Footer({ reduced, toggle }: {reduced: boolean; toggle: () => void}) {
   const groups = [
     ['Platform', products],
-    ['Explore', [['/simulations/', 'Simulations'], ['/demo/', 'Interactive demo'], ['/pricing/', 'Pricing']]],
+    ['Explore', [['/simulations/', 'Simulations'], ['/demo/', 'Try the simulation'], ['/pricing/', 'Pricing']]],
     ['Team', [['/about/', 'About'], ['/contact/', 'Contact']]],
     ['Policies', [['/terms/', 'Terms'], ['/privacy/', 'Privacy']]],
   ] as const
@@ -90,11 +89,11 @@ export default function MarketingShell({children}: {children: ReactNode}) {
     }
   }, [expanded])
 
-  const current = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '') ? 'page' as const : undefined
+  const current = (href: string) => pathname.replace(/\/$/, '') === href.split('?')[0].replace(/\/$/, '') ? 'page' as const : undefined
   const close = () => { menu.current?.close(); menuButton.current?.focus() }
   const links = (mobile: boolean) => <>
     {mainLinks.map(([href, label]) => <Link key={href} href={href} prefetch={false} aria-current={current(href)}
-      className={href === '/demo/' ? 'primary' : href === '/contact/' ? 'secondary' : undefined}
+      className={href === '/demo/' ? 'primary' : href.startsWith('/contact/') ? 'secondary' : undefined}
       onClick={mobile ? close : undefined}>{label}</Link>)}
   </>
   const productLinks = (mobile: boolean) => products.map(([href,label,summary]) => <Link key={href} href={href} prefetch={false}
@@ -103,7 +102,6 @@ export default function MarketingShell({children}: {children: ReactNode}) {
   </Link>)
 
   return <>
-    {!demo && <LinkedOrb key={pathname}/>}
     <a className="skip" href="#main" onClick={() => {
       const content = document.getElementById('main')
       content?.setAttribute('tabindex', '-1')
@@ -118,7 +116,7 @@ export default function MarketingShell({children}: {children: ReactNode}) {
           </div>
           {links(false)}
         </nav>
-        <nav className="mobile-nav" aria-label="Main navigation"><Link href="/demo/" prefetch={false} className="primary">Try the demo</Link>
+        <nav className="mobile-nav" aria-label="Main navigation"><Link href="/demo/" prefetch={false} className="primary">Try the simulation</Link>
           <button type="button" ref={menuButton} onClick={() => menu.current?.showModal()}>Menu</button>
         </nav>
       </div>

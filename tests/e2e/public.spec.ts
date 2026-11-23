@@ -31,9 +31,9 @@ test('untouched Home transfers zero video and the product tiles reload at their 
   const states = [
     ['Inside the mailbox','Demo server down'],
     ['On the task board','Starting board'],
-    ['In the role brief','Start this simulation'],
+    ['In the role brief','Try the simulation'],
     ['On the credential record','DEMO-ORG-04'],
-    ['Behind a finding','Candidate C-017'],
+    ['View a sample report','Candidate C-017'],
   ]
   for (const [title, marker] of states) {
     await page.locator('.bento-tile').filter({hasText:title}).click()

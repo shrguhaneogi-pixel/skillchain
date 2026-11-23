@@ -4,7 +4,7 @@ import { expect, it } from 'vitest'
 import Walkthrough from '../components/Walkthrough'
 
 const props = {
-  name: 'candidate', title: 'A day inside SkillProof', lead: 'Follow a coordinator.',
+  name: 'candidate-walkthrough', title: 'A day inside SkillProof', lead: 'Follow a coordinator.',
   transcript: 'First message.\n\nThen a reply.', fallback: '/demo/',
 }
 
@@ -19,6 +19,6 @@ it('does not render network-active video sources before user intent', () => {
 it('shows an interactive fallback if the recording is unavailable', () => {
   const page = renderToStaticMarkup(createElement(Walkthrough, { ...props, available: false }))
   expect(page).toContain('href="/demo/"')
-  expect(page).toContain('Explore the interactive walkthrough')
+  expect(page).toContain('Try the simulation')
   expect(page).not.toContain('.mp4')
 })

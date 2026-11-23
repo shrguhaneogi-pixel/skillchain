@@ -29,5 +29,13 @@ const sections: PolicySection[] = [
 ]
 
 export default function Page() {
-  return <Policy title="How your information is used" sections={sections} crossLink="Terms"/>
+  return <Policy title="How your information is used" sections={sections} crossLink="Terms">
+    <section id="privacy-overview">
+      <h2>Know what gets recorded.</h2>
+      <details><summary>What does this demo remember?</summary><p>Your replies and task changes stay in this browser’s memory for the current run. Exit and clear it or reload to remove them.</p></details>
+      <details><summary>Who sees which report?</summary><p>In the proposed assessment workflow, recruiters review scores and the decisions behind them. Candidates receive strengths and improvement areas. In the public demo, the recruiter lens is a separately labelled illustration.</p></details>
+      <details><summary>What is verified?</summary><p>The credential viewer contains fictional examples. Before a real check, the service would explain the purpose, recipient and choices. Qualification verification would be optional.</p></details>
+      <div className="controlrow"><a className="secondary" href="/privacy/">Read the privacy notice</a><a className="secondary" href="/trustchain/">Explore TrustChain</a></div>
+    </section>
+  </Policy>
 }

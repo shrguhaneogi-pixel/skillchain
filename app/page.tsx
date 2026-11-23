@@ -1,91 +1,113 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { AudienceSelector, IncidentDesk, PrivacyDisclosures, ReplyExcerpt } from '@/components/HomeInteractive'
-import Estimator from '@/components/Estimator'
+import { IncidentDesk } from '@/components/HomeInteractive'
 import Walkthrough from '@/components/Walkthrough'
-import ScrollVideoHero from '@/components/ScrollVideoHero'
-import BentoReveals from '@/components/BentoReveals'
+import { canonical } from '@/lib/engine'
+import './home.css'
+
+const report = '/fairhire/#report'
 
 const tiles = [
   ['mail', 'Inside the mailbox', 'Read the incident that starts the day.', '/skillproof/#mailbox', 'Rahul asks who owns the demo server recovery check.', 1440, 900],
-  ['credential', 'On the credential record', 'Inspect a fictional employer check.', '/trustchain/#credential', 'Sample employer record with a fictional verification status.', 960, 720],
-  ['evidence', 'Behind a finding', 'Follow a reviewer’s score back to a reply.', '/fairhire/#report', 'A sample communication finding points to the reply to Alex.', 960, 720],
-  ['brief', 'In the role brief', 'See what a coordinator is responsible for.', '/simulations/', 'Foundation brief for the playable Project Coordinator role.', 960, 720],
   ['board', 'On the task board', 'See who owns the recovery check.', '/demo/?tool=tasks', 'The recovery check is assigned to Rahul and marked In progress.', 1200, 900],
+  ['brief', 'In the role brief', 'See what a coordinator is responsible for.', '/simulations/', 'Foundation brief for the playable Project Coordinator role.', 960, 720],
+  ['credential', 'On the credential record', 'Proposed TrustChain · Fictional example', '/trustchain/#credential', 'Sample employer record with a fictional verification status.', 960, 720],
+  ['evidence', 'View a sample report', 'Follow a reviewer’s score back to a reply.', report, 'A sample communication finding points to the reply to Alex.', 960, 720],
 ] as const
 
-const workflow = [
-  ['TrustChain / Establish context.', 'The proposed service checks the parties involved and explains what will be shared. Inspect a fictional verification record.'],
-  ['SkillProof / Do the work.', 'Read the incident, choose the next action and see how your coworkers respond.'],
-  ['Evidence review / Trace the decision.', 'Connect the reply to its task owner and the relevant competency.'],
-  ['FairHire / Ask a better question.', 'A recruiter can open the evidence and discuss the candidate’s reasoning. A person makes the hiring decision.'],
-]
+const steps = [
+  ['Make a decision', 'Read the incident and choose the next action.'],
+  ['See what changes', 'Connect the reply to its task owner and the relevant competency.'],
+  ['Review the evidence', 'A recruiter can open the evidence and discuss the candidate’s reasoning. A person makes the hiring decision.'],
+] as const
+
+const sample = canonical().events.filter(event =>
+  event.incident === 0 && ['incoming', 'reply', 'consequence'].includes(event.kind))
+const rowNames = ['Source message', 'Selected reply', 'Observed consequence']
 
 function media(name: string) {
-  const path = join(process.cwd(), 'public/media', name + '-walkthrough')
+  const path = join(process.cwd(), 'public/media', name)
   const available = ['.mp4', '-poster.webp', '.en.vtt', '-transcript.txt'].every(suffix => existsSync(path + suffix))
   return {available, transcript: available ? readFileSync(path + '-transcript.txt', 'utf8').trim() : ''}
 }
 
 export default function Home() {
-  const candidate = media('candidate')
-  const employer = media('employer')
   return <main id="main" className="home">
-    <ScrollVideoHero/>
-    <IncidentDesk embedded/>
-    <section id="gap" className="wrap home-section home-split">
-      <div><h2>What happens after the interview?</h2>
-        <p>A résumé lists the projects you worked on. An interview gives you time to explain one. A work sample lets someone see the moment you choose what to do first.</p></div>
-      <dl className="gap-lines"><div><dt>Résumé</dt><dd>Coordinated a release.</dd></div>
-        <div><dt>Interview</dt><dd>Explained a difficult handoff.</dd></div>
-        <div><dt>Work sample</dt><dd><a href="#preview">Assigned Rahul to recovery and agreed the next update.</a></dd></div></dl>
+    <section className="wrap home-hero" aria-labelledby="scroll-hero-title">
+      <div className="hero-copy">
+        <h1 id="scroll-hero-title">Experience the workplace. Prove your potential.</h1>
+        <p className="lead">Practice real workplace decisions in a fictional simulation.</p>
+        <div className="controlrow">
+          <a className="primary" href="/demo/" aria-describedby="demo-duration">Try the simulation</a>
+          <a className="secondary" href={report}>View a sample report</a>
+        </div>
+        <p id="demo-duration" className="home-meta">Up to 2:05 for timed decisions · No sign-up</p>
+      </div>
+      <Walkthrough name="scroll-hero" title="Watch the concept film" fallback="/demo/" concept {...media('scroll-hero')}/>
     </section>
-    <ReplyExcerpt/>
-    <section id="product-screens" className="wrap home-section">
-      <h2>Follow the work through five screens.</h2><p>Open a desk, a role brief or a report and inspect the details yourself.</p>
-      <BentoReveals>{tiles.map(([name, title, caption, href, alt, width, height], index) => {
+
+    <IncidentDesk/>
+
+    <section id="workflow" className="wrap home-section" aria-labelledby="evidence-heading">
+      <header className="section-heading">
+        <h2 id="evidence-heading">From decision to evidence.</h2>
+        <ol className="evidence-steps">{steps.map(([title, body]) => <li key={title}>
+          <h3>{title}</h3><p>{body}</p>
+        </li>)}</ol>
+      </header>
+      <article className="evidence-record" aria-labelledby="sample-heading">
+        <div className="evidence-heading">
+          <div><p className="kicker">FairHire · Fictional demo data</p><h3 id="sample-heading">Candidate <span>C-017</span></h3></div>
+          <a className="secondary" href={report}>View a sample report</a>
+        </div>
+        <dl className="evidence-rows">{sample.map((event, index) => <div key={event.id}>
+          <dt>{rowNames[index]}<small>{event.time} IST · {event.actor}</small></dt>
+          <dd>{event.text}</dd>
+        </div>)}</dl>
+        <a className="evidence-link" href={report}>View evidence</a>
+      </article>
+      <div id="product-screens" className="bento">{tiles.map(([name, title, caption, href, alt, width, height]) => {
         const path = '/media/bento/bento-' + name
         const sources = (format: string) => [400, 800, width].map(pixels => `${path}-${pixels}.${format} ${pixels}w`).join(', ')
-        const desktopSize = index === 0 ? '54vw' : index === 1 ? '38vw' : '30vw'
-        const tabletSize = index === tiles.length - 1 ? '92vw' : '45vw'
-        const sizes = `(min-width: 1200px) ${desktopSize}, (min-width: 768px) ${tabletSize}, 92vw`
-        return <a className="bento-tile" href={href} key={name} data-cursor="view"><figure>
-          <picture><source type="image/avif" srcSet={sources('avif')} sizes={sizes}/>
-            <img src={path+'-400.webp'} srcSet={sources('webp')} sizes={sizes} alt={alt}
-              width={width} height={height} loading="lazy" decoding="async"/>
-          </picture>
-          <figcaption><h3>{title}</h3><p>{caption}</p></figcaption>
-        </figure></a>
-      })}</BentoReveals>
+        const sizes = '(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 90vw'
+        return <a className="bento-tile" href={href} key={name} aria-labelledby={name+'-tile-title'}>
+          <figure>
+            <picture><source type="image/avif" srcSet={sources('avif')} sizes={sizes}/>
+              <img src={path+'-400.webp'} srcSet={sources('webp')} sizes={sizes} alt={alt}
+                width={width} height={height} loading="lazy" decoding="async"/>
+            </picture>
+            <figcaption><h3 id={name+'-tile-title'}>{title}</h3><p>{caption}</p></figcaption>
+          </figure>
+        </a>
+      })}</div>
     </section>
-    <section id="workflow" className="wrap home-section">
-      <h2>From a work sample to a hiring conversation.</h2>
-      <ol className="workflow">{workflow.map(([title, body]) => <li className="card" key={title}>
-        <details open><summary>{title}</summary><p>{body}</p></details>
-      </li>)}</ol>
-      <div className="controlrow"><a href="/trustchain/#credential">Inspect the sample record</a><a href="/demo/">Try the decision</a><a href="/fairhire/#report">Read a sample report</a></div>
-    </section>
-    <section id="walkthroughs" className="wrap home-section">
-      <h2>Watch the same incident from both desks.</h2>
-      <div className="pair"><Walkthrough name="candidate" title="A day inside SkillProof"
-        lead="Follow a coordinator from the first alert to the evidence behind a finding." fallback="/demo/" {...candidate}/>
-        {employer.available && <Walkthrough name="employer" title="The employer’s perspective"
-          lead="See the role setup and open the decision that supports a sample score." fallback="/fairhire/#report" {...employer}/>}
+
+    <section id="audiences" className="wrap home-section" aria-labelledby="audience-heading">
+      <header className="section-heading"><h2 id="audience-heading">Choose your path.</h2></header>
+      <div className="audience-paths">
+        <article><h3>Candidates</h3><p>Decide what to delegate and what to tell the client.</p>
+          <a className="primary" href="/demo/">Try the simulation</a></article>
+        <article><h3>Employers</h3><p>Read the candidate’s reply alongside its consequence.</p>
+          <a className="secondary" href={report}>View a sample report</a>
+          <a className="secondary" href="/contact/?topic=demo">Request an employer demo</a></article>
+        <article><h3>Institutions</h3><p>Use the fictional exercise to discuss ownership, escalation and client communication with a cohort.</p>
+          <a className="secondary" href="/contact/?topic=institution">Discuss a cohort session</a></article>
+      </div>
+      <div id="walkthroughs" className="pair">
+        <Walkthrough name="candidate-walkthrough" title="A day inside SkillProof" fallback="/demo/"
+          lead="Follow a coordinator from the first alert to the evidence behind a finding." {...media('candidate-walkthrough')}/>
+        <Walkthrough name="employer-walkthrough" title="The employer’s perspective" fallback={report}
+          lead="See the role setup and open the decision that supports a sample score." {...media('employer-walkthrough')}/>
       </div>
     </section>
-    <AudienceSelector/>
-    <section id="funding" className="wrap home-section">
-      <h2>Employers fund the assessment.</h2><p>Candidates are never charged to apply or complete employer-requested assessments. The public demonstration is free to explore.</p>
-      <div className="pair"><article className="card"><h3>Standard subscription</h3><p>Plan access to the employer role library and assessment credits.</p></article>
-        <article className="card"><h3>Professional customization</h3><p>Discuss a workplace scenario and rubric tailored to your team.</p></article></div>
-      <Estimator/><p><a className="secondary" href="/pricing/">Compare plans</a></p>
-    </section>
-    <PrivacyDisclosures/>
-    <section id="invitation" className="home-invite" data-cursor-tone="dark"><div className="wrap home-section">
+
+    <section id="invitation" className="home-invite"><div className="wrap home-section">
       <h2>The client demo starts at 10:24. Your inbox is open.</h2>
-      <p>Step into the coordinator’s role, or bring us a role your team hires for.</p>
-      <div className="controlrow"><a className="primary" href="/demo/">Experience a simulation</a>
-        <a className="secondary" href="/contact/?topic=demo">Request an employer demo</a></div>
+      <div className="controlrow">
+        <a className="primary" href="/demo/">Try the simulation</a>
+        <a className="secondary" href="/contact/?topic=demo">Request an employer demo</a>
+      </div>
+      <p><a id="privacy-overview" href="/privacy/#privacy-overview">Demo data is fictional</a>, and <a id="funding" href="/pricing/#estimator"><span id="estimator">candidates are never charged to apply or complete employer-requested assessments</span></a>.</p>
     </div></section>
   </main>
 }

@@ -1,0 +1,11 @@
+/* Homepage layout */
+.home .wrap:is(.home-hero,.home-section){margin-top:0}
+.home-hero,.incident-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.home-hero{align-items:center}
+.concept-film,.incident-layout>*{min-width:0}
+.incident-layout article,.evidence-record,.audience-paths article{padding:20px;border:1px solid var(--line);background:var(--work)}
+.evidence-steps,.audience-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:24px}
+.evidence-link,.walkthrough a[download]{display:inline-flex;min-height:44px;align-items:center}
+@media(max-width:767px){
+ .home-hero,.incident-layout,.evidence-steps,.audience-paths{grid-template-columns:minmax(0,1fr)}
+}
