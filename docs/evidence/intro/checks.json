@@ -1,0 +1,240 @@
+{
+  "base": "564107bee46295434d74c714fdccb32e9aaf3be3",
+  "appRevision": "a8555092e859d9759f6d572b1a20f1f3b1988f9a",
+  "baseline": {
+    "typecheck": "PASSED",
+    "lint": "PASSED, zero warnings",
+    "unit": {
+      "passed": 58,
+      "timedOut": 1,
+      "files": 9,
+      "timeoutMs": 5000
+    }
+  },
+  "final": {
+    "typecheck": "PASSED",
+    "lint": "PASSED, zero warnings",
+    "unit": {
+      "passed": 74,
+      "files": 10,
+      "timeoutMs": 120000
+    },
+    "productionBuild": "PASSED",
+    "playwright": {
+      "passed": 51,
+      "intro": 31,
+      "existing": 20,
+      "tests": [
+        {
+          "title": "first document is covered and dismissal makes the unchanged CTA clickable",
+          "passed": true
+        },
+        {
+          "title": "refresh, site navigation, Back and Forward keep the first visit consumed",
+          "passed": true
+        },
+        {
+          "title": "a fresh visit to /pricing/ consumes the session and does not cover Home later",
+          "passed": true
+        },
+        {
+          "title": "a fresh visit to /demo/ consumes the session and does not cover Home later",
+          "passed": true
+        },
+        {
+          "title": "a fresh visit to /#preview consumes the session and does not cover Home later",
+          "passed": true
+        },
+        {
+          "title": "storage failure leaves a directly usable page",
+          "passed": true
+        },
+        {
+          "title": "Skip works while framework scripts are still blocked",
+          "passed": true
+        },
+        {
+          "title": "first Tab reaches Skip, and Enter returns to document start",
+          "passed": true
+        },
+        {
+          "title": "first Tab reaches Skip, and Space returns to document start",
+          "passed": true
+        },
+        {
+          "title": "first Tab reaches Skip, and Escape returns to document start",
+          "passed": true
+        },
+        {
+          "title": "the OS reduced-motion preference bypasses the cover",
+          "passed": true
+        },
+        {
+          "title": "footer motion override wins when returning Home",
+          "passed": true
+        },
+        {
+          "title": "an override activated during the timeline releases the cover",
+          "passed": true
+        },
+        {
+          "title": "a hidden visibility state ends the timeline and releases inert",
+          "passed": true
+        },
+        {
+          "title": "the watchdog completes an opening with no CSS animationend",
+          "passed": true
+        },
+        {
+          "title": "the real timeline reaches 100% and sends the curtains in opposite directions",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 1332 × 667",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 1366 × 768",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 1440 × 900",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 1920 × 1080",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 768 × 1024",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 1024 × 768",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 320 × 568",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 375 × 812",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 390 × 844",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 430 × 932",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 667 × 375",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 683 × 384",
+          "passed": true
+        },
+        {
+          "title": "the cover fits 390 × 300",
+          "passed": true
+        },
+        {
+          "title": "a tap dismisses the cover and the next tap opens the simulation",
+          "passed": true
+        },
+        {
+          "title": "server markup stays hidden and the site can be navigated",
+          "passed": true
+        },
+        {
+          "title": "real UI A/A/A",
+          "passed": true
+        },
+        {
+          "title": "real UI B/B/B",
+          "passed": true
+        },
+        {
+          "title": "timing, pause, missed windows, task history and restart",
+          "passed": true
+        },
+        {
+          "title": "self-paced skip keeps the missing observations distinct",
+          "passed": true
+        },
+        {
+          "title": "Home decorates only the two controls while preserving the native pointer",
+          "passed": true
+        },
+        {
+          "title": "the concept control works on touch without the decorative cursor",
+          "passed": true
+        },
+        {
+          "title": "both replies update the task and leave keyboard focus in place at 1440px",
+          "passed": true
+        },
+        {
+          "title": "both replies update the task and leave keyboard focus in place at 834px",
+          "passed": true
+        },
+        {
+          "title": "both replies update the task and leave keyboard focus in place at 390px",
+          "passed": true
+        },
+        {
+          "title": "both replies update the task and leave keyboard focus in place at 320px",
+          "passed": true
+        },
+        {
+          "title": "public visual and accessibility checks at 1440",
+          "passed": true
+        },
+        {
+          "title": "public visual and accessibility checks at 834",
+          "passed": true
+        },
+        {
+          "title": "public visual and accessibility checks at 390",
+          "passed": true
+        },
+        {
+          "title": "public visual and accessibility checks at 320",
+          "passed": true
+        },
+        {
+          "title": "untouched Home transfers zero video and the product tiles reload at their fixture states",
+          "passed": true
+        },
+        {
+          "title": "candidate player supports captions, seeking, media fallback and download",
+          "passed": true
+        },
+        {
+          "title": "Home shows the simulation CTA and defers concept media at 1440px",
+          "passed": true
+        },
+        {
+          "title": "Home shows the simulation CTA and defers concept media at 834px",
+          "passed": true
+        },
+        {
+          "title": "Home shows the simulation CTA and defers concept media at 390px",
+          "passed": true
+        },
+        {
+          "title": "the mobile hero keeps action rows when the control font arrives",
+          "passed": true
+        }
+      ]
+    },
+    "exportAudit": {
+      "httpPaths": 77,
+      "referenceInExport": false,
+      "rawIntroFontsInExport": false
+    }
+  }
+}

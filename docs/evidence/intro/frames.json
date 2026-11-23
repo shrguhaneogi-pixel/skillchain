@@ -1,0 +1,101 @@
+{
+  "browser": "157.0.8103.80",
+  "frames": [
+    {
+      "kind": "desktop",
+      "viewport": {
+        "width": 1332,
+        "height": 667
+      },
+      "initial": "0%",
+      "progress": "56%",
+      "appearance": {
+        "upper": {
+          "x": 0,
+          "y": 0,
+          "width": 1332,
+          "height": 386.859375
+        },
+        "lower": {
+          "x": 0,
+          "y": 386.875,
+          "width": 1332,
+          "height": 280.125
+        },
+        "branding": {
+          "x": 0,
+          "y": 161.546875,
+          "width": 1332,
+          "height": 179.8125
+        },
+        "progress": {
+          "x": 539.4609375,
+          "y": 587.265625,
+          "width": 253.078125,
+          "height": 34.390625
+        },
+        "skip": {
+          "x": 1218.359375,
+          "y": 603.03125,
+          "width": 88.640625,
+          "height": 44
+        },
+        "colors": {
+          "ivory": "rgb(254, 246, 237)",
+          "crimson": "rgb(160, 2, 1)",
+          "percentage": "rgb(224, 188, 121)"
+        }
+      },
+      "mp4Requests": 0,
+      "consoleErrors": []
+    },
+    {
+      "kind": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "initial": "0%",
+      "progress": "56%",
+      "appearance": {
+        "upper": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 489.515625
+        },
+        "lower": {
+          "x": 0,
+          "y": 489.53125,
+          "width": 390,
+          "height": 354.46875
+        },
+        "branding": {
+          "x": 46.796875,
+          "y": 215.375,
+          "width": 296.390625,
+          "height": 159.03125
+        },
+        "progress": {
+          "x": 118.953125,
+          "y": 754.875,
+          "width": 152.09375,
+          "height": 31.734375
+        },
+        "skip": {
+          "x": 315.734375,
+          "y": 794,
+          "width": 66.265625,
+          "height": 44
+        },
+        "colors": {
+          "ivory": "rgb(254, 246, 237)",
+          "crimson": "rgb(160, 2, 1)",
+          "percentage": "rgb(224, 188, 121)"
+        }
+      },
+      "mp4Requests": 0,
+      "consoleErrors": []
+    }
+  ]
+}

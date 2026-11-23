@@ -19,3 +19,7 @@ The root layout set `data-parchment-ready` in a blocking script and copied the `
 ## Risks
 
 Static export, temporary inert state and pre-paint mutations need browser hydration verification. The fixed cover may become the LCP element. Measure the cover and bypass under the same conditions, including transfer and layout shift. Keep the reference and all screenshots outside `public/` and the build output. Keep the existing shield unchanged and reuse its existing site URL.
+
+## Verification and handoff
+
+Implementation commit `a855509` passed TypeScript, strict ESLint, the static export, 74 unit and component tests, 51 Playwright checks and the 77-path crawl. Chrome recorded the reference frames, native accessibility tree, opposite curtain transforms and direct CTA activation after dismissal. The reference and raw font sources are absent from the export. The comparison, measured budgets, timing and owner follow-up steps are in [intro evidence](evidence/intro/README.md).
