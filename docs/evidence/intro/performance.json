@@ -1,0 +1,485 @@
+{
+  "browser": "157.0.8103.80",
+  "method": "Fresh Chrome contexts, production export over gzip loopback, identical viewport and settings for first visit and bypass. No CPU or network throttling.",
+  "budgets": {
+    "introAssetsBytes": 40960,
+    "introJsBytes": 4096,
+    "criticalBytes": 358400,
+    "routeJsBytes": 153600
+  },
+  "introGzip": {
+    "markupBytes": 8381,
+    "cssBytes": 2251,
+    "inlineJavaScriptBytes": 1216,
+    "combinedBytes": 11848
+  },
+  "previousCriticalMeasurement": "docs/evidence/release-prep/transfer.json",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "firstVisit": [
+        {
+          "lcp": {
+            "ms": 500,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 228.19999999925494,
+              "value": 0.0000017637150768389916
+            },
+            {
+              "ms": 363.69999999925494,
+              "value": 0.010407785892355751
+            },
+            {
+              "ms": 1767.2999999998137,
+              "value": 0.000004110805684156378
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 57.59999999962747,
+              "duration": 132
+            },
+            {
+              "ms": 231.29999999981374,
+              "duration": 79
+            }
+          ],
+          "openTime": 3018,
+          "fcp": 500,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 350238,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.010413660413116746
+        },
+        {
+          "lcp": {
+            "ms": 260,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 189.5,
+              "value": 0.0000017637150768389916
+            },
+            {
+              "ms": 314.5,
+              "value": 0.010407785892355751
+            },
+            {
+              "ms": 1758.7000000001863,
+              "value": 0.000004110805684156378
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 47.60000000055879,
+              "duration": 110
+            },
+            {
+              "ms": 193.80000000074506,
+              "duration": 77
+            }
+          ],
+          "openTime": 3028.300000000745,
+          "fcp": 260,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 350238,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.010413660413116746
+        },
+        {
+          "lcp": {
+            "ms": 276,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 205.29999999981374,
+              "value": 0.0000017637150768389916
+            },
+            {
+              "ms": 320,
+              "value": 0.010407785892355751
+            },
+            {
+              "ms": 1742.9000000003725,
+              "value": 0.000004110805684156378
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 54.799999999813735,
+              "duration": 121
+            },
+            {
+              "ms": 209.70000000018626,
+              "duration": 73
+            }
+          ],
+          "openTime": 3010.5,
+          "fcp": 276,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 350238,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.010413660413116746
+        }
+      ],
+      "bypass": [
+        {
+          "lcp": {
+            "ms": 448,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 439.3999999994412,
+              "value": 0.0027505322868441357
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 145.79999999981374,
+              "duration": 110
+            }
+          ],
+          "openTime": null,
+          "fcp": 448,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 350238,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.0027505322868441357
+        },
+        {
+          "lcp": {
+            "ms": 196,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 242.90000000037253,
+              "value": 0.0018000385802469134
+            },
+            {
+              "ms": 284.70000000018626,
+              "value": 0.0027505322868441357
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 161.5,
+              "duration": 66
+            }
+          ],
+          "openTime": null,
+          "fcp": 196,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 350238,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.004550570867091049
+        },
+        {
+          "lcp": {
+            "ms": 212,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 201.59999999962747,
+              "value": 0.0018000385802469134
+            },
+            {
+              "ms": 288.29999999981374,
+              "value": 0.0027505322868441357
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 205.70000000018626,
+              "duration": 62
+            }
+          ],
+          "openTime": null,
+          "fcp": 212,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 350238,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.004550570867091049
+        }
+      ],
+      "summary": {
+        "firstMedianLcpMs": 276,
+        "bypassMedianLcpMs": 212,
+        "firstMedianCls": 0.010413660413116746,
+        "bypassMedianCls": 0.004550570867091049,
+        "maxCriticalBytes": 324419,
+        "maxRouteJsBytes": 148302,
+        "lcpDeltaMs": 64,
+        "criticalDeltaBytes": 24667,
+        "routeJsDeltaBytes": 1224
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "firstVisit": [
+        {
+          "lcp": {
+            "ms": 252,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 264.5,
+              "value": 0.007714750442423022
+            },
+            {
+              "ms": 1753,
+              "value": 0.000008147118181480478
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 37.59999999962747,
+              "duration": 108
+            },
+            {
+              "ms": 170.3999999994412,
+              "duration": 53
+            }
+          ],
+          "openTime": 3019.100000000559,
+          "fcp": 252,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 324419,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.007722897560604502
+        },
+        {
+          "lcp": {
+            "ms": 228,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 266.59999999962747,
+              "value": 0.007714750442423022
+            },
+            {
+              "ms": 1727.3999999994412,
+              "value": 0.000008147118181480478
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 37.09999999962747,
+              "duration": 101
+            },
+            {
+              "ms": 167.5,
+              "duration": 60
+            }
+          ],
+          "openTime": 3015.5,
+          "fcp": 228,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 324419,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.007722897560604502
+        },
+        {
+          "lcp": {
+            "ms": 208,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 245.20000000018626,
+              "value": 0.007714750442423022
+            },
+            {
+              "ms": 1723.5,
+              "value": 0.000008147118181480478
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 36.700000000186265,
+              "duration": 102
+            },
+            {
+              "ms": 159.59999999962747,
+              "duration": 50
+            }
+          ],
+          "openTime": 3015,
+          "fcp": 208,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 324419,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.007722897560604502
+        }
+      ],
+      "bypass": [
+        {
+          "lcp": {
+            "ms": 196,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 247.5,
+              "value": 0.0029424496593079955
+            },
+            {
+              "ms": 288.40000000037253,
+              "value": 0.0007562617921879562
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 162.79999999981374,
+              "duration": 69
+            }
+          ],
+          "openTime": null,
+          "fcp": 196,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 324419,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.0036987114514959517
+        },
+        {
+          "lcp": {
+            "ms": 180,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 168.59999999962747,
+              "value": 0.0029424496593079955
+            },
+            {
+              "ms": 247.5,
+              "value": 0.0007562617921879562
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 173,
+              "duration": 55
+            }
+          ],
+          "openTime": null,
+          "fcp": 180,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 324419,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.0036987114514959517
+        },
+        {
+          "lcp": {
+            "ms": 180,
+            "element": "",
+            "url": "/media/scroll-hero-poster.webp"
+          },
+          "shifts": [
+            {
+              "ms": 167.1000000005588,
+              "value": 0.0029424496593079955
+            },
+            {
+              "ms": 242.20000000018626,
+              "value": 0.0007562617921879562
+            }
+          ],
+          "longTasks": [
+            {
+              "ms": 171.20000000018626,
+              "duration": 52
+            }
+          ],
+          "openTime": null,
+          "fcp": 180,
+          "routeFileJsBytes": 147086,
+          "criticalBytes": 324419,
+          "allInitialBytes": 324419,
+          "routeJsBytes": 148302,
+          "mp4Requests": 0,
+          "shieldRequests": 2,
+          "newOrigins": [],
+          "initialCls": 0.0036987114514959517
+        }
+      ],
+      "summary": {
+        "firstMedianLcpMs": 228,
+        "bypassMedianLcpMs": 180,
+        "firstMedianCls": 0.007722897560604502,
+        "bypassMedianCls": 0.0036987114514959517,
+        "maxCriticalBytes": 324419,
+        "maxRouteJsBytes": 148302,
+        "lcpDeltaMs": 48,
+        "criticalDeltaBytes": 24667,
+        "routeJsDeltaBytes": 1224
+      }
+    }
+  ]
+}

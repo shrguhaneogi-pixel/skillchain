@@ -1,0 +1,70 @@
+{
+  "accessibility": [
+    {
+      "viewport": {
+        "height": 667,
+        "width": 1332
+      },
+      "focused": true,
+      "violations": [],
+      "button": {
+        "height": 44,
+        "width": 88.640625
+      },
+      "outlineOffset": "2px",
+      "outlineWidth": "3px"
+    },
+    {
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "focused": true,
+      "violations": [],
+      "button": {
+        "height": 44,
+        "width": 66.265625
+      },
+      "outlineOffset": "2px",
+      "outlineWidth": "3px"
+    }
+  ],
+  "skip": [
+    {
+      "method": "mouse",
+      "clickToRemovalMs": 6.699999999254942,
+      "reportedEventTimings": [
+        {
+          "name": "pointerdown",
+          "duration": 64
+        },
+        {
+          "name": "pointerup",
+          "duration": 64
+        },
+        {
+          "name": "click",
+          "duration": 64
+        }
+      ]
+    },
+    {
+      "method": "touch",
+      "clickToRemovalMs": 15.599999999627471,
+      "reportedEventTimings": [
+        {
+          "name": "pointerdown",
+          "duration": 88
+        },
+        {
+          "name": "pointerup",
+          "duration": 88
+        },
+        {
+          "name": "click",
+          "duration": 88
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './home-fixture'
 
 for (const [width, height] of [[1440, 900], [834, 1112], [390, 844]]) {
   test(`Home shows the simulation CTA and defers concept media at ${width}px`, async ({ page }) => {
