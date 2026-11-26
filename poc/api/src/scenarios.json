@@ -1,0 +1,5 @@
+{
+  "1": { "version": "coordinator-l1-v1", "acknowledgementFloor": 0, "recoverySeconds": 240, "financeRequiresManager": false },
+  "2": { "version": "coordinator-l2-v1", "acknowledgementFloor": 120, "recoverySeconds": 240, "financeRequiresManager": false },
+  "3": { "version": "coordinator-l3-v1", "acknowledgementFloor": 0, "recoverySeconds": 240, "financeRequiresManager": true }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@skillchain/chain",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@openzeppelin/contracts": "5.7.0",
+    "ethers": "6.17.0",
+    "hardhat": "3.22.0",
+    "solc": "0.8.39"
+  }
+}
