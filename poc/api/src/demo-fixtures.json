@@ -1,0 +1,28 @@
+{
+  "version": "skillchain-demo-v1",
+  "accounts": {
+    "admin": { "id": "admin", "name": "Isha Mehta", "label": "Platform Verifier" },
+    "hr": { "id": "hr", "name": "Arun Rao", "label": "Hiring manager" },
+    "applicant": { "id": "applicant", "name": "Mira Sen", "label": "Applicant" }
+  },
+  "company": {
+    "name": "Northstar Works",
+    "registration": "DEMO-CIN-001",
+    "taxId": "DEMO-GST-001",
+    "documents": ["registration", "tax", "authorization"]
+  },
+  "completedRuns": [
+    {
+      "id": "strong-sample",
+      "label": "Strong sample",
+      "actions": [
+        { "type": "task", "id": "recovery", "incident": "outage", "title": "Restore database", "assignee": "developer", "priority": "urgent", "due": 300 },
+        { "type": "email", "incident": "demo", "recipient": "client", "body": "We are preparing a no-cost fallback and will confirm before the demo." },
+        { "type": "email", "incident": "budget", "recipient": "finance", "body": "Please reconcile the vendor draft against the approved budget." },
+        { "type": "hold" },
+        { "type": "plan", "plan": "no-cost" }
+      ]
+    },
+    { "id": "weak-sample", "label": "Weak sample", "actions": [] }
+  ]
+}
