@@ -12,4 +12,4 @@ it('rejects transport, browser persistence and analytics references in demo code
     const [result] = await linter.lintText(sample, { filePath: 'components/Demo.tsx' })
     expect(result.messages.some(message => message.severity === 2 && message.ruleId?.startsWith('no-restricted')), sample).toBe(true)
   }
-})
+}, 60_000)

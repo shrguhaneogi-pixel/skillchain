@@ -26,3 +26,5 @@ The sandboxed registry check returned `ENOTFOUND registry.npmjs.org`. The approv
 | @fontsource/ibm-plex-mono | 5.3.0 | No engines or peers reported by the registry query |
 
 The desktop sandbox can also deny local connections with `EACCES`. When needed, run the local browser and blockchain checks in a terminal that can access loopback. The app does not need an internet connection after installation.
+
+The workspace overrides Solidity’s `tmp` dependency to 0.2.7 for [GHSA-7c78-jf6q-g5cm](https://github.com/advisories/GHSA-7c78-jf6q-g5cm). The latest stable Hardhat 3 release available during the audit still uses Zod 3, which npm flags under [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5). The API has its own patched Zod 4 dependency. Hardhat remains a local-only development tool on loopback.

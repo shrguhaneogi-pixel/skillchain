@@ -4,6 +4,9 @@
   "type": "module",
   "engines": { "node": ">=24 <25" },
   "workspaces": ["web", "api", "chain"],
+  "overrides": {
+    "solc": { "tmp": "0.2.7" }
+  },
   "scripts": {
     "dev": "node scripts/demo.mjs --fixture",
     "demo": "node scripts/demo.mjs",
